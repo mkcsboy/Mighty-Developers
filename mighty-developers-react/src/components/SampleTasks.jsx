@@ -82,10 +82,39 @@ export default function SampleTasks({ taskStates, onAdvanceTask }) {
                 <div className="tkt-cut" aria-hidden="true"></div>
                 <div style={{ display: "flex", flexDirection: "column", gap: "7px", marginTop: "14px" }}>
                   <span className="tkt-row">
-                    <b>SCOPE</b> Form validation
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C2410C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ display: "block", flex: "none" }}>
+                      <circle cx="12" cy="12" r="9" />
+                      <circle cx="12" cy="12" r="5" />
+                      <circle cx="12" cy="12" r="1.5" />
+                    </svg>
+                    <b>SCOPE</b>
+                    <span>Clear</span>
                   </span>
                   <span className="tkt-row">
-                    <b>OUTPUT</b> Test file passing
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0F766E" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ display: "block", flex: "none" }}>
+                      <path d="M5 12l5 5 9-10" />
+                    </svg>
+                    <b>OUTPUT</b>
+                    <span>Defined</span>
+                  </span>
+                  <span className="tkt-row">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2E1065" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ display: "block", flex: "none" }}>
+                      <circle cx="12" cy="12" r="9" />
+                      <path d="M12 7v5l3 2" />
+                    </svg>
+                    <b>DEADLINE</b>
+                    <span>[DATE]</span>
+                  </span>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "16px" }}>
+                  <span style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "13px", fontWeight: 600, color: "#57534E" }}>
+                    <span aria-hidden="true" style={{ width: "26px", height: "26px", borderRadius: "50%", background: "#FFE4CC", display: "flex", alignItems: "center", justifyContent: "center", font: "700 9px/1 'JetBrains Mono',monospace", color: "#C2410C" }}>
+                      YOU
+                    </span>
+                    Assignee
+                  </span>
+                  <span className="mono" style={{ fontSize: "10px", fontWeight: 700, letterSpacing: ".08em", color: "#78716C" }}>
+                    TAP TO MOVE
                   </span>
                 </div>
                 <div className="tkt-prog" aria-hidden="true">
@@ -99,4 +128,3 @@ export default function SampleTasks({ taskStates, onAdvanceTask }) {
     </section>
   );
 }
-
