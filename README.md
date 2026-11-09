@@ -40,9 +40,6 @@ The web platform is built with modern, high-performance web standards:
 ### Installation
 
 ```bash
-# Navigate to the project directory
-cd mighty-developers-react
-
 # Install dependencies
 npm install
 
