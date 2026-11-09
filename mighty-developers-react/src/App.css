@@ -557,5 +557,12 @@ html.md-scroll .md-prog{display:block;animation:prog linear both;animation-timel
 .nav-cta{min-height:40px !important;padding:0 14px !important;font-size:13px !important;white-space:nowrap}
 .bubs{display:none !important}
 .bubs-m{display:flex !important}
+.pc{padding:16px 18px !important;border-radius:20px !important}
+.pc-ic{width:42px !important;height:42px !important;border-radius:12px !important}
+.pc-ic svg{width:20px !important;height:20px !important}
+.pc h2,.pc h3{margin:12px 0 4px !important;font-size:22px !important}
+.pc p{margin:0 0 16px !important;font-size:13.5px !important;line-height:1.4 !important}
+.pc-btn{min-height:38px !important;font-size:13.5px !important}
+.pc-grid{gap:12px !important}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none !important;transition:none !important}}
