@@ -1,0 +1,1090 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mighty Developers Landing Page</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+@property --md-a{syntax:'<angle>';inherits:false;initial-value:0deg}
+html{scroll-behavior:smooth}
+body{margin:0;background:#F6F5F3}
+.top-pill{pointer-events:auto;min-height:48px;padding:0 18px 0 12px;border-radius:999px;background:rgba(255,255,255,.82);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(231,229,228,.9);box-shadow:0 10px 26px -18px rgba(46,16,101,.35);transition:transform .2s ease,box-shadow .2s ease}
+.top-pill:active{transform:scale(.96)}
+.top-bar{padding:0 24px}
+.top-logo{width:56px;height:56px;padding:0 !important;border-radius:18px !important}
+.top-cta{pointer-events:auto;min-height:48px;box-shadow:0 10px 26px -14px rgba(249,115,22,.8)}
+@media (hover:hover){.top-pill:hover{box-shadow:0 14px 30px -16px rgba(249,115,22,.6)}}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid #2E1065;outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px;box-sizing:border-box}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+.eyebrow{margin:0;font:700 12px/1.2 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.16em;color:#C2410C}
+.card{background:#FFFFFF;border-radius:24px;box-shadow:0 1px 2px rgba(28,25,23,.04),0 18px 40px -22px rgba(46,16,101,.22)}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;box-sizing:border-box;border-radius:999px;font:600 15px/1 'Inter',system-ui,sans-serif;text-decoration:none;cursor:pointer;border:1.5px solid transparent;transition:transform .15s ease,background .2s ease,color .2s ease,border-color .2s ease;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.pill svg{transition:transform .2s ease}
+.pill-o{background:#F97316;color:#2E1065;border-color:#F97316}
+.pill-v{background:#2E1065;color:#FFFFFF;border-color:#2E1065}
+.pill-w{background:#FFFFFF;color:#2E1065;border-color:#E7E5E4}
+.pill-ghost{background:transparent;color:#2E1065;border-color:rgba(46,16,101,.35)}
+.pill:active{transform:scale(.95)}
+.circ{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#FFFFFF;border:1.5px solid #E7E5E4;cursor:pointer;padding:0;transition:transform .15s ease,background .2s ease,border-color .2s ease;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.circ:active{transform:scale(.9)}
+.chip{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:999px;font:700 11px/1 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.08em;white-space:nowrap}
+.icon-chip{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:12px;background:#FFFFFF;border:1px solid #E7E5E4}
+@media (hover:hover){
+.pill-o:hover{background:#2E1065;border-color:#2E1065;color:#FFFFFF}
+.pill-v:hover{background:#F97316;border-color:#F97316;color:#2E1065}
+.pill-w:hover,.pill-ghost:hover{border-color:#2E1065}
+.pill:hover svg{transform:translateX(4px)}
+.circ:hover{border-color:#2E1065}
+.nav-a:hover{color:#C2410C}
+}
+.nav-a{color:#44403C;text-decoration:none;font-weight:600;font-size:14px;padding:12px 0;transition:color .15s ease}
+
+/* ---------- word / letter reveals ---------- */
+.w,.l{display:inline-block}
+@keyframes w-in{from{opacity:0;filter:blur(14px);translate:0 .38em;color:#D6D3D1}to{opacity:1;filter:blur(0);translate:0 0}}
+@keyframes l-in{from{opacity:0;translate:0 .9em}to{opacity:1;translate:0 0}}
+@keyframes w-fill{from{color:#D6D3D1}to{color:#2E1065}}
+.load-w .w{animation:w-in .95s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i) * 85ms + 250ms)}
+.load-l .l{animation:l-in .6s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i) * 22ms + 80ms)}
+
+/* ---------- hero card -> banner ---------- */
+@keyframes hb-in{
+0%{clip-path:inset(32% 41% 32% 41% round 28px);transform:translateY(160px) rotate(-16deg) scale(.92);opacity:0}
+12%{opacity:1}
+46%{clip-path:inset(32% 41% 32% 41% round 28px);transform:none}
+100%{clip-path:inset(0 0 0 0 round 0px);transform:none;opacity:1}}
+@keyframes fade-up{from{opacity:0;translate:0 18px}to{opacity:1;translate:0 0}}
+.hb{position:relative;border-radius:0;background:linear-gradient(135deg,#FFF6EE 0%,#FFE9D6 55%,#FFDDBF 100%);color:#2E1065;overflow:hidden;animation:hb-in 1.7s .55s cubic-bezier(.7,0,.2,1) both;touch-action:pan-y pinch-zoom;user-select:none;-webkit-user-select:none}
+.hb-c{animation:fade-up .7s 2s cubic-bezier(.2,.7,.2,1) both}
+.hb-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(249,115,22,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(249,115,22,.12) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;animation:drift 40s linear infinite}
+@keyframes drift{from{background-position:0 0,0 0}to{background-position:48px 48px,48px 48px}}
+.seg{position:relative;flex:1;height:4px;border-radius:4px;background:rgba(249,115,22,.22);overflow:hidden}
+.seg>i{position:absolute;left:0;top:0;bottom:0;width:0;background:#F97316;border-radius:4px}
+.seg.is-done>i{width:100%}
+.seg.is-on>i{width:100%}
+.seg.is-on.is-auto>i{animation:fill 3.2s linear both}
+@keyframes fill{from{width:0}to{width:100%}}
+.md-node{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:8px;width:118px;height:52px;padding:0 10px 0 8px;box-sizing:border-box;border-radius:14px;cursor:pointer;background:#FFFFFF;color:#2E1065;border:1.5px solid #F1E4D8;box-shadow:0 12px 24px -16px rgba(249,115,22,.55);text-align:left;font:inherit;z-index:3;touch-action:manipulation;-webkit-tap-highlight-color:transparent;
+ transition:left 1s cubic-bezier(.2,.9,.2,1),top 1s cubic-bezier(.2,.9,.2,1),rotate 1s cubic-bezier(.2,.9,.2,1),scale 1s cubic-bezier(.2,.9,.2,1),opacity .5s ease,background .25s ease,border-color .25s ease;transition-delay:calc(var(--k) * 110ms)}
+.nd-ic{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:#FFF1E6;flex:none}
+.nd-t{display:flex;flex-direction:column;gap:2px;min-width:0}
+.nd-n{font:700 9.5px/1 'JetBrains Mono',monospace;letter-spacing:.1em;color:#C2410C}
+.nd-nm{font-size:13px;line-height:1;font-weight:800;letter-spacing:-.01em}
+.md-node.is-passed{border-color:#FDBA74}
+.md-node.is-active{background:#F97316;border-color:#F97316}
+.md-node.is-active .nd-ic{background:#FFFFFF}
+.md-node.is-active .nd-n{color:#2E1065}
+.md-node.is-active::after{content:'';position:absolute;inset:-1.5px;border:1.5px solid #F97316;border-radius:14px;pointer-events:none;animation:ping 1.8s ease-out infinite}
+.md-node:active{scale:.94}
+@keyframes ping{from{transform:scale(1);opacity:.9}to{transform:scale(1.25,1.6);opacity:0}}
+.dial.is-in .md-n0{left:50%;top:9%}.dial.is-in .md-n1{left:83%;top:29.5%}.dial.is-in .md-n2{left:83%;top:70.5%}.dial.is-in .md-n3{left:50%;top:91%}.dial.is-in .md-n4{left:17%;top:70.5%}.dial.is-in .md-n5{left:17%;top:29.5%}
+.dial:not(.is-in) .md-node{scale:.55;rotate:calc(var(--k) * 9deg - 22deg);transition-delay:0s}
+.cloud{position:absolute;inset:31%;border-radius:50%;background:#FFFFFF;display:flex;align-items:center;justify-content:center;z-index:4;box-shadow:0 0 0 10px rgba(255,255,255,.55),0 0 0 22px rgba(255,255,255,.25),0 24px 46px -24px rgba(249,115,22,.75);animation:cloud 5s ease-in-out infinite}
+.cloud-in{display:flex;flex-direction:column;align-items:center;gap:8px}
+@keyframes cloud{0%,100%{border-radius:50% 50% 50% 50%/50% 50% 50% 50%}33%{border-radius:56% 44% 52% 48%/47% 55% 45% 53%}66%{border-radius:46% 54% 47% 53%/54% 46% 54% 46%}}
+.spoke{position:absolute;left:50%;top:50%;width:var(--len);height:2px;transform-origin:0 50%;rotate:var(--a);z-index:2;pointer-events:none}
+.spoke>i{position:absolute;inset:0;background:repeating-linear-gradient(90deg,#FDBA74 0 6px,transparent 6px 11px);transform-origin:0 50%;scale:0 1;transition:scale .9s cubic-bezier(.2,.9,.2,1);transition-delay:calc(var(--k) * 110ms + 150ms)}
+.dial.is-in .spoke>i{scale:1 1}
+.spoke.is-on>i{background:#F97316;height:3px;top:-.5px}
+.spoke.is-on::after{content:'';position:absolute;left:0;top:50%;width:9px;height:9px;margin-top:-4.5px;border-radius:50%;background:#F97316;animation:packet 1.6s cubic-bezier(.4,0,.2,1) infinite}
+@keyframes packet{from{left:20%;opacity:0}20%{opacity:1}to{left:85%;opacity:0}}
+.rip{position:absolute;left:50%;top:50%;width:38%;height:38%;margin:-19% 0 0 -19%;border-radius:50%;border:1.5px solid rgba(249,115,22,.35);pointer-events:none;z-index:1;animation:rip 4.5s cubic-bezier(.2,.7,.2,1) infinite;animation-delay:calc(var(--k) * -1.5s)}
+@keyframes rip{from{scale:.8;opacity:.9}to{scale:2.3;opacity:0}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes spin-r{to{transform:rotate(-360deg)}}
+.md-swap-a{animation:swA .5s cubic-bezier(.2,.7,.2,1) both}
+.md-swap-b{animation:swB .5s cubic-bezier(.2,.7,.2,1) both}
+.md-swap-al{animation:swAL .5s cubic-bezier(.2,.7,.2,1) both}
+.md-swap-bl{animation:swBL .5s cubic-bezier(.2,.7,.2,1) both}
+@keyframes swA{from{opacity:0;filter:blur(8px);transform:translateX(36px)}to{opacity:1;filter:none;transform:none}}
+@keyframes swB{from{opacity:0;filter:blur(8px);transform:translateX(36px)}to{opacity:1;filter:none;transform:none}}
+@keyframes swAL{from{opacity:0;filter:blur(8px);transform:translateX(-36px)}to{opacity:1;filter:none;transform:none}}
+@keyframes swBL{from{opacity:0;filter:blur(8px);transform:translateX(-36px)}to{opacity:1;filter:none;transform:none}}
+
+/* ---------- marquees ---------- */
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mq{display:flex;width:max-content;animation:mq 36s linear infinite}
+.mq-slow{animation-duration:48s}
+.fade-x{-webkit-mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);overflow:hidden}
+
+/* ---------- cascade ---------- */
+.cas{display:flex;align-items:flex-start;padding:8px 0 40px}
+.cas>.cc{position:relative;flex:none;box-sizing:border-box;margin-top:calc(var(--i) * 44px);margin-left:-30px;border-radius:22px;transition:transform .35s cubic-bezier(.2,.7,.2,1),translate 1.1s cubic-bezier(.2,.8,.2,1) calc(var(--i) * 90ms),rotate 1.1s cubic-bezier(.2,.8,.2,1) calc(var(--i) * 90ms);z-index:calc(1 + var(--i))}
+.cas>.cc:first-child{margin-left:0}
+@media (hover:hover){.cas>.cc:hover{transform:translateY(-12px) rotate(-1.5deg);z-index:20}}
+.bubble-tag{position:absolute;top:-34px;right:18px;background:#F97316;color:#2E1065;font:700 13px/1 'Inter',sans-serif;padding:8px 12px;border-radius:12px 12px 12px 3px}
+
+/* ---------- folders + bubbles ---------- */
+.fold-wrap{position:relative;height:500px}
+.fold{position:absolute;left:0;right:0;transition:transform .55s cubic-bezier(.2,.7,.2,1),opacity .4s ease}
+.fold-tab{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 22px;border-radius:20px 20px 0 0;font:700 20px/1 'Inter',sans-serif;letter-spacing:-.01em;cursor:pointer;border:0;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.fold-body{border-radius:0 22px 22px 22px;box-sizing:border-box}
+.fold.is-front{top:58px;z-index:2}
+.fold.is-back{top:0;z-index:1}
+.fold.is-back .fold-body{height:120px;overflow:hidden}
+.fold.is-back .fold-body>*{visibility:hidden}
+.fold.is-back:hover{transform:translateY(-6px)}
+.bub{position:absolute;display:flex;flex-direction:column;align-items:center;gap:6px}
+.bub-c{width:68px;height:68px;border-radius:50%;background:#FFFFFF;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 2px rgba(28,25,23,.05),0 12px 24px -14px rgba(46,16,101,.35);animation:bob 4s ease-in-out infinite;animation-delay:calc(var(--i) * -0.7s)}
+.bub span{font:700 10px/1 'JetBrains Mono',monospace;letter-spacing:.08em;color:#57534E;white-space:nowrap}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.lane{display:flex;flex-direction:column;gap:8px;min-width:0}
+.tk{display:flex;flex-direction:column;gap:4px;width:100%;box-sizing:border-box;text-align:left;font:inherit;font-size:14px;line-height:1.35;color:#2E1065;background:#FFFFFF;border:1px solid #E7E5E4;border-radius:14px;padding:10px 12px;cursor:pointer;transition:transform .15s ease,border-color .2s ease,scale .55s cubic-bezier(.3,1.5,.5,1),opacity .4s ease;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.tk:active{transform:scale(.96)}
+@media (hover:hover){.tk:hover{border-color:#2E1065;transform:translateY(-2px)}}
+@keyframes pop-s{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:none}}
+
+/* ---------- bento ---------- */
+.bento{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.bento-col{display:flex;flex-direction:column;gap:28px}
+.bento-col:nth-child(2){margin-top:110px}
+.bc{border-radius:26px;padding:14px 14px 26px;box-sizing:border-box}
+.bc-art{position:relative;height:230px;border-radius:18px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.bc-txt{padding:22px 12px 0}
+@keyframes caret{50%{opacity:0}}
+@keyframes grow{from{transform:scaleY(.15)}to{transform:none}}
+.bar{transform-origin:bottom;animation:grow 1.4s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i) * 120ms)}
+
+/* ---------- carousel ---------- */
+.car{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:6px 32px 18px;scroll-padding:0 32px;overscroll-behavior-x:contain}
+.car::-webkit-scrollbar{display:none}
+.car>*{scroll-snap-align:start;flex:none}
+.cv{transition:translate .9s cubic-bezier(.2,.8,.2,1) calc(var(--i) * 80ms);display:flex;flex-direction:column;justify-content:flex-start;align-self:flex-start;width:280px;border:0;padding:0;background:transparent;text-align:left;font:inherit;color:inherit;cursor:pointer;touch-action:pan-x pan-y;-webkit-tap-highlight-color:transparent}
+.cv-art{height:190px;border-radius:18px;overflow:hidden;position:relative;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+@media (hover:hover){.cv:hover .cv-art{transform:translateY(-6px) rotate(-1deg)}}
+.cv:active .cv-art{transform:scale(.97)}
+.pt0{background-color:#FFF1E6;background-image:radial-gradient(#FB923C 1.6px,transparent 1.8px);background-size:18px 18px}
+.pt1{background:repeating-linear-gradient(-45deg,#FFF7ED 0 14px,#FFE4CC 14px 28px)}
+.pt2{background-color:#F0FDFA;background-image:linear-gradient(#99F6E4 1px,transparent 1px),linear-gradient(90deg,#99F6E4 1px,transparent 1px);background-size:22px 22px}
+.pt3{background:repeating-radial-gradient(circle at 30% 120%,#FED7AA 0 12px,#FFF7ED 12px 24px)}
+.pt4{background:conic-gradient(from 45deg,#FFEDD5 0 25%,#FFFFFF 0 50%,#FFEDD5 0 75%,#FFFFFF 0) 0 0/40px 40px}
+.pt5{background:linear-gradient(135deg,#FFF7ED,#FFE4CC 55%,#FED7AA)}
+.prog-track{position:relative;height:3px;border-radius:3px;background:#E7E5E4;overflow:hidden}
+.prog-fill{position:absolute;left:0;top:0;bottom:0;width:30%;background:#2E1065;border-radius:3px;transition:width .15s linear,left .15s linear}
+
+/* ---------- dock ---------- */
+.dock{display:inline-flex;align-items:flex-end;gap:10px;height:96px;padding:0 16px 14px;box-sizing:border-box;border-radius:26px;background:#FFFFFF;box-shadow:0 1px 2px rgba(28,25,23,.05),0 22px 44px -20px rgba(46,16,101,.3);touch-action:pan-y pinch-zoom}
+.dk{position:relative;width:52px;height:52px;border-radius:15px;border:1px solid #E7E5E4;background:#FFFFFF;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;transform-origin:50% 100%;transition:transform .18s cubic-bezier(.2,.7,.2,1);touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.dk-lab{position:absolute;bottom:calc(100% + 12px);left:50%;transform:translateX(-50%);background:#2E1065;color:#FFFFFF;font:700 10px/1 'JetBrains Mono',monospace;letter-spacing:.08em;padding:6px 8px;border-radius:8px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s ease}
+.dk:hover .dk-lab,.dk.is-mag .dk-lab,.dk:focus-visible .dk-lab{opacity:1}
+
+/* ---------- fan ---------- */
+.fan{position:relative;display:flex;justify-content:center;align-items:center;padding:40px 0}
+.fc{position:relative;width:262px;flex:none;box-sizing:border-box;border-radius:24px;padding:26px;transition:transform .4s cubic-bezier(.2,.7,.2,1),translate 1.1s cubic-bezier(.2,.8,.2,1),rotate 1.1s cubic-bezier(.2,.8,.2,1),z-index 0s .2s}
+.fc-1{transform:rotate(-7deg) translate(14px,26px);z-index:1}
+.fc-2{transform:translateY(-14px);z-index:3}
+.fc-3{transform:rotate(7deg) translate(-14px,30px);z-index:2}
+@media (hover:hover){.fc:hover{transform:translateY(-26px) rotate(0);z-index:5;transition:transform .4s cubic-bezier(.2,.7,.2,1),z-index 0s}}
+.fc:active{z-index:6}
+.row{display:flex;gap:12px;padding:9px 0;border-top:1px solid rgba(46,16,101,.14);font-size:14px}
+.row b{flex:none;width:92px;font:700 10px/1.6 'JetBrains Mono',monospace;letter-spacing:.08em}
+
+/* ---------- band ---------- */
+.band{position:relative;border-radius:32px;background:linear-gradient(120deg,#FFF4EA,#FFE4CC);overflow:hidden}
+.band-big{font-size:clamp(48px,7.2vw,104px);line-height:1;font-weight:800;letter-spacing:-.045em;color:#2E1065;white-space:nowrap;display:flex;align-items:center;gap:28px;padding-right:28px}
+.band-chip{display:inline-flex;align-items:center;justify-content:center;width:.86em;height:.86em;border-radius:.2em;background:#FFFFFF;flex:none}
+
+/* ---------- misc ---------- */
+[data-tilt]{touch-action:pan-y pinch-zoom;will-change:transform}
+[data-swipe]{touch-action:pan-y pinch-zoom}
+.md-h-t{display:none}
+.cta-s{display:none}
+@media (pointer:coarse){.md-h-m{display:none}.md-h-t{display:inline}}
+@keyframes nudge{0%,100%{transform:translateX(-3px)}50%{transform:translateX(3px)}}
+.nudge{animation:nudge 1.6s ease-in-out infinite}
+.md-prog{display:none;position:fixed;left:0;top:0;right:0;height:3px;background:#F97316;transform-origin:0 50%;z-index:60;pointer-events:none}
+
+/* ---------- scroll-driven (only when the page really scrolls) ---------- */
+@keyframes rv{from{opacity:0;translate:0 60px;filter:blur(6px)}to{opacity:1;translate:0 0;filter:blur(0)}}
+@keyframes cas-in{from{opacity:0;translate:140px 180px;rotate:16deg}to{opacity:1;translate:0 0;rotate:0deg}}
+@keyframes pop{0%{opacity:0;scale:0}70%{opacity:1;scale:1.14}100%{opacity:1;scale:1}}
+@keyframes hb-sc{from{scale:1}to{scale:.94}}
+@keyframes fan-1{from{translate:110px 20px;rotate:7deg}to{translate:0 0;rotate:0deg}}
+@keyframes fan-3{from{translate:-110px 20px;rotate:-7deg}to{translate:0 0;rotate:0deg}}
+@keyframes fan-2{from{translate:0 80px;opacity:.4}to{translate:0 0;opacity:1}}
+@keyframes par{from{translate:0 60px}to{translate:0 -60px}}
+@keyframes mq-sc{from{translate:0 0}to{translate:-30% 0}}
+@keyframes slide{from{translate:-35% 0}to{translate:0 0}}
+@keyframes prog{from{scale:0 1}to{scale:1 1}}
+@keyframes rise-big{from{opacity:0;translate:0 120px;scale:.92}to{opacity:1;translate:0 0;scale:1}}
+@supports (animation-timeline: view()) {
+html.md-scroll .par{animation:par linear both;animation-timeline:view()}
+html.md-scroll .mq-sc{animation:mq-sc linear both;animation-timeline:view()}
+html.md-scroll .slide{animation:slide linear both;animation-timeline:view();animation-range:entry 0% cover 55%}
+html.md-scroll .bar{animation:grow linear both;animation-timeline:view();animation-range:entry calc(var(--i) * 5%) cover calc(35% + var(--i) * 4%)}
+html.md-scroll .md-prog{display:block;animation:prog linear both;animation-timeline:scroll(root)}
+}
+
+
+/* ---------- lead-in on scroll (IntersectionObserver: works on the canvas and in full view) ---------- */
+.io-w .w{transition:color .8s ease,filter .8s ease,translate .8s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i) * 70ms)}
+.io-w:not(.is-in) .w{color:#D6D3D1;filter:blur(6px);translate:0 .28em}
+.io-l .l{transition:opacity .5s ease,translate .5s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i) * 25ms)}
+.io-l:not(.is-in) .l{opacity:.15;translate:0 .7em}
+.fan:not(.is-in)>.fc-1{translate:150px 40px;rotate:7deg}
+.fan:not(.is-in)>.fc-3{translate:-150px 40px;rotate:-7deg}
+.fan:not(.is-in)>.fc-2{translate:0 60px}
+.fan>.fc-1{transition-delay:0s,.12s,.12s,.2s}
+.fan>.fc-3{transition-delay:0s,.22s,.22s,.2s}
+.pop{transition:scale .7s cubic-bezier(.3,1.6,.5,1) calc(var(--i) * 90ms),opacity .45s ease calc(var(--i) * 90ms)}
+[data-io]:not(.is-in) .pop,.pop[data-io]:not(.is-in){scale:.35;opacity:.25}
+.rv{transition:translate 1.1s cubic-bezier(.2,.8,.2,1),rotate 1.1s cubic-bezier(.2,.8,.2,1),opacity .8s ease}
+.rv[data-io]:not(.is-in){translate:0 110px;rotate:3deg;opacity:.3}
+.rv-l[data-io]:not(.is-in){translate:-140px 60px;rotate:-5deg;opacity:.3}
+.rv-r[data-io]:not(.is-in){translate:140px 60px;rotate:5deg;opacity:.3}
+.rv-l,.rv-r{transition:translate 1.1s cubic-bezier(.2,.8,.2,1),rotate 1.1s cubic-bezier(.2,.8,.2,1),opacity .8s ease}
+.rise-big{transition:translate 1.1s cubic-bezier(.2,.8,.2,1),scale 1.1s cubic-bezier(.2,.8,.2,1),opacity .8s ease}
+.rise-big[data-io]:not(.is-in){translate:0 120px;scale:.9;opacity:.35}
+.car[data-io]:not(.is-in)>.cv{translate:calc(260px + var(--i) * 60px) 0}
+.fold-wrap[data-io]:not(.is-in) .tk{scale:.82;opacity:.35}
+.fold-wrap .fold{transition:transform .55s cubic-bezier(.2,.7,.2,1),opacity .4s ease,translate 1s cubic-bezier(.2,.8,.2,1)}
+.fold-wrap[data-io]:not(.is-in) .fold.is-front{translate:0 90px}
+
+/* ---------- hero deck: one card flies in, then fans out ---------- */
+.deck{position:relative;height:300px;margin:6px 0 70px}
+.deck-in{position:absolute;left:0;right:0;top:0;height:300px;transform-origin:50% 0}
+.deck{--o:0}
+.dkc{position:absolute;left:50%;top:34px;width:150px;height:200px;margin-left:-75px;border-radius:18px;box-sizing:border-box;padding:10px;display:flex;flex-direction:column;gap:10px;border:1px solid rgba(231,229,228,.9);box-shadow:0 1px 2px rgba(28,25,23,.05),0 20px 36px -22px rgba(46,16,101,.4);cursor:default;
+ transform:translate(calc(var(--x) * var(--o)),calc(var(--y) * var(--o) + (1 - var(--o)) * 46px)) rotate(calc(var(--r) * var(--o) + (1 - var(--o)) * (var(--k) * 2.2deg - 6deg)));
+ transition:transform .45s cubic-bezier(.2,.7,.2,1),translate .3s cubic-bezier(.2,.7,.2,1)}
+.dkc-art{position:relative;height:96px;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.deck-in{animation:fade-up .9s 1s cubic-bezier(.2,.7,.2,1) both}
+.deck-hint{position:absolute;left:50%;bottom:-30px;transform:translateX(-50%);display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.14em;color:#9A3412;white-space:nowrap;opacity:calc(1 - var(--o) * 3);transition:opacity .3s ease}
+.deck-hint svg{animation:bob 1.6s ease-in-out infinite}
+@media (hover:hover){.dkc:hover{translate:0 -24px}}
+.dkc:active{translate:0 -16px}
+.deck-tag{position:absolute;z-index:9;font:700 13px/1 'Inter',sans-serif;padding:8px 12px;border-radius:12px 12px 12px 3px;opacity:clamp(0,calc((var(--o) - .72) * 4),1);scale:clamp(.4,calc(.4 + (var(--o) - .72) * 2.2),1);transition:opacity .3s ease,scale .45s cubic-bezier(.3,1.6,.5,1)}
+@keyframes tag-in{from{opacity:0;scale:.2}to{opacity:1;scale:1}}
+@media (max-width:900px){.deck{height:200px}.deck-in{transform:scale(.64)}}
+@media (max-width:640px){.deck{height:150px;margin-bottom:28px}.deck-in{transform:scale(.44)}}
+
+/* ---------- inline card stack in a sentence ---------- */
+.stack{position:relative;display:inline-block;width:1.9em;height:1.25em;vertical-align:-.22em;margin:0 .12em}
+.stack>span{position:absolute;inset:0;border-radius:.22em;border:2px solid #FFFFFF;box-shadow:0 10px 18px -12px rgba(46,16,101,.5);animation:breathe 3.2s ease-in-out infinite}
+@keyframes breathe{0%,100%{rotate:var(--r0)}50%{rotate:var(--r1)}}
+.ichip{display:inline-flex;align-items:center;justify-content:center;width:1.1em;height:1.1em;border-radius:50%;background:#FFF1E6;vertical-align:-.16em;margin:0 .1em}
+
+/* ---------- journey (the loop) ---------- */
+.journey{position:relative;max-width:1100px;margin:0 auto}
+.jrow{display:grid;grid-template-columns:1fr 110px 1fr;grid-template-areas:"l m r";align-items:center;min-height:340px}
+.jl{grid-area:l;min-width:0}.jm{grid-area:m}.jr{grid-area:r;min-width:0}
+.jm{position:relative;align-self:stretch;display:flex;align-items:center;justify-content:center}
+.jline{position:absolute;top:0;bottom:0;left:50%;width:2px;margin-left:-1px;background:#F1E4D8;overflow:hidden}
+.jline>i{position:absolute;inset:0;background:#F97316;transform-origin:50% 0;scale:1 0;transition:scale 1.3s cubic-bezier(.2,.7,.2,1)}
+[data-io].is-in .jline>i{scale:1 1}
+.jnode{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;width:62px;height:62px;border-radius:50%;background:#FFFFFF;border:2px solid #F1E4D8;font:700 16px/1 'JetBrains Mono',monospace;color:#2E1065;transition:background .3s ease,border-color .3s ease,scale .6s cubic-bezier(.3,1.6,.5,1) .35s}
+.jnode.is-passed{border-color:#F97316}
+.jnode.is-active{background:#F97316;border-color:#F97316;box-shadow:0 0 0 8px rgba(249,115,22,.16)}
+[data-io]:not(.is-in) .jnode{scale:.4}
+.jcard{padding:28px;border-radius:24px}
+.jart{position:relative;height:280px;border-radius:24px;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid #F1EFEC}
+.jl>*,.jr>*,.jfc>*{transition:translate 1s cubic-bezier(.2,.8,.2,1),opacity .7s ease}
+.jrow:not(.is-in) .jl>*{translate:-90px 0;opacity:.25}
+.jrow:not(.is-in) .jr>*{translate:90px 0;opacity:.25}
+.jfork{position:relative;padding-top:0}
+.jfork-top{position:relative;height:110px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:14px;box-sizing:border-box}
+.jfork-bar{position:relative;height:2px;margin:0 25%;background:#F1E4D8;overflow:hidden}
+.jfork-bar>i{position:absolute;inset:0;background:#F97316;scale:0 1;transition:scale 1s cubic-bezier(.2,.7,.2,1) .5s}
+.jfork.is-in .jfork-bar>i{scale:1 1}
+.jfork-cols{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.jfc{position:relative;display:flex;flex-direction:column;gap:16px;align-items:stretch;padding-top:44px}
+.jfc::before{content:'';position:absolute;top:0;left:50%;width:2px;height:44px;margin-left:-1px;background:#F97316}
+.jfc>.jnode{position:absolute;top:14px;left:50%;margin-left:-31px;z-index:2}
+.jfc .jart{margin-top:34px}
+.jfork:not(.is-in) .jfc>.jart,.jfork:not(.is-in) .jfc>.jcard{translate:0 90px;opacity:.25}
+.jfc:nth-child(2)>*{transition-delay:.15s}
+
+/* ---------- task tickets ---------- */
+.tkt{width:300px;border-radius:22px;background:#FFFFFF;border:1px solid #EFEDEA;box-shadow:0 1px 2px rgba(28,25,23,.04),0 18px 36px -24px rgba(46,16,101,.3);overflow:hidden;transition:translate .9s cubic-bezier(.2,.8,.2,1) calc(var(--i) * 80ms),transform .3s cubic-bezier(.2,.7,.2,1)}
+@media (hover:hover){.tkt:hover{transform:translateY(-6px) rotate(-.6deg)}}
+.tkt:active{transform:scale(.97)}
+.tkt-top{display:flex;align-items:flex-start;justify-content:space-between;height:86px;padding:14px;box-sizing:border-box}
+.tkt-body{position:relative;padding:18px 18px 18px}
+.tkt-cut{position:relative;height:0;border-top:2px dashed #F1E4D8;margin:0 -18px}
+.tkt-cut::before,.tkt-cut::after{content:'';position:absolute;top:-10px;width:18px;height:18px;border-radius:50%;background:#FFFFFF;border:1px solid #EFEDEA}
+.tkt-cut::before{left:-10px}.tkt-cut::after{right:-10px}
+.tkt-row{display:flex;align-items:center;gap:8px;font-size:13px;color:#44403C}
+.tkt-row b{width:76px;font:700 10px/1 'JetBrains Mono',monospace;letter-spacing:.08em;color:#78716C}
+.tkt-prog{position:relative;height:4px;border-radius:4px;background:#F5F5F4;margin-top:14px;overflow:hidden}
+.tkt-prog>i{position:absolute;left:0;top:0;bottom:0;border-radius:4px;transition:width .5s cubic-bezier(.2,.7,.2,1)}
+
+/* ---------- comparison ---------- */
+.cmp{border-radius:28px;padding:10px;overflow:hidden}
+.cmp-head,.cmp-row{display:grid;grid-template-columns:200px 1fr 1fr;gap:10px}
+.cmp-k0{display:flex;align-items:flex-end;padding:18px}
+.cmp-h{border-radius:20px;padding:22px;background:#FAFAF9;border:1px solid #F1EFEC}
+.cmp-h2{background:linear-gradient(160deg,#FFF1E6,#FFE4CC);border-color:#FDBA74}
+.cmp-t{margin:12px 0 4px;font-size:clamp(34px,3.6vw,48px);line-height:1;font-weight:800;letter-spacing:-.05em;color:#2E1065}
+.cmp-s{margin:0;font-size:14px;color:#57534E}
+.cmp-row{border-top:1px solid #F1EFEC;margin-top:10px;padding-top:10px;transition:translate .8s cubic-bezier(.2,.8,.2,1) calc(var(--i) * 90ms + 200ms),opacity .6s ease calc(var(--i) * 90ms + 200ms)}
+.cmp:not(.is-in) .cmp-row{translate:0 30px;opacity:.2}
+.cmp-k{display:flex;align-items:center;gap:10px;padding:14px 18px;font:700 11px/1 'JetBrains Mono',monospace;letter-spacing:.1em;color:#78716C}
+.cmp-v{padding:14px 22px;font-size:15px;line-height:1.5;font-weight:600;color:#2E1065;border-radius:14px}
+.cmp-v2{background:#FFF7ED}
+.cmp-m{display:none}
+
+/* ---------- band rows ---------- */
+.mq-rev{animation-direction:reverse}
+.fw{padding:40px 1.6vw 22px}
+.fw text{fill:transparent;stroke:#F97316;stroke-width:1.4px;vector-effect:non-scaling-stroke;stroke-dasharray:1400;stroke-dashoffset:0;transition:stroke-dashoffset 2.6s cubic-bezier(.4,0,.2,1),fill .8s ease 1.8s}
+.fw.is-in text{fill:#FFF1E6}
+.fbody{background:#FFE4CC;margin-top:-1px}
+.fw[data-io]:not(.is-in) text{stroke-dashoffset:1400;fill:transparent;transition:none}
+.band-full{border-radius:0;width:100%}
+.band-diag2{width:112%;margin-left:-6%;rotate:2.5deg}
+.band-diag{width:112%;margin-left:-6%;rotate:-3deg}
+.band-small{display:flex;align-items:center;gap:14px;padding-right:14px}
+.band-pill{display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 22px 0 16px;border-radius:999px;background:rgba(255,255,255,.75);border:1px solid #FDBA74;font-size:20px;font-weight:800;letter-spacing:-.02em;color:#2E1065;white-space:nowrap}
+
+/* ---------- join steps ---------- */
+.js-wrap{position:relative;display:flex;flex-direction:column;gap:10px;margin-bottom:auto;padding-bottom:28px}
+.js{display:flex;align-items:center;gap:14px;padding:12px 16px 12px 12px;border-radius:18px;background:rgba(255,255,255,.8);border:1px solid #FDE3CC;box-shadow:0 14px 26px -22px rgba(249,115,22,.8);transition:translate .9s cubic-bezier(.2,.8,.2,1) calc(var(--i) * 140ms),opacity .6s ease calc(var(--i) * 140ms)}
+.js:nth-child(2){margin-left:28px}.js:nth-child(3){margin-left:56px}
+.js-wrap:not(.is-in) .js{translate:-60px 0;opacity:.2}
+.js-n{font:700 12px/1 'JetBrains Mono',monospace;color:#C2410C;width:20px}
+
+/* ---------- hackathon story wall ---------- */
+.hk{display:flex;flex-wrap:wrap;align-items:center;gap:40px 56px}
+.hk-l{flex:1 1 360px;min-width:0}
+.hk-r{flex:1.25 1 520px;min-width:0;display:grid;grid-template-columns:1fr 1fr;gap:16px;height:620px;overflow:hidden;border-radius:28px;-webkit-mask:linear-gradient(180deg,transparent,#000 12%,#000 88%,transparent);mask:linear-gradient(180deg,transparent,#000 12%,#000 88%,transparent)}
+.wcol{position:relative;overflow:hidden}
+.wtrack{display:flex;flex-direction:column;gap:16px;animation:wall 30s linear infinite;will-change:transform}
+.wtrack-rev{animation-direction:reverse;animation-duration:34s}
+.wdup{display:flex;flex-direction:column;gap:16px}
+@keyframes wall{from{transform:translateY(0)}to{transform:translateY(calc(-50% - 8px))}}
+.wc{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:16px;box-sizing:border-box;padding:16px;border-radius:22px;border:1px solid #F1EFEC;box-shadow:0 1px 2px rgba(28,25,23,.04),0 18px 34px -26px rgba(46,16,101,.35);transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+@media (hover:hover){.wc:hover{transform:scale(1.03)}}
+.wc-tag{display:inline-flex;align-items:center;gap:7px;height:30px;padding:0 12px 0 4px;border-radius:999px;font-size:12.5px;font-weight:700;background:#FFFFFF;color:#2E1065;box-shadow:0 6px 14px -10px rgba(46,16,101,.5)}
+.wc-av{display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#FFE4CC}
+.wc-dot{width:9px;height:9px;border-radius:50%;background:#F97316;box-shadow:0 0 0 4px rgba(249,115,22,.18)}
+.wc-play{align-self:center;display:flex;align-items:center;justify-content:center;width:58px;height:58px;border-radius:50%;background:rgba(255,255,255,.9);border:1.5px solid rgba(253,186,116,.7);box-shadow:0 12px 26px -14px rgba(249,115,22,.7);animation:breath 3s ease-in-out infinite}
+@keyframes breath{0%,100%{scale:1}50%{scale:1.08}}
+
+/* ---------- footer waves ---------- */
+.waves{position:relative;height:240px;margin-top:40px}
+.wv{position:absolute;left:0;right:0;bottom:0;height:150px;overflow:hidden}
+.wv-in{display:flex;width:200%;height:100%;animation:wave 18s linear infinite}
+.wv1{bottom:46px;opacity:.6}.wv1 .wv-in{animation-duration:26s}
+.wv2{bottom:22px}.wv2 .wv-in{animation-duration:20s;animation-direction:reverse}
+.wv3{bottom:0;z-index:2}.wv3 .wv-in{animation-duration:13s}
+@keyframes wave{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.riders{position:absolute;left:0;right:0;top:0;bottom:20px;z-index:1}
+.ride{position:absolute;transform:translateX(-50%);animation:ride 4.2s ease-in-out infinite;animation-delay:calc(var(--x) * -0.06s);transition:scale .6s cubic-bezier(.3,1.6,.5,1),opacity .4s ease;transition-delay:var(--d)}
+@keyframes ride{0%,100%{translate:0 0;rotate:-6deg}50%{translate:0 -22px;rotate:6deg}}
+.ride-in{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;animation:surf 9s cubic-bezier(.3,1.4,.5,1) infinite;animation-delay:calc(var(--k) * -0.83s)}
+@keyframes surf{0%{scale:0;opacity:0;translate:0 40px}10%{scale:1.15;opacity:1;translate:0 0}16%{scale:1}78%{scale:1;opacity:1;translate:0 0}90%{scale:.3;opacity:0;translate:0 44px}100%{scale:0;opacity:0;translate:0 44px}}
+.ride-c{display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:16px;background:#FFFFFF;border:1.5px solid #FDBA74;box-shadow:0 14px 26px -16px rgba(249,115,22,.75)}
+.ride:nth-child(3n+2) .ride-c{border-radius:50%}
+.ride:nth-child(4n+1) .ride-c{background:#FFF1E6}
+.ride-logo-s .ride-c{background:#FFFFFF !important;border-color:#F97316;border-radius:16px !important}
+.ride-tag{position:absolute;bottom:calc(100% + 6px);white-space:nowrap;font:700 11px/1 'Inter',sans-serif;padding:6px 9px;border-radius:10px 10px 10px 3px;background:#F97316;color:#2E1065}
+.fwv:not(.is-in) .ride{scale:0;opacity:0;transition-delay:0s}
+.ride-hero{z-index:3;animation-duration:5s}
+.ride-hero-in{position:relative;display:flex;flex-direction:column;align-items:center;animation:hero-pop 6s cubic-bezier(.3,1.5,.5,1) infinite}
+@keyframes hero-pop{0%,100%{scale:1}8%{scale:1.14}14%{scale:.96}20%{scale:1}}
+.ride-c-hero{width:104px;height:104px;border-radius:30px;background:linear-gradient(160deg,#FFFFFF,#FFF1E6);border:2px solid #F97316;box-shadow:0 0 0 8px rgba(255,255,255,.6),0 24px 40px -18px rgba(249,115,22,.9)}
+.spark{position:absolute;left:50%;top:50%;width:0;height:0}
+.spark>svg{position:absolute;left:-7px;top:-7px}
+.s1{animation:orbit 5s linear infinite}.s2{animation:orbit 7s linear infinite reverse}.s3{animation:orbit 9s linear infinite;animation-delay:-3s}
+@keyframes orbit{from{transform:rotate(0deg) translateX(76px) rotate(0deg)}to{transform:rotate(360deg) translateX(76px) rotate(-360deg)}}
+
+/* ---------- loop ring ---------- */
+.lp{position:relative;height:720px;max-width:1100px;margin:0 auto}
+.lp-ring{position:absolute;left:50%;top:50%;width:520px;height:520px;margin:-260px 0 0 -260px}
+.lp-flow{stroke-dashoffset:0;animation:flow 6s linear infinite;transform-origin:50% 50%}
+@keyframes flow{to{stroke-dashoffset:-180}}
+.lp-ring svg{transition:opacity .8s ease .3s}
+.lp:not(.is-in) .lp-ring svg{opacity:0}
+.lp-orbit{position:absolute;inset:0;animation:spin 10s linear infinite}
+.lp-orbit2{animation-duration:10s;animation-delay:-5s}
+.lp-orbit>i{position:absolute;left:50%;top:-7px;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:#F97316;box-shadow:0 0 0 6px rgba(249,115,22,.18)}
+.lp-core{position:absolute;left:50%;top:50%;width:220px;height:220px;margin:-110px 0 0 -110px;border-radius:50%;background:linear-gradient(160deg,#FFFFFF,#FFF1E6);border:2px solid #FDE3CC;display:flex;align-items:center;justify-content:center;z-index:3;box-shadow:0 0 0 14px rgba(255,241,230,.7),0 30px 50px -30px rgba(249,115,22,.8);animation:cloud 6s ease-in-out infinite}
+.lp-core-in{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.lc{position:absolute;left:50%;top:50%;z-index:2;width:240px;transform:translate(-50%,-50%);display:flex;flex-direction:column;gap:6px;text-align:left;padding:16px 18px;box-sizing:border-box;border-radius:20px;background:#FFFFFF;border:1.5px solid #F1EFEC;box-shadow:0 1px 2px rgba(28,25,23,.04),0 18px 34px -24px rgba(46,16,101,.35);font:inherit;color:#2E1065;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;
+ transition:left 1s cubic-bezier(.2,.9,.2,1),top 1s cubic-bezier(.2,.9,.2,1),scale 1s cubic-bezier(.2,.9,.2,1),rotate 1s cubic-bezier(.2,.9,.2,1),border-color .25s ease,background .25s ease;transition-delay:calc(var(--k) * 110ms)}
+.lp.is-in .lc0{left:50%;top:calc(50% - 262px)}
+.lp.is-in .lc1{left:calc(50% + 300px);top:calc(50% - 132px)}
+.lp.is-in .lc2{left:calc(50% + 300px);top:calc(50% + 132px)}
+.lp.is-in .lc3{left:50%;top:calc(50% + 262px)}
+.lp.is-in .lc4{left:calc(50% - 300px);top:calc(50% + 132px)}
+.lp.is-in .lc5{left:calc(50% - 300px);top:calc(50% - 132px)}
+.lp:not(.is-in) .lc{scale:.5;rotate:calc(var(--k) * 9deg - 22deg);transition-delay:0s}
+@media (hover:hover){.lc:hover{border-color:#FDBA74;background:#FFF7ED}}
+.lc:active{scale:.96}
+.lc.is-active{border-color:#F97316;background:#FFF1E6;box-shadow:0 0 0 6px rgba(249,115,22,.14),0 18px 34px -20px rgba(249,115,22,.7)}
+.lc.is-passed{border-color:#FDBA74}
+.lc-top{display:flex;align-items:center;gap:8px}
+.lc-ic{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:10px;background:#FFF1E6}
+.lc.is-active .lc-ic{background:#F97316}
+.lc-n{font:700 11px/1 'JetBrains Mono',monospace;letter-spacing:.1em;color:#C2410C}
+.lc-nm{font-size:20px;line-height:1.1;font-weight:800;letter-spacing:-.02em}
+.lc-wt{font-size:13.5px;line-height:1.45;color:#57534E}
+
+.lp-core{transition:translate .9s cubic-bezier(.3,1.6,.5,1),rotate .9s cubic-bezier(.3,1.6,.5,1)}
+.lp-str{position:absolute;left:50%;top:50%;width:var(--len);height:0;transform-origin:0 0;rotate:var(--a);z-index:1;pointer-events:none}
+.lp-str>i{position:absolute;left:0;top:-1px;width:100%;height:2px;background:repeating-linear-gradient(90deg,#FDBA74 0 5px,transparent 5px 10px);transform-origin:0 50%;scale:0 1;transition:scale .9s cubic-bezier(.2,.9,.2,1);transition-delay:calc(var(--k) * 110ms + 300ms)}
+.lp.is-in .lp-str>i{scale:1 1}
+.lp-str.is-on>i{background:#F97316;height:3px;top:-1.5px}
+.lp-hand{position:absolute;right:-14px;top:-15px;display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#FFFFFF;border:1.5px solid #F97316;rotate:calc(-1 * var(--a));opacity:0;scale:.4;transition:opacity .3s ease,scale .5s cubic-bezier(.3,1.6,.5,1)}
+.lp-str.is-on .lp-hand{opacity:1;scale:1;animation:tug 1.2s ease-in-out infinite}
+@keyframes tug{0%,100%{translate:0 0}50%{translate:-5px 0}}
+
+/* ---------- paths fork ---------- */
+.fk{position:relative;padding-top:10px}
+.fk-logo{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;margin:0 auto;width:max-content;transition:translate .6s cubic-bezier(.3,1.6,.5,1),rotate .6s cubic-bezier(.3,1.6,.5,1)}
+.fk-tile{display:flex;align-items:center;justify-content:center;width:92px;height:92px;border-radius:28px;background:linear-gradient(150deg,#FFFFFF,#FFE4CC);border:2px solid #F97316;box-shadow:0 0 0 10px rgba(255,241,230,.8),0 24px 40px -20px rgba(249,115,22,.9);animation:bob 4s ease-in-out infinite}
+.fk-lab{font:700 11px/1 'JetBrains Mono',monospace;letter-spacing:.14em;color:#FFFFFF;background:#2E1065;padding:7px 12px;border-radius:999px}
+.fk-lines{display:block;width:100%;height:110px;margin-top:-8px}
+.fk-lines path{fill:none;stroke:#F97316;stroke-width:2.5;stroke-dasharray:8 10;vector-effect:non-scaling-stroke;animation:flow 3s linear infinite}
+.fk-cols{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:-4px}
+.fk-card{border-radius:28px;padding:26px;border:1.5px solid #F1E4D8;background:#FFFFFF;box-shadow:0 22px 44px -30px rgba(46,16,101,.4);transition:transform .4s cubic-bezier(.2,.7,.2,1),border-color .3s ease}
+.fk-2{background:linear-gradient(160deg,#FFF1E6,#FFE4CC);border-color:#FDBA74}
+.fk-card:hover{transform:translateY(-8px);border-color:#F97316}
+.fk:has(.fk-1:hover) .fk-logo{translate:-60px 0;rotate:-8deg}
+.fk:has(.fk-2:hover) .fk-logo{translate:60px 0;rotate:8deg}
+.fk-head{display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin-bottom:16px}
+.fk-big{font-size:clamp(40px,4.4vw,60px);line-height:.95;font-weight:800;letter-spacing:-.05em;color:#2E1065}
+.fk-sub{font-size:14px;color:#57534E}
+.fk-rows{list-style:none;margin:0;padding:0}
+.fk-rows li{display:grid;grid-template-columns:20px 110px 1fr;align-items:start;gap:10px;padding:12px 0;border-top:1px dashed #FDE3CC;transition:translate .7s cubic-bezier(.2,.8,.2,1),opacity .6s;transition-delay:calc(var(--i)*90ms + .2s)}
+.fk-rows li b{font:700 10.5px/1.6 'JetBrains Mono',monospace;letter-spacing:.1em;color:#78716C}
+.fk-rows li span{font-size:15px;line-height:1.45;font-weight:600;color:#2E1065}
+.fk:not(.is-in) .fk-rows li{translate:0 24px;opacity:.2}
+
+/* ---------- hero extras ---------- */
+.hero-x{position:relative;overflow:hidden}
+.hero-x>.wrap{position:relative;z-index:1}
+.hx-bg{position:absolute;inset:0;pointer-events:none;filter:blur(60px);opacity:.75}
+.hx-bg span{position:absolute;border-radius:50%}
+.hx-b1{width:420px;height:420px;left:-80px;top:-60px;background:#FFE4CC;animation:blob 14s ease-in-out infinite}
+.hx-b2{width:360px;height:360px;right:-60px;top:40px;background:#FED7AA;animation:blob 18s ease-in-out infinite reverse}
+.hx-b3{width:300px;height:300px;left:40%;top:260px;background:#CCFBF1;opacity:.6;animation:blob 16s ease-in-out infinite}
+@keyframes blob{0%,100%{translate:0 0;scale:1}50%{translate:60px 40px;scale:1.15}}
+.hx-float{position:absolute;inset:0;pointer-events:none;z-index:1}
+.hx-f{position:absolute;font:700 12px/1 'JetBrains Mono',monospace;color:#C2410C;background:rgba(255,255,255,.75);border:1px solid #FDE3CC;padding:7px 10px;border-radius:10px;animation:hxf 7s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes hxf{0%,100%{translate:0 0;opacity:.55}50%{translate:0 -18px;opacity:1}}
+.hx-term{margin:22px 0 0;font:700 13px/1 'JetBrains Mono',monospace;color:#2E1065}
+.hx-term>span:first-child{color:#F97316}
+.hx-type::after{content:'join --community';animation:typing 12s steps(1) infinite}
+.hx-type::before{content:'';display:inline-block;width:8px;height:15px;background:#F97316;vertical-align:-3px;margin-left:2px;order:2}
+.hx-type{display:inline-flex;flex-direction:row-reverse;justify-content:flex-end}
+.hx-type::before{animation:caret 1s steps(1) infinite}
+@keyframes typing{0%{content:'join --community'}25%{content:'register --hackathon'}50%{content:'pick --small-task'}75%{content:'ship --and-grow'}}
+@media (max-width:900px){.hx-f{display:none}}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+.fk-cols{grid-template-columns:1fr}
+.fk-lines{height:60px}
+.fk-rows li{grid-template-columns:20px 1fr}
+.fk-rows li span{grid-column:2}
+.lp{height:auto;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lp-ring{display:none}
+.lp-str{display:none}
+.lp-core{translate:none !important;rotate:none !important}
+.lp-core{position:relative;left:auto;top:auto;margin:0 auto 18px;grid-column:1/-1;width:180px;height:180px}
+.lc,.lp.is-in .lc{position:relative;left:auto;top:auto;transform:none;width:auto}
+.lp:not(.is-in) .lc{scale:.9;rotate:0deg}
+.hk-r{height:520px;flex-basis:100%}
+.jrow{grid-template-columns:56px 1fr;grid-template-areas:"m l" "m r";gap:14px 0;min-height:0;padding-bottom:28px}
+.jrow.is-odd .jl{grid-area:r}.jrow.is-odd .jr{grid-area:l}
+.jart{height:220px}
+.jfork-cols{grid-template-columns:1fr}
+.jfork-bar{display:none}
+.cmp-head{grid-template-columns:1fr 1fr}
+.cmp-k0{display:none}
+.cmp-row{grid-template-columns:1fr}
+.cmp-m{display:block;font:700 10px/1 'JetBrains Mono',monospace;letter-spacing:.1em;color:#C2410C;margin-bottom:4px}
+.js-wrap{position:relative;left:auto;right:auto;top:auto;margin-bottom:24px}
+.js:nth-child(2),.js:nth-child(3){margin-left:0}
+.bento{grid-template-columns:1fr}
+.bento-col:nth-child(2){margin-top:0}
+.cas{overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:44px 24px 40px;margin:0 -32px}
+.cas>.cc{scroll-snap-align:center;margin-top:calc(var(--i) * 14px)}
+.fold-wrap{height:auto}
+.fold{position:relative;top:auto !important}
+.fold.is-back{display:none}
+.fan{flex-direction:column;gap:18px;padding:10px 0}
+.fc{width:min(340px,100%)}
+.fc-1,.fc-2,.fc-3{transform:none}
+.fan:not(.is-in)>.fc-1,.fan:not(.is-in)>.fc-2,.fan:not(.is-in)>.fc-3{translate:0 60px;rotate:0deg}
+.hero-dial{display:none !important}
+}
+@media (max-width:640px){
+.top-bar{padding:0 14px}
+.top-logo{width:50px;height:50px;border-radius:16px !important}
+.lc{padding:12px 13px}
+.lc-nm{font-size:17px}
+.lc-wt{font-size:12.5px}
+.waves{height:200px}
+.ride:not(.ride-hero):nth-child(2n){display:none}
+.ride-c{width:42px;height:42px;border-radius:13px}
+.ride-c-hero{width:82px;height:82px;border-radius:24px}
+.ride:not(.ride-hero) .ride-tag{display:none}
+.riders{bottom:10px}
+.deck-tag{display:none}
+.deck-in{transform:scale(.36) !important}
+.deck{height:140px !important}
+.ev-id{display:none}
+.hb-c{padding:28px 18px !important;min-height:0 !important}
+.hk-r{gap:10px;height:460px}
+.wc{padding:12px}
+.wc p{font-size:14px !important}
+.wrap{padding:0 18px}
+.lanes{grid-template-columns:1fr 1fr !important}
+.dock{gap:6px;padding:0 10px 12px;height:80px}
+.dk{width:40px;height:40px;border-radius:12px}
+.nav-links{display:none !important}
+.cta-l{display:none}.cta-s{display:inline}
+.nav-brand{font-size:16px !important;white-space:nowrap}
+.nav-cta{min-height:40px !important;padding:0 14px !important;font-size:13px !important;white-space:nowrap}
+.bubs{display:none !important}
+.bubs-m{display:flex !important}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none !important;transition:none !important}}
+</style>
+</helmet>
+<div id="top" style="overflow-x:clip;width:100%;background:#F6F5F3;color:#44403C;font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:17px;line-height:1.5">
+<div aria-hidden="true" class="md-prog"></div>
+<header style="position:sticky;top:12px;z-index:40;padding:14px 0 0;pointer-events:none">
+<div class="top-bar" style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+<a href="#top" class="top-pill top-logo" aria-label="Mighty Developers: back to the start" style="display:flex;align-items:center;justify-content:center;text-decoration:none"><svg width="37" height="28" viewBox="0 0 2660 2008" aria-hidden="true" style="display:block;flex:none"><path fill="#2E1065" d="M352 1587L352 1778L360 1825L377 1868L397 1902L412 1920L432 1939L461 1961L502 1982L534 1992L566 1997L688 1998L710 1994L734 1984L752 1972L769 1955L778 1942L791 1911L795 1887L795 1630L797 1627L800 1627L848 1675L880 1697L927 1719L980 1730L1632 1731L1680 1730L1704 1727L1735 1719L1757 1710L1785 1695L1814 1675L1862 1626L1865 1626L1867 1629L1867 1885L1872 1915L1884 1941L1909 1971L1939 1989L1970 1997L2056 1998L2111 1995L2157 1982L2194 1963L2223 1942L2257 1907L2271 1887L2291 1848L2302 1810L2306 1782L2307 1588L2304 1583L1913 1583L1908 1579L1908 1319L1904 1298L1893 1272L1869 1243L1835 1223L1795 1214L1759 1215L1717 1225L1693 1236L1663 1255L1334 1581L1329 1580L1002 1254L970 1235L934 1221L905 1215L869 1214L850 1216L828 1222L797 1240L773 1266L758 1298L754 1319L754 1578L751 1582L356 1583ZM16 879L12 903L10 944L11 1284L22 1341L39 1381L67 1422L85 1441L118 1466L158 1486L189 1495L221 1500L355 1499L369 1488L375 1469L374 771L378 756L384 745L392 737L402 731L418 727L691 728L724 723L754 708L770 692L780 677L791 645L792 449L796 429L804 411L824 388L850 373L878 367L1795 368L1816 374L1840 388L1858 407L1867 425L1873 458L1873 635L1875 651L1883 675L1892 689L1907 705L1936 722L1960 727L2252 727L2266 731L2275 737L2288 755L2291 765L2291 1497L2294 1500L2450 1500L2496 1491L2535 1474L2572 1447L2606 1409L2621 1386L2634 1358L2647 1310L2650 1278L2649 915L2642 873L2635 849L2622 819L2603 788L2574 755L2547 733L2518 716L2486 703L2467 698L2435 694L2305 693L2302 689L2302 562L2295 520L2287 494L2269 457L2239 417L2213 392L2192 377L2155 357L2118 344L2077 338L1879 337L1877 334L1877 250L1871 204L1856 161L1833 119L1799 80L1771 57L1747 42L1702 23L1653 12L1025 11L1002 13L970 20L917 42L877 69L848 97L828 123L811 154L797 190L788 231L787 333L783 338L573 339L517 352L492 363L458 384L423 415L402 441L384 471L372 499L364 528L358 571L358 691L353 694L226 693L206 695L166 705L132 720L91 749L55 789L32 830Z"/></svg></a>
+<a class="pill pill-o nav-cta top-cta" href="#apply"><span class="cta-l">Join the community</span><span class="cta-s">Join</span></a>
+</div>
+</header>
+
+<main>
+<section aria-labelledby="hero-h" class="hero-x" style="padding:64px 0 40px">
+<div class="hx-bg" aria-hidden="true"><span class="hx-b1"></span><span class="hx-b2"></span><span class="hx-b3"></span></div>
+<div class="hx-float" aria-hidden="true"><span class="hx-f" style="--d:0s;left:56%;top:14%">&lt;/code&gt;</span><span class="hx-f" style="--d:-2s;left:46%;top:62%">#hackathon</span><span class="hx-f" style="--d:-4s;left:90%;top:8%">+1 task shipped</span><span class="hx-f" style="--d:-1s;left:62%;top:74%">git push</span></div>
+<div class="wrap">
+<div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:32px 48px;margin-bottom:44px">
+<div style="flex:1 1 620px;min-width:0">
+<p class="eyebrow load-l" style="margin-bottom:22px"><span class="sr">A DEVELOPER COMMUNITY UNDER SHADOWSPHERE</span><span aria-hidden="true"><span class="l" style="--i:0">A</span><span class="l" style="--i:1;width:.45em"></span><span class="l" style="--i:2">D</span><span class="l" style="--i:3">E</span><span class="l" style="--i:4">V</span><span class="l" style="--i:5">E</span><span class="l" style="--i:6">L</span><span class="l" style="--i:7">O</span><span class="l" style="--i:8">P</span><span class="l" style="--i:9">E</span><span class="l" style="--i:10">R</span><span class="l" style="--i:11;width:.45em"></span><span class="l" style="--i:12">C</span><span class="l" style="--i:13">O</span><span class="l" style="--i:14">M</span><span class="l" style="--i:15">M</span><span class="l" style="--i:16">U</span><span class="l" style="--i:17">N</span><span class="l" style="--i:18">I</span><span class="l" style="--i:19">T</span><span class="l" style="--i:20">Y</span><span class="l" style="--i:21;width:.45em"></span><span class="l" style="--i:22">U</span><span class="l" style="--i:23">N</span><span class="l" style="--i:24">D</span><span class="l" style="--i:25">E</span><span class="l" style="--i:26">R</span><span class="l" style="--i:27;width:.45em"></span><span class="l" style="--i:28">S</span><span class="l" style="--i:29">H</span><span class="l" style="--i:30">A</span><span class="l" style="--i:31">D</span><span class="l" style="--i:32">O</span><span class="l" style="--i:33">W</span><span class="l" style="--i:34">S</span><span class="l" style="--i:35">P</span><span class="l" style="--i:36">H</span><span class="l" style="--i:37">E</span><span class="l" style="--i:38">R</span><span class="l" style="--i:39">E</span></span></p>
+<h1 id="hero-h" class="load-w" style="margin:0;font-size:clamp(40px,5.4vw,78px);line-height:1.02;font-weight:800;letter-spacing:-.045em;color:#2E1065"><span style="display:block"><span class="w" style="--i:0">Start</span> <span class="w" style="--i:1">at</span> <span class="w" style="--i:2">a</span> <span class="w" style="--i:3">hackathon.</span></span><span style="display:block"><span class="w" style="--i:4">Grow</span> <span class="w" style="--i:5">into</span> <span class="w" style="--i:6">the</span> <span class="w" style="--i:7">team.</span></span><span style="display:block;color:#EA580C"><span class="w" style="--i:8">Build</span> <span class="w" style="--i:9">what's</span> <span class="w" style="--i:10">next.</span></span></h1>
+</div>
+<div style="flex:0 1 380px;min-width:0;animation:fade-up .8s 1.3s cubic-bezier(.2,.7,.2,1) both">
+<p style="margin:0 0 24px;font-size:17px;line-height:1.6;color:#44403C">Mighty Developers finds talented students through hackathons, trains them on real project work with small, clearly defined tasks, and turns the best performers into team members and, later, founders.</p>
+<div style="display:flex;flex-wrap:wrap;gap:10px"><a class="pill pill-o" href="#apply">Join the community<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="pill pill-w" href="#hackathons">Host a hackathon</a></div>
+<p class="hx-term" aria-hidden="true"><span>$</span> <span class="hx-type"></span></p>
+</div>
+</div>
+
+<div class="deck" aria-hidden="true"><div class="deck-in"><div class="dkc" style="--k:0;--x:-396px;--y:81px;--r:-21deg;background:#FFE4CC"><div class="dkc-art pt1"><span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:14px;background:#FFFFFF"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg></span></div><span class="mono" style="font-size:9.5px;font-weight:700;letter-spacing:.12em;color:#C2410C">01 · SPONSOR</span><span style="font-size:17px;line-height:1.1;font-weight:800;letter-spacing:-.02em;color:#2E1065">Hackathons</span></div><div class="dkc" style="--k:1;--x:-264px;--y:36px;--r:-14deg;background:#FFFFFF"><div class="dkc-art pt0"><span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:14px;background:#FFFFFF"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span></div><span class="mono" style="font-size:9.5px;font-weight:700;letter-spacing:.12em;color:#C2410C">02 · SELECT</span><span style="font-size:17px;line-height:1.1;font-weight:800;letter-spacing:-.02em;color:#2E1065">Spot promise</span></div><div class="dkc" style="--k:2;--x:-132px;--y:9px;--r:-7deg;background:#F0FDFA"><div class="dkc-art pt2"><span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:14px;background:#FFFFFF"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg></span></div><span class="mono" style="font-size:9.5px;font-weight:700;letter-spacing:.12em;color:#C2410C">03 · TRAIN</span><span style="font-size:17px;line-height:1.1;font-weight:800;letter-spacing:-.02em;color:#2E1065">Small tasks</span></div><div class="dkc" style="--k:3;--x:132px;--y:9px;--r:7deg;background:#FFFFFF"><div class="dkc-art pt3"><span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:14px;background:#FFFFFF"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M4 20V11M10 20V5M16 20v-6M2 20h20"/></svg></span></div><span class="mono" style="font-size:9.5px;font-weight:700;letter-spacing:.12em;color:#C2410C">04 · GROW</span><span style="font-size:17px;line-height:1.1;font-weight:800;letter-spacing:-.02em;color:#2E1065">Learn by doing</span></div><div class="dkc" style="--k:4;--x:264px;--y:36px;--r:14deg;background:#FFF1E6"><div class="dkc-art pt4"><span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:14px;background:#FFFFFF"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg></span></div><span class="mono" style="font-size:9.5px;font-weight:700;letter-spacing:.12em;color:#C2410C">05 · HIRE</span><span style="font-size:17px;line-height:1.1;font-weight:800;letter-spacing:-.02em;color:#2E1065">Join the team</span></div><div class="dkc" style="--k:5;--x:396px;--y:81px;--r:21deg;background:#FFFFFF"><div class="dkc-art pt5"><span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:14px;background:#FFFFFF"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 15c-1.5 1.5-2 5-2 5s3.5-.5 5-2M14 4c3-1 6-1 6-1s0 3-1 6l-6 6-5-5 6-6zM9 10H5l2-3h4M14 15v4l3-2v-4"/></svg></span></div><span class="mono" style="font-size:9.5px;font-weight:700;letter-spacing:.12em;color:#C2410C">06 · INCUBATE</span><span style="font-size:17px;line-height:1.1;font-weight:800;letter-spacing:-.02em;color:#2E1065">Build a startup</span></div><div class="dkc" style="--k:3;--x:0px;--y:-6px;--r:0deg;background:linear-gradient(160deg,#FFF1E6,#FED7AA);border-color:#FDBA74;align-items:center;justify-content:center;gap:14px"><svg width="69" height="52" viewBox="0 0 2660 2008" aria-hidden="true" style="display:block;flex:none"><path fill="#2E1065" d="M352 1587L352 1778L360 1825L377 1868L397 1902L412 1920L432 1939L461 1961L502 1982L534 1992L566 1997L688 1998L710 1994L734 1984L752 1972L769 1955L778 1942L791 1911L795 1887L795 1630L797 1627L800 1627L848 1675L880 1697L927 1719L980 1730L1632 1731L1680 1730L1704 1727L1735 1719L1757 1710L1785 1695L1814 1675L1862 1626L1865 1626L1867 1629L1867 1885L1872 1915L1884 1941L1909 1971L1939 1989L1970 1997L2056 1998L2111 1995L2157 1982L2194 1963L2223 1942L2257 1907L2271 1887L2291 1848L2302 1810L2306 1782L2307 1588L2304 1583L1913 1583L1908 1579L1908 1319L1904 1298L1893 1272L1869 1243L1835 1223L1795 1214L1759 1215L1717 1225L1693 1236L1663 1255L1334 1581L1329 1580L1002 1254L970 1235L934 1221L905 1215L869 1214L850 1216L828 1222L797 1240L773 1266L758 1298L754 1319L754 1578L751 1582L356 1583ZM16 879L12 903L10 944L11 1284L22 1341L39 1381L67 1422L85 1441L118 1466L158 1486L189 1495L221 1500L355 1499L369 1488L375 1469L374 771L378 756L384 745L392 737L402 731L418 727L691 728L724 723L754 708L770 692L780 677L791 645L792 449L796 429L804 411L824 388L850 373L878 367L1795 368L1816 374L1840 388L1858 407L1867 425L1873 458L1873 635L1875 651L1883 675L1892 689L1907 705L1936 722L1960 727L2252 727L2266 731L2275 737L2288 755L2291 765L2291 1497L2294 1500L2450 1500L2496 1491L2535 1474L2572 1447L2606 1409L2621 1386L2634 1358L2647 1310L2650 1278L2649 915L2642 873L2635 849L2622 819L2603 788L2574 755L2547 733L2518 716L2486 703L2467 698L2435 694L2305 693L2302 689L2302 562L2295 520L2287 494L2269 457L2239 417L2213 392L2192 377L2155 357L2118 344L2077 338L1879 337L1877 334L1877 250L1871 204L1856 161L1833 119L1799 80L1771 57L1747 42L1702 23L1653 12L1025 11L1002 13L970 20L917 42L877 69L848 97L828 123L811 154L797 190L788 231L787 333L783 338L573 339L517 352L492 363L458 384L423 415L402 441L384 471L372 499L364 528L358 571L358 691L353 694L226 693L206 695L166 705L132 720L91 749L55 789L32 830Z"/></svg><span class="mono" style="font-size:9.5px;font-weight:700;letter-spacing:.12em;color:#9A3412;text-align:center">MIGHTY<br>DEVELOPERS</span></div><span class="deck-tag" style="left:calc(50% - 330px);top:6px;--d:3.25s;background:#FFFFFF;color:#2E1065;border:1.5px solid #FDBA74">@students</span><span class="deck-tag" style="left:calc(50% + 150px);top:0px;--d:3.4s;background:#F97316;color:#2E1065;border:0">@mentors</span><span class="deck-tag" style="left:calc(50% + 380px);top:70px;--d:3.55s;background:#FFFFFF;color:#2E1065;border:1.5px solid #FDBA74">@founders</span></div><span class="deck-hint mono"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>SCROLL TO OPEN THE DECK</span></div>
+
+</div>
+</section>
+
+<section aria-label="Start at a hackathon, grow into the team, build what's next" style="padding:56px 0 64px;overflow:hidden"><div class="band band-full band-diag rise-big" data-io><div style="padding:40px 0 18px;overflow:hidden"><div class="mq-sc"><div class="mq" style="animation-duration:30s"><div class="band-big"><span>Start at a hackathon</span><span class="band-chip" aria-hidden="true"><svg width="53" height="40" viewBox="0 0 2660 2008" aria-hidden="true" style="display:block;flex:none"><path fill="#2E1065" d="M352 1587L352 1778L360 1825L377 1868L397 1902L412 1920L432 1939L461 1961L502 1982L534 1992L566 1997L688 1998L710 1994L734 1984L752 1972L769 1955L778 1942L791 1911L795 1887L795 1630L797 1627L800 1627L848 1675L880 1697L927 1719L980 1730L1632 1731L1680 1730L1704 1727L1735 1719L1757 1710L1785 1695L1814 1675L1862 1626L1865 1626L1867 1629L1867 1885L1872 1915L1884 1941L1909 1971L1939 1989L1970 1997L2056 1998L2111 1995L2157 1982L2194 1963L2223 1942L2257 1907L2271 1887L2291 1848L2302 1810L2306 1782L2307 1588L2304 1583L1913 1583L1908 1579L1908 1319L1904 1298L1893 1272L1869 1243L1835 1223L1795 1214L1759 1215L1717 1225L1693 1236L1663 1255L1334 1581L1329 1580L1002 1254L970 1235L934 1221L905 1215L869 1214L850 1216L828 1222L797 1240L773 1266L758 1298L754 1319L754 1578L751 1582L356 1583ZM16 879L12 903L10 944L11 1284L22 1341L39 1381L67 1422L85 1441L118 1466L158 1486L189 1495L221 1500L355 1499L369 1488L375 1469L374 771L378 756L384 745L392 737L402 731L418 727L691 728L724 723L754 708L770 692L780 677L791 645L792 449L796 429L804 411L824 388L850 373L878 367L1795 368L1816 374L1840 388L1858 407L1867 425L1873 458L1873 635L1875 651L1883 675L1892 689L1907 705L1936 722L1960 727L2252 727L2266 731L2275 737L2288 755L2291 765L2291 1497L2294 1500L2450 1500L2496 1491L2535 1474L2572 1447L2606 1409L2621 1386L2634 1358L2647 1310L2650 1278L2649 915L2642 873L2635 849L2622 819L2603 788L2574 755L2547 733L2518 716L2486 703L2467 698L2435 694L2305 693L2302 689L2302 562L2295 520L2287 494L2269 457L2239 417L2213 392L2192 377L2155 357L2118 344L2077 338L1879 337L1877 334L1877 250L1871 204L1856 161L1833 119L1799 80L1771 57L1747 42L1702 23L1653 12L1025 11L1002 13L970 20L917 42L877 69L848 97L828 123L811 154L797 190L788 231L787 333L783 338L573 339L517 352L492 363L458 384L423 415L402 441L384 471L372 499L364 528L358 571L358 691L353 694L226 693L206 695L166 705L132 720L91 749L55 789L32 830Z"/></svg></span><span>Grow into the team</span><span class="band-chip" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><circle cx="9" cy="8" r="3.5"/><path d="M2 20c0-3.5 3-6 7-6s7 2.5 7 6M16 4.5a3.5 3.5 0 0 1 0 7M18 14c2.4.6 4 2.8 4 6"/></svg></span><span>Build what's next</span><span class="band-chip" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 15c-1.5 1.5-2 5-2 5s3.5-.5 5-2M14 4c3-1 6-1 6-1s0 3-1 6l-6 6-5-5 6-6zM9 10H5l2-3h4M14 15v4l3-2v-4"/></svg></span></div><div aria-hidden="true" class="band-big"><span>Start at a hackathon</span><span class="band-chip" aria-hidden="true"><svg width="53" height="40" viewBox="0 0 2660 2008" aria-hidden="true" style="display:block;flex:none"><path fill="#2E1065" d="M352 1587L352 1778L360 1825L377 1868L397 1902L412 1920L432 1939L461 1961L502 1982L534 1992L566 1997L688 1998L710 1994L734 1984L752 1972L769 1955L778 1942L791 1911L795 1887L795 1630L797 1627L800 1627L848 1675L880 1697L927 1719L980 1730L1632 1731L1680 1730L1704 1727L1735 1719L1757 1710L1785 1695L1814 1675L1862 1626L1865 1626L1867 1629L1867 1885L1872 1915L1884 1941L1909 1971L1939 1989L1970 1997L2056 1998L2111 1995L2157 1982L2194 1963L2223 1942L2257 1907L2271 1887L2291 1848L2302 1810L2306 1782L2307 1588L2304 1583L1913 1583L1908 1579L1908 1319L1904 1298L1893 1272L1869 1243L1835 1223L1795 1214L1759 1215L1717 1225L1693 1236L1663 1255L1334 1581L1329 1580L1002 1254L970 1235L934 1221L905 1215L869 1214L850 1216L828 1222L797 1240L773 1266L758 1298L754 1319L754 1578L751 1582L356 1583ZM16 879L12 903L10 944L11 1284L22 1341L39 1381L67 1422L85 1441L118 1466L158 1486L189 1495L221 1500L355 1499L369 1488L375 1469L374 771L378 756L384 745L392 737L402 731L418 727L691 728L724 723L754 708L770 692L780 677L791 645L792 449L796 429L804 411L824 388L850 373L878 367L1795 368L1816 374L1840 388L1858 407L1867 425L1873 458L1873 635L1875 651L1883 675L1892 689L1907 705L1936 722L1960 727L2252 727L2266 731L2275 737L2288 755L2291 765L2291 1497L2294 1500L2450 1500L2496 1491L2535 1474L2572 1447L2606 1409L2621 1386L2634 1358L2647 1310L2650 1278L2649 915L2642 873L2635 849L2622 819L2603 788L2574 755L2547 733L2518 716L2486 703L2467 698L2435 694L2305 693L2302 689L2302 562L2295 520L2287 494L2269 457L2239 417L2213 392L2192 377L2155 357L2118 344L2077 338L1879 337L1877 334L1877 250L1871 204L1856 161L1833 119L1799 80L1771 57L1747 42L1702 23L1653 12L1025 11L1002 13L970 20L917 42L877 69L848 97L828 123L811 154L797 190L788 231L787 333L783 338L573 339L517 352L492 363L458 384L423 415L402 441L384 471L372 499L364 528L358 571L358 691L353 694L226 693L206 695L166 705L132 720L91 749L55 789L32 830Z"/></svg></span><span>Grow into the team</span><span class="band-chip" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><circle cx="9" cy="8" r="3.5"/><path d="M2 20c0-3.5 3-6 7-6s7 2.5 7 6M16 4.5a3.5 3.5 0 0 1 0 7M18 14c2.4.6 4 2.8 4 6"/></svg></span><span>Build what's next</span><span class="band-chip" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 15c-1.5 1.5-2 5-2 5s3.5-.5 5-2M14 4c3-1 6-1 6-1s0 3-1 6l-6 6-5-5 6-6zM9 10H5l2-3h4M14 15v4l3-2v-4"/></svg></span></div></div></div></div><div aria-hidden="true" style="padding:0 0 40px;overflow:hidden"><div class="mq mq-rev" style="animation-duration:26s"><div class="band-small"><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>Sponsor</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Select</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg>Train</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M4 20V11M10 20V5M16 20v-6M2 20h20"/></svg>Grow</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg>Hire</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 15c-1.5 1.5-2 5-2 5s3.5-.5 5-2M14 4c3-1 6-1 6-1s0 3-1 6l-6 6-5-5 6-6zM9 10H5l2-3h4M14 15v4l3-2v-4"/></svg>Incubate</span></div><div class="band-small"><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>Sponsor</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Select</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg>Train</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M4 20V11M10 20V5M16 20v-6M2 20h20"/></svg>Grow</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg>Hire</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 15c-1.5 1.5-2 5-2 5s3.5-.5 5-2M14 4c3-1 6-1 6-1s0 3-1 6l-6 6-5-5 6-6zM9 10H5l2-3h4M14 15v4l3-2v-4"/></svg>Incubate</span></div><div class="band-small"><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>Sponsor</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Select</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg>Train</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M4 20V11M10 20V5M16 20v-6M2 20h20"/></svg>Grow</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg>Hire</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 15c-1.5 1.5-2 5-2 5s3.5-.5 5-2M14 4c3-1 6-1 6-1s0 3-1 6l-6 6-5-5 6-6zM9 10H5l2-3h4M14 15v4l3-2v-4"/></svg>Incubate</span></div><div class="band-small"><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>Sponsor</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Select</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg>Train</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M4 20V11M10 20V5M16 20v-6M2 20h20"/></svg>Grow</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg>Hire</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 15c-1.5 1.5-2 5-2 5s3.5-.5 5-2M14 4c3-1 6-1 6-1s0 3-1 6l-6 6-5-5 6-6zM9 10H5l2-3h4M14 15v4l3-2v-4"/></svg>Incubate</span></div></div></div></div></section>
+
+<section id="hackathons" aria-labelledby="hack-h" style="padding:60px 0 80px"><div class="wrap"><div class="hk"><div class="hk-l"><h2 id="hack-h" class="io-w" data-io style="margin:0 0 18px;font-size:clamp(34px,4.2vw,58px);line-height:1.04;font-weight:800;letter-spacing:-.045em;color:#2E1065"><span class="w" style="--i:0">Hackathons</span> <span class="w" style="--i:1">are</span> <span class="w" style="--i:2">our</span> <span style="color:#EA580C"><span class="w" style="--i:3">front</span> <span class="w" style="--i:4">door.</span></span></h2><p style="margin:0 0 26px;max-width:440px;font-size:16.5px;line-height:1.6;color:#57534E">Sponsoring a hackathon gives us a presence at the event, direct contact with participants, and a first look at who can build, collaborate and finish under pressure. Small colleges first: talented students there often get fewer opportunities.</p><div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center"><a class="pill pill-o" href="#apply">Register for the hackathon<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="pill pill-w" href="#apply">Host one at your college</a></div></div><div class="hk-r" role="list" aria-label="Upcoming hackathon details"><div class="wcol"><div class="wtrack "><article class="wc" style="background:#FFFFFF;border-color:#FDBA74;min-height:300px"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span class="wc-tag"><span class="wc-av" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4V7z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg></span>Next hackathon</span><span class="wc-dot" aria-hidden="true"></span></div><div><p style="margin:0 0 8px;font-size:22px;line-height:1.1;font-weight:800;letter-spacing:-.02em;color:#2E1065">[EVENT NAME]</p><p style="margin:0;font-size:13.5px;line-height:1.45;font-weight:600;color:#2E1065">[DATE · TIME] · [COLLEGE]</p></div><div style="display:flex;align-items:center;gap:12px;padding-top:12px;border-top:1.5px dashed #FDBA74"><span class="mono" style="display:flex;align-items:center;justify-content:center;width:58px;height:58px;border-radius:12px;border:1.5px solid #2E1065;font-size:11px;font-weight:700;color:#2E1065;flex:none">[QR]</span><span style="font-size:12.5px;line-height:1.4;color:#57534E">Scan for the full program details.</span></div></article><article class="wc" style="background:#FFFFFF;border-color:#F1EFEC;min-height:220px"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span class="wc-tag"><span class="wc-av" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg></span>Venue</span><span class="wc-dot" aria-hidden="true"></span></div><div><div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px dashed #FDE3CC"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg><span style="font-family:JetBrains Mono,monospace;font-size:10px;font-weight:700;letter-spacing:.1em;color:#9A3412;width:72px">VENUE</span><span style="font-size:13.5px;line-height:1.45;font-weight:600;color:#2E1065">[VENUE]</span></div><div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px dashed #FDE3CC"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><circle cx="9" cy="8" r="3.5"/><path d="M2 20c0-3.5 3-6 7-6s7 2.5 7 6M16 4.5a3.5 3.5 0 0 1 0 7M18 14c2.4.6 4 2.8 4 6"/></svg><span style="font-family:JetBrains Mono,monospace;font-size:10px;font-weight:700;letter-spacing:.1em;color:#9A3412;width:72px">COLLEGE</span><span style="font-size:13.5px;line-height:1.45;font-weight:600;color:#2E1065">[COLLEGE · CITY]</span></div><div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px dashed #FDE3CC"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span style="font-family:JetBrains Mono,monospace;font-size:10px;font-weight:700;letter-spacing:.1em;color:#9A3412;width:72px">DATE</span><span style="font-size:13.5px;line-height:1.45;font-weight:600;color:#2E1065">[DATE]</span></div></div></article><article class="wc" style="background:linear-gradient(170deg,#FFF7ED,#FED7AA);border-color:#FDBA74;min-height:200px"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span class="wc-tag"><span class="wc-av" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5"/></svg></span>Tracks</span><span class="wc-dot" aria-hidden="true"></span></div><div><p style="margin:0 0 12px;font-size:22px;line-height:1.1;font-weight:800;letter-spacing:-.02em;color:#2E1065">Pick a track</p><div style="display:flex;flex-wrap:wrap;gap:6px"><span class="chip" style="background:#FFFFFF;color:#2E1065;border:1px solid #FDBA74">[TRACK 1]</span><span class="chip" style="background:#FFFFFF;color:#2E1065;border:1px solid #FDBA74">[TRACK 2]</span><span class="chip" style="background:#FFFFFF;color:#2E1065;border:1px solid #FDBA74">[TRACK 3]</span></div></div></article><article class="wc" style="background:#FFFFFF;border-color:#F1EFEC;min-height:200px"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span class="wc-tag"><span class="wc-av" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M8 4h8v5a4 4 0 0 1-8 0V4zM8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8 21h8M10 17h4v4h-4z"/></svg></span>Prizes</span><span class="wc-dot" aria-hidden="true"></span></div><div><p style="margin:0 0 6px;font-size:22px;line-height:1.1;font-weight:800;letter-spacing:-.02em;color:#2E1065">[PRIZES]</p><p style="margin:0;font-size:13.5px;line-height:1.45;color:#57534E">Plus a first conversation with the Mighty Developers team.</p></div></article><article class="wc" style="background:#FFFFFF;border-color:#F1EFEC;min-height:150px"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span class="wc-tag"><span class="wc-av" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>Questions</span><span class="wc-dot" aria-hidden="true"></span></div><div><p style="margin:0 0 6px;font-size:17px;font-weight:800;color:#2E1065">Talk to the organisers</p><p class="mono" style="margin:0;font-size:12.5px;color:#57534E">[CONTACT EMAIL]</p></div></article><div aria-hidden="true" class="wdup"><article class="wc" style="background:#FFFFFF;border-color:#FDBA74;min-height:300px"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span class="wc-tag"><span class="wc-av" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4V7z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg></span>Next hackathon</span><span class="wc-dot" aria-hidden="true"></span></div><div><p style="margin:0 0 8px;font-size:22px;line-height:1.1;font-weight:800;letter-spacing:-.02em;color:#2E1065">[EVENT NAME]</p><p style="margin:0;font-size:13.5px;line-height:1.45;font-weight:600;color:#2E1065">[DATE · TIME] · [COLLEGE]</p></div><div style="display:flex;align-items:center;gap:12px;padding-top:12px;border-top:1.5px dashed #FDBA74"><span class="mono" style="display:flex;align-items:center;justify-content:center;width:58px;height:58px;border-radius:12px;border:1.5px solid #2E1065;font-size:11px;font-weight:700;color:#2E1065;flex:none">[QR]</span><span style="font-size:12.5px;line-height:1.4;color:#57534E">Scan for the full program details.</span></div></article><article class="wc" style="background:#FFFFFF;border-color:#F1EFEC;min-height:220px"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span class="wc-tag"><span class="wc-av" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg></span>Venue</span><span class="wc-dot" aria-hidden="true"></span></div><div><div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px dashed #FDE3CC"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg><span style="font-family:JetBrains Mono,monospace;font-size:10px;font-weight:700;letter-spacing:.1em;color:#9A3412;width:72px">VENUE</span><span style="font-size:13.5px;line-height:1.45;font-weight:600;color:#2E1065">[VENUE]</span></div><div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px dashed #FDE3CC"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><circle cx="9" cy="8" r="3.5"/><path d="M2 20c0-3.5 3-6 7-6s7 2.5 7 6M16 4.5a3.5 3.5 0 0 1 0 7M18 14c2.4.6 4 2.8 4 6"/></svg><span style="font-family:JetBrains Mono,monospace;font-size:10px;font-weight:700;letter-spacing:.1em;color:#9A3412;width:72px">COLLEGE</span><span style="font-size:13.5px;line-height:1.45;font-weight:600;color:#2E1065">[COLLEGE · CITY]</span></div><div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px dashed #FDE3CC"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span style="font-family:JetBrains Mono,monospace;font-size:10px;font-weight:700;letter-spacing:.1em;color:#9A3412;width:72px">DATE</span><span style="font-size:13.5px;line-height:1.45;font-weight:600;color:#2E1065">[DATE]</span></div></div></article><article class="wc" style="background:linear-gradient(170deg,#FFF7ED,#FED7AA);border-color:#FDBA74;min-height:200px"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span class="wc-tag"><span class="wc-av" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5"/></svg></span>Tracks</span><span class="wc-dot" aria-hidden="true"></span></div><div><p style="margin:0 0 12px;font-size:22px;line-height:1.1;font-weight:800;letter-spacing:-.02em;color:#2E1065">Pick a track</p><div style="display:flex;flex-wrap:wrap;gap:6px"><span class="chip" style="background:#FFFFFF;color:#2E1065;border:1px solid #FDBA74">[TRACK 1]</span><span class="chip" style="background:#FFFFFF;color:#2E1065;border:1px solid #FDBA74">[TRACK 2]</span><span class="chip" style="background:#FFFFFF;color:#2E1065;border:1px solid #FDBA74">[TRACK 3]</span></div></div></article><article class="wc" style="background:#FFFFFF;border-color:#F1EFEC;min-height:200px"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span class="wc-tag"><span class="wc-av" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M8 4h8v5a4 4 0 0 1-8 0V4zM8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8 21h8M10 17h4v4h-4z"/></svg></span>Prizes</span><span class="wc-dot" aria-hidden="true"></span></div><div><p style="margin:0 0 6px;font-size:22px;line-height:1.1;font-weight:800;letter-spacing:-.02em;color:#2E1065">[PRIZES]</p><p style="margin:0;font-size:13.5px;line-height:1.45;color:#57534E">Plus a first conversation with the Mighty Developers team.</p></div></article><article class="wc" style="background:#FFFFFF;border-color:#F1EFEC;min-height:150px"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span class="wc-tag"><span class="wc-av" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>Questions</span><span class="wc-dot" aria-hidden="true"></span></div><div><p style="margin:0 0 6px;font-size:17px;font-weight:800;color:#2E1065">Talk to the organisers</p><p class="mono" style="margin:0;font-size:12.5px;color:#57534E">[CONTACT EMAIL]</p></div></article></div></div></div><div class="wcol"><div class="wtrack wtrack-rev"><article class="wc" style="background:linear-gradient(170deg,#FFF1E6,#FFE4CC);border-color:#FDE3CC;min-height:230px"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span class="wc-tag"><span class="wc-av" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>Registrations</span><span class="wc-dot" aria-hidden="true"></span></div><div><p style="margin:0 0 6px;font-size:22px;line-height:1.1;font-weight:800;letter-spacing:-.02em;color:#2E1065">Registrations open</p><p style="margin:0 0 14px;font-size:13.5px;line-height:1.45;font-weight:600;color:#2E1065">[OPEN DATE] → [CLOSE DATE]</p><a class="pill pill-o" href="#apply" style="min-height:38px;font-size:13px;padding:0 14px">Register now</a></div></article><article class="wc" style="background:linear-gradient(170deg,#F0FDFA,#CCFBF1);border-color:#99F6E4;min-height:230px"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span class="wc-tag"><span class="wc-av" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg></span>Schedule</span><span class="wc-dot" aria-hidden="true"></span></div><div><div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px dashed #FDE3CC"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg><span style="font-family:JetBrains Mono,monospace;font-size:10px;font-weight:700;letter-spacing:.1em;color:#9A3412;width:72px">KICK-OFF</span><span style="font-size:13.5px;line-height:1.45;font-weight:600;color:#2E1065">[TIME]</span></div><div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px dashed #FDE3CC"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg><span style="font-family:JetBrains Mono,monospace;font-size:10px;font-weight:700;letter-spacing:.1em;color:#9A3412;width:72px">BUILD</span><span style="font-size:13.5px;line-height:1.45;font-weight:600;color:#2E1065">[DURATION]</span></div><div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px dashed #FDE3CC"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M8 4h8v5a4 4 0 0 1-8 0V4zM8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8 21h8M10 17h4v4h-4z"/></svg><span style="font-family:JetBrains Mono,monospace;font-size:10px;font-weight:700;letter-spacing:.1em;color:#9A3412;width:72px">DEMOS</span><span style="font-size:13.5px;line-height:1.45;font-weight:600;color:#2E1065">[TIME]</span></div></div></article><article class="wc" style="background:#FFFFFF;border-color:#F1EFEC;min-height:170px"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span class="wc-tag"><span class="wc-av" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><circle cx="9" cy="8" r="3.5"/><path d="M2 20c0-3.5 3-6 7-6s7 2.5 7 6M16 4.5a3.5 3.5 0 0 1 0 7M18 14c2.4.6 4 2.8 4 6"/></svg></span>Teams</span><span class="wc-dot" aria-hidden="true"></span></div><div style="display:flex;align-items:flex-end;justify-content:space-between;gap:10px"><div><p style="margin:0 0 4px;font-size:22px;line-height:1.1;font-weight:800;letter-spacing:-.02em;color:#2E1065">[TEAM SIZE]</p><p style="margin:0;font-size:13.5px;line-height:1.45;font-weight:600;color:#2E1065">members per team</p></div><span style="display:flex"><span style="width:30px;height:30px;border-radius:50%;background:#FFE4CC;border:2px solid #FFFFFF;margin-left:-8px"></span><span style="width:30px;height:30px;border-radius:50%;background:#FED7AA;border:2px solid #FFFFFF;margin-left:-8px"></span><span style="width:30px;height:30px;border-radius:50%;background:#FDBA74;border:2px solid #FFFFFF;margin-left:-8px"></span><span style="width:30px;height:30px;border-radius:50%;background:#F97316;border:2px solid #FFFFFF;margin-left:-8px"></span></span></div></article><article class="wc" style="background:#FFFFFF;border-color:#FDBA74;min-height:170px"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span class="wc-tag"><span class="wc-av" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M12 3v5M12 16v5M3 12h5M16 12h5M6 6l3 3M15 15l3 3M18 6l-3 3M9 15l-3 3"/></svg></span>Sponsored by</span><span class="wc-dot" aria-hidden="true"></span></div><div style="display:flex;align-items:center;gap:12px"><span style="display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:16px;background:#FFF1E6;border:1.5px solid #FDBA74;flex:none"><svg width="34" height="26" viewBox="0 0 2660 2008" aria-hidden="true" style="display:block;flex:none"><path fill="#2E1065" d="M352 1587L352 1778L360 1825L377 1868L397 1902L412 1920L432 1939L461 1961L502 1982L534 1992L566 1997L688 1998L710 1994L734 1984L752 1972L769 1955L778 1942L791 1911L795 1887L795 1630L797 1627L800 1627L848 1675L880 1697L927 1719L980 1730L1632 1731L1680 1730L1704 1727L1735 1719L1757 1710L1785 1695L1814 1675L1862 1626L1865 1626L1867 1629L1867 1885L1872 1915L1884 1941L1909 1971L1939 1989L1970 1997L2056 1998L2111 1995L2157 1982L2194 1963L2223 1942L2257 1907L2271 1887L2291 1848L2302 1810L2306 1782L2307 1588L2304 1583L1913 1583L1908 1579L1908 1319L1904 1298L1893 1272L1869 1243L1835 1223L1795 1214L1759 1215L1717 1225L1693 1236L1663 1255L1334 1581L1329 1580L1002 1254L970 1235L934 1221L905 1215L869 1214L850 1216L828 1222L797 1240L773 1266L758 1298L754 1319L754 1578L751 1582L356 1583ZM16 879L12 903L10 944L11 1284L22 1341L39 1381L67 1422L85 1441L118 1466L158 1486L189 1495L221 1500L355 1499L369 1488L375 1469L374 771L378 756L384 745L392 737L402 731L418 727L691 728L724 723L754 708L770 692L780 677L791 645L792 449L796 429L804 411L824 388L850 373L878 367L1795 368L1816 374L1840 388L1858 407L1867 425L1873 458L1873 635L1875 651L1883 675L1892 689L1907 705L1936 722L1960 727L2252 727L2266 731L2275 737L2288 755L2291 765L2291 1497L2294 1500L2450 1500L2496 1491L2535 1474L2572 1447L2606 1409L2621 1386L2634 1358L2647 1310L2650 1278L2649 915L2642 873L2635 849L2622 819L2603 788L2574 755L2547 733L2518 716L2486 703L2467 698L2435 694L2305 693L2302 689L2302 562L2295 520L2287 494L2269 457L2239 417L2213 392L2192 377L2155 357L2118 344L2077 338L1879 337L1877 334L1877 250L1871 204L1856 161L1833 119L1799 80L1771 57L1747 42L1702 23L1653 12L1025 11L1002 13L970 20L917 42L877 69L848 97L828 123L811 154L797 190L788 231L787 333L783 338L573 339L517 352L492 363L458 384L423 415L402 441L384 471L372 499L364 528L358 571L358 691L353 694L226 693L206 695L166 705L132 720L91 749L55 789L32 830Z"/></svg></span><div><p style="margin:0 0 2px;font-size:17px;font-weight:800;color:#2E1065">Mighty Developers</p><p style="margin:0;font-size:13px;color:#57534E">Meet the team at the event.</p></div></div></article><article class="wc" style="background:linear-gradient(170deg,#FFF1E6,#FFE4CC);border-color:#FDE3CC;min-height:210px"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span class="wc-tag"><span class="wc-av" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4V7z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg></span>Coming up</span><span class="wc-dot" aria-hidden="true"></span></div><div><p style="margin:0 0 8px;font-size:22px;line-height:1.1;font-weight:800;letter-spacing:-.02em;color:#2E1065">[EVENT NAME]</p><p style="margin:0 0 14px;font-size:13.5px;line-height:1.45;font-weight:600;color:#2E1065">[DATE] · [COLLEGE]</p><span class="chip" style="background:#FFFFFF;color:#C2410C;border:1px solid #FDBA74">DETAILS SOON</span></div></article><div aria-hidden="true" class="wdup"><article class="wc" style="background:linear-gradient(170deg,#FFF1E6,#FFE4CC);border-color:#FDE3CC;min-height:230px"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span class="wc-tag"><span class="wc-av" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>Registrations</span><span class="wc-dot" aria-hidden="true"></span></div><div><p style="margin:0 0 6px;font-size:22px;line-height:1.1;font-weight:800;letter-spacing:-.02em;color:#2E1065">Registrations open</p><p style="margin:0 0 14px;font-size:13.5px;line-height:1.45;font-weight:600;color:#2E1065">[OPEN DATE] → [CLOSE DATE]</p><a class="pill pill-o" href="#apply" style="min-height:38px;font-size:13px;padding:0 14px">Register now</a></div></article><article class="wc" style="background:linear-gradient(170deg,#F0FDFA,#CCFBF1);border-color:#99F6E4;min-height:230px"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span class="wc-tag"><span class="wc-av" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg></span>Schedule</span><span class="wc-dot" aria-hidden="true"></span></div><div><div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px dashed #FDE3CC"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg><span style="font-family:JetBrains Mono,monospace;font-size:10px;font-weight:700;letter-spacing:.1em;color:#9A3412;width:72px">KICK-OFF</span><span style="font-size:13.5px;line-height:1.45;font-weight:600;color:#2E1065">[TIME]</span></div><div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px dashed #FDE3CC"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg><span style="font-family:JetBrains Mono,monospace;font-size:10px;font-weight:700;letter-spacing:.1em;color:#9A3412;width:72px">BUILD</span><span style="font-size:13.5px;line-height:1.45;font-weight:600;color:#2E1065">[DURATION]</span></div><div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px dashed #FDE3CC"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M8 4h8v5a4 4 0 0 1-8 0V4zM8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8 21h8M10 17h4v4h-4z"/></svg><span style="font-family:JetBrains Mono,monospace;font-size:10px;font-weight:700;letter-spacing:.1em;color:#9A3412;width:72px">DEMOS</span><span style="font-size:13.5px;line-height:1.45;font-weight:600;color:#2E1065">[TIME]</span></div></div></article><article class="wc" style="background:#FFFFFF;border-color:#F1EFEC;min-height:170px"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span class="wc-tag"><span class="wc-av" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><circle cx="9" cy="8" r="3.5"/><path d="M2 20c0-3.5 3-6 7-6s7 2.5 7 6M16 4.5a3.5 3.5 0 0 1 0 7M18 14c2.4.6 4 2.8 4 6"/></svg></span>Teams</span><span class="wc-dot" aria-hidden="true"></span></div><div style="display:flex;align-items:flex-end;justify-content:space-between;gap:10px"><div><p style="margin:0 0 4px;font-size:22px;line-height:1.1;font-weight:800;letter-spacing:-.02em;color:#2E1065">[TEAM SIZE]</p><p style="margin:0;font-size:13.5px;line-height:1.45;font-weight:600;color:#2E1065">members per team</p></div><span style="display:flex"><span style="width:30px;height:30px;border-radius:50%;background:#FFE4CC;border:2px solid #FFFFFF;margin-left:-8px"></span><span style="width:30px;height:30px;border-radius:50%;background:#FED7AA;border:2px solid #FFFFFF;margin-left:-8px"></span><span style="width:30px;height:30px;border-radius:50%;background:#FDBA74;border:2px solid #FFFFFF;margin-left:-8px"></span><span style="width:30px;height:30px;border-radius:50%;background:#F97316;border:2px solid #FFFFFF;margin-left:-8px"></span></span></div></article><article class="wc" style="background:#FFFFFF;border-color:#FDBA74;min-height:170px"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span class="wc-tag"><span class="wc-av" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M12 3v5M12 16v5M3 12h5M16 12h5M6 6l3 3M15 15l3 3M18 6l-3 3M9 15l-3 3"/></svg></span>Sponsored by</span><span class="wc-dot" aria-hidden="true"></span></div><div style="display:flex;align-items:center;gap:12px"><span style="display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:16px;background:#FFF1E6;border:1.5px solid #FDBA74;flex:none"><svg width="34" height="26" viewBox="0 0 2660 2008" aria-hidden="true" style="display:block;flex:none"><path fill="#2E1065" d="M352 1587L352 1778L360 1825L377 1868L397 1902L412 1920L432 1939L461 1961L502 1982L534 1992L566 1997L688 1998L710 1994L734 1984L752 1972L769 1955L778 1942L791 1911L795 1887L795 1630L797 1627L800 1627L848 1675L880 1697L927 1719L980 1730L1632 1731L1680 1730L1704 1727L1735 1719L1757 1710L1785 1695L1814 1675L1862 1626L1865 1626L1867 1629L1867 1885L1872 1915L1884 1941L1909 1971L1939 1989L1970 1997L2056 1998L2111 1995L2157 1982L2194 1963L2223 1942L2257 1907L2271 1887L2291 1848L2302 1810L2306 1782L2307 1588L2304 1583L1913 1583L1908 1579L1908 1319L1904 1298L1893 1272L1869 1243L1835 1223L1795 1214L1759 1215L1717 1225L1693 1236L1663 1255L1334 1581L1329 1580L1002 1254L970 1235L934 1221L905 1215L869 1214L850 1216L828 1222L797 1240L773 1266L758 1298L754 1319L754 1578L751 1582L356 1583ZM16 879L12 903L10 944L11 1284L22 1341L39 1381L67 1422L85 1441L118 1466L158 1486L189 1495L221 1500L355 1499L369 1488L375 1469L374 771L378 756L384 745L392 737L402 731L418 727L691 728L724 723L754 708L770 692L780 677L791 645L792 449L796 429L804 411L824 388L850 373L878 367L1795 368L1816 374L1840 388L1858 407L1867 425L1873 458L1873 635L1875 651L1883 675L1892 689L1907 705L1936 722L1960 727L2252 727L2266 731L2275 737L2288 755L2291 765L2291 1497L2294 1500L2450 1500L2496 1491L2535 1474L2572 1447L2606 1409L2621 1386L2634 1358L2647 1310L2650 1278L2649 915L2642 873L2635 849L2622 819L2603 788L2574 755L2547 733L2518 716L2486 703L2467 698L2435 694L2305 693L2302 689L2302 562L2295 520L2287 494L2269 457L2239 417L2213 392L2192 377L2155 357L2118 344L2077 338L1879 337L1877 334L1877 250L1871 204L1856 161L1833 119L1799 80L1771 57L1747 42L1702 23L1653 12L1025 11L1002 13L970 20L917 42L877 69L848 97L828 123L811 154L797 190L788 231L787 333L783 338L573 339L517 352L492 363L458 384L423 415L402 441L384 471L372 499L364 528L358 571L358 691L353 694L226 693L206 695L166 705L132 720L91 749L55 789L32 830Z"/></svg></span><div><p style="margin:0 0 2px;font-size:17px;font-weight:800;color:#2E1065">Mighty Developers</p><p style="margin:0;font-size:13px;color:#57534E">Meet the team at the event.</p></div></div></article><article class="wc" style="background:linear-gradient(170deg,#FFF1E6,#FFE4CC);border-color:#FDE3CC;min-height:210px"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span class="wc-tag"><span class="wc-av" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4V7z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg></span>Coming up</span><span class="wc-dot" aria-hidden="true"></span></div><div><p style="margin:0 0 8px;font-size:22px;line-height:1.1;font-weight:800;letter-spacing:-.02em;color:#2E1065">[EVENT NAME]</p><p style="margin:0 0 14px;font-size:13.5px;line-height:1.45;font-weight:600;color:#2E1065">[DATE] · [COLLEGE]</p><span class="chip" style="background:#FFFFFF;color:#C2410C;border:1px solid #FDBA74">DETAILS SOON</span></div></article></div></div></div></div></div></div></section>
+
+<section id="tasks" aria-labelledby="tasks-h" style="padding:96px 0">
+<div class="wrap" style="display:flex;flex-wrap:wrap;gap:48px 56px;align-items:flex-start">
+<div style="flex:1 1 360px;min-width:0">
+<span class="icon-chip" style="margin-bottom:22px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span>
+<h2 id="tasks-h" class="io-w" data-io style="margin:0 0 16px;font-size:clamp(32px,3.6vw,48px);line-height:1.06;font-weight:800;letter-spacing:-.04em;color:#2E1065"><span class="w" style="--i:0">Every</span> <span class="w" style="--i:1">task</span> <span class="w" style="--i:2">says</span> <span class="w" style="--i:3">what</span> <span class="w" style="--i:4">is</span> <span class="w" style="--i:5">expected.</span></h2>
+<p style="margin:0 0 24px;font-size:16px;line-height:1.6;color:#57534E;max-width:440px">Selected students receive training and project ideas, and are placed inside the team. Work is broken into small, clearly specified tasks, so each student understands exactly what to build and how it fits the larger project.</p>
+<a class="pill pill-ghost" href="#samples">See sample tasks<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<div class="bubs" data-io aria-label="What the program includes" style="position:relative;height:210px;margin-top:40px;max-width:380px"><div class="bub pop" style="--i:0;left:0px;top:30px"><span class="bub-c" style="--i:0"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5zM4 19a2 2 0 0 1 2-2h13"/></svg></span><span>TRAINING</span></div><div class="bub pop" style="--i:1;left:96px;top:0px"><span class="bub-c" style="--i:1"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9V16h7v-2.1A6 6 0 0 0 12 3z"/></svg></span><span>PROJECT IDEAS</span></div><div class="bub pop" style="--i:2;left:190px;top:38px"><span class="bub-c" style="--i:2"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M10 6h10M10 12h10M10 18h10M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"/></svg></span><span>SMALL TASKS</span></div><div class="bub pop" style="--i:3;left:290px;top:4px"><span class="bub-c" style="--i:3"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><circle cx="9" cy="8" r="3.5"/><path d="M2 20c0-3.5 3-6 7-6s7 2.5 7 6M16 4.5a3.5 3.5 0 0 1 0 7M18 14c2.4.6 4 2.8 4 6"/></svg></span><span>TEAM</span></div><div class="bub pop" style="--i:4;left:120px;top:120px"><span class="bub-c" style="--i:4"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M4 5h16v11H9l-5 4V5z"/></svg></span><span>FEEDBACK</span></div></div>
+<div class="bubs-m" style="display:none;flex-wrap:wrap;gap:14px;margin-top:28px"><div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span class="bub-c" style="--i:0;width:54px;height:54px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5zM4 19a2 2 0 0 1 2-2h13"/></svg></span><span class="mono" style="font-size:9px;font-weight:700;letter-spacing:.06em;color:#57534E">TRAINING</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span class="bub-c" style="--i:1;width:54px;height:54px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9V16h7v-2.1A6 6 0 0 0 12 3z"/></svg></span><span class="mono" style="font-size:9px;font-weight:700;letter-spacing:.06em;color:#57534E">PROJECT IDEAS</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span class="bub-c" style="--i:2;width:54px;height:54px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M10 6h10M10 12h10M10 18h10M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"/></svg></span><span class="mono" style="font-size:9px;font-weight:700;letter-spacing:.06em;color:#57534E">SMALL TASKS</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span class="bub-c" style="--i:3;width:54px;height:54px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><circle cx="9" cy="8" r="3.5"/><path d="M2 20c0-3.5 3-6 7-6s7 2.5 7 6M16 4.5a3.5 3.5 0 0 1 0 7M18 14c2.4.6 4 2.8 4 6"/></svg></span><span class="mono" style="font-size:9px;font-weight:700;letter-spacing:.06em;color:#57534E">TEAM</span></div><div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span class="bub-c" style="--i:4;width:54px;height:54px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M4 5h16v11H9l-5 4V5z"/></svg></span><span class="mono" style="font-size:9px;font-weight:700;letter-spacing:.06em;color:#57534E">FEEDBACK</span></div></div>
+</div>
+<div class="rv" data-io style="flex:1.4 1 520px;min-width:0">
+<div class="fold-wrap" data-io>
+<div class="fold {{ foldA }}">
+<button type="button" class="fold-tab" style="background:#FFFFFF;color:#2E1065" aria-pressed="{{ foldAOn }}" onClick="{{ showBoard }}">Task board<span class="chip" style="background:#FFF1E6;color:#C2410C">TAP A CARD</span></button>
+<div class="fold-body card" style="padding:20px;min-height:360px"><div class="lanes" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px"><div class="lane"><div style="display:flex;align-items:center;justify-content:space-between;padding:0 2px 6px"><span class="mono" style="display:flex;align-items:center;gap:6px;font-size:10.5px;font-weight:700;letter-spacing:.06em;color:#44403C"><span aria-hidden="true" style="width:8px;height:8px;border-radius:50%;background:#A8A29E"></span>TO DO</span><span class="mono" style="font-size:10.5px;font-weight:700;color:#78716C">{{ c0 }}</span></div>
+<sc-for list="{{ lane0 }}" as="t" hint-placeholder-count="2"><button type="button" class="tk" aria-label="{{ t.label }}" onClick="{{ t.advance }}"><span class="mono" style="font-size:10px;color:#78716C">{{ t.id }}</span><span style="font-weight:600;text-decoration:{{ t.deco }}">{{ t.title }}</span></button></sc-for></div><div class="lane"><div style="display:flex;align-items:center;justify-content:space-between;padding:0 2px 6px"><span class="mono" style="display:flex;align-items:center;gap:6px;font-size:10.5px;font-weight:700;letter-spacing:.06em;color:#2E1065"><span aria-hidden="true" style="width:8px;height:8px;border-radius:50%;background:#F97316"></span>IN PROGRESS</span><span class="mono" style="font-size:10.5px;font-weight:700;color:#78716C">{{ c1 }}</span></div>
+<sc-for list="{{ lane1 }}" as="t" hint-placeholder-count="2"><button type="button" class="tk" aria-label="{{ t.label }}" onClick="{{ t.advance }}"><span class="mono" style="font-size:10px;color:#78716C">{{ t.id }}</span><span style="font-weight:600;text-decoration:{{ t.deco }}">{{ t.title }}</span></button></sc-for></div><div class="lane"><div style="display:flex;align-items:center;justify-content:space-between;padding:0 2px 6px"><span class="mono" style="display:flex;align-items:center;gap:6px;font-size:10.5px;font-weight:700;letter-spacing:.06em;color:#C2410C"><span aria-hidden="true" style="width:8px;height:8px;border-radius:50%;background:#FDBA74"></span>IN REVIEW</span><span class="mono" style="font-size:10.5px;font-weight:700;color:#78716C">{{ c2 }}</span></div>
+<sc-for list="{{ lane2 }}" as="t" hint-placeholder-count="2"><button type="button" class="tk" aria-label="{{ t.label }}" onClick="{{ t.advance }}"><span class="mono" style="font-size:10px;color:#78716C">{{ t.id }}</span><span style="font-weight:600;text-decoration:{{ t.deco }}">{{ t.title }}</span></button></sc-for></div><div class="lane"><div style="display:flex;align-items:center;justify-content:space-between;padding:0 2px 6px"><span class="mono" style="display:flex;align-items:center;gap:6px;font-size:10.5px;font-weight:700;letter-spacing:.06em;color:#0F766E"><span aria-hidden="true" style="width:8px;height:8px;border-radius:50%;background:#0D9488"></span>DONE</span><span class="mono" style="font-size:10.5px;font-weight:700;color:#78716C">{{ c3 }}</span></div>
+<sc-for list="{{ lane3 }}" as="t" hint-placeholder-count="2"><button type="button" class="tk" aria-label="{{ t.label }}" onClick="{{ t.advance }}"><span class="mono" style="font-size:10px;color:#78716C">{{ t.id }}</span><span style="font-weight:600;text-decoration:{{ t.deco }}">{{ t.title }}</span></button></sc-for></div></div><p class="mono" aria-hidden="true" style="margin:18px 0 0;font-size:10.5px;font-weight:700;letter-spacing:.1em;color:#78716C">TAP A CARD TO MOVE IT TO THE NEXT STATUS</p></div>
+</div>
+<div class="fold {{ foldB }}">
+<button type="button" class="fold-tab" style="background:#FFE4CC;color:#2E1065" aria-pressed="{{ foldBOn }}" onClick="{{ showSample }}">Sample task<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4V7z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg></button>
+<div class="fold-body" style="background:#FFE4CC;padding:10px">
+<div style="background:#FFFFFF;border-radius:16px;padding:22px;min-height:400px;box-sizing:border-box"><div style="display:flex;flex-wrap:wrap;gap:24px">
+<div style="flex:1 1 280px;min-width:0">
+<p style="margin:0 0 6px;display:flex;align-items:center;gap:8px"><span class="mono" style="font-size:11px;font-weight:700;color:#78716C">TASK-012</span><span class="chip" style="background:#FFF1E6;color:#C2410C">IN PROGRESS</span></p>
+<p style="margin:0 0 16px;font-size:22px;line-height:1.2;font-weight:800;letter-spacing:-.02em;color:#2E1065">Write unit tests for the signup form</p>
+<p class="eyebrow" style="font-size:10px;margin-bottom:4px">SCOPE</p><p style="margin:0 0 12px;font-size:15px;color:#44403C">Cover the signup form's validation rules: required fields, email format and password length.</p>
+<p class="eyebrow" style="font-size:10px;margin-bottom:4px">EXPECTED OUTPUT</p><p style="margin:0 0 12px;font-size:15px;color:#44403C">A test file that passes locally, plus a short note on anything you could not cover.</p>
+<p class="eyebrow" style="font-size:10px;margin-bottom:4px">DEADLINE</p><p style="margin:0;font-size:15px;color:#44403C">[DATE]</p>
+</div>
+<div style="flex:1 1 220px;min-width:0;border-radius:18px;background:#F0FDFA;padding:22px;box-sizing:border-box">
+<p class="eyebrow" style="font-size:10px;color:#0F766E;margin-bottom:10px">WHY SMALL TASKS</p>
+<p style="margin:0;font-size:18px;line-height:1.4;font-weight:700;color:#2E1065">When every task is clear, students grasp the whole system step by step, and we get an honest signal of how well each one performs.</p>
+</div>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="loop" aria-labelledby="loop-h" style="padding:90px 0 70px;background:#FFFFFF;border-radius:40px 40px 0 0">
+<div class="wrap">
+<h2 id="loop-h" class="io-w" data-io style="margin:0 auto 18px;max-width:900px;text-align:center;font-size:clamp(34px,4.4vw,60px);line-height:1.04;font-weight:800;letter-spacing:-.045em;color:#2E1065"><span class="w" style="--i:0">One</span> <span class="w" style="--i:1">loop,</span> <span class="w" style="--i:2">from</span> <span class="w" style="--i:3">hackathon</span> <span class="w" style="--i:4">to</span> <span class="w" style="--i:5">founder.</span></h2>
+<p style="margin:0 auto 24px;max-width:620px;text-align:center;font-size:17px;color:#57534E">We do not start by hiring. We start by sponsoring hackathons, which gives us direct access to students and a way to see how they actually build.</p>
+<div class="lp" data-io><div class="lp-ring" aria-hidden="true"><svg viewBox="0 0 520 520" width="100%" height="100%"><circle cx="260" cy="260" r="258" fill="none" stroke="#F1E4D8" stroke-width="2"/><circle class="lp-flow" cx="260" cy="260" r="258" fill="none" stroke="#F97316" stroke-width="2" stroke-dasharray="6 12"/></svg><div class="lp-orbit"><i></i></div><div class="lp-orbit lp-orbit2"><i></i></div></div><span class="lp-str {{ n0.sp }}" aria-hidden="true" style="--k:0;--a:-90deg;--len:160px"><i></i><b class="lp-hand"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M18 11V6a2 2 0 0 0-4 0v5M14 10V4a2 2 0 0 0-4 0v6M10 10.5V6a2 2 0 0 0-4 0v8a8 8 0 0 0 16 0v-2a2 2 0 0 0-4 0"/></svg></b></span><span class="lp-str {{ n1.sp }}" aria-hidden="true" style="--k:1;--a:-23.75deg;--len:182px"><i></i><b class="lp-hand"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M18 11V6a2 2 0 0 0-4 0v5M14 10V4a2 2 0 0 0-4 0v6M10 10.5V6a2 2 0 0 0-4 0v8a8 8 0 0 0 16 0v-2a2 2 0 0 0-4 0"/></svg></b></span><span class="lp-str {{ n2.sp }}" aria-hidden="true" style="--k:2;--a:23.75deg;--len:182px"><i></i><b class="lp-hand"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M18 11V6a2 2 0 0 0-4 0v5M14 10V4a2 2 0 0 0-4 0v6M10 10.5V6a2 2 0 0 0-4 0v8a8 8 0 0 0 16 0v-2a2 2 0 0 0-4 0"/></svg></b></span><span class="lp-str {{ n3.sp }}" aria-hidden="true" style="--k:3;--a:90deg;--len:160px"><i></i><b class="lp-hand"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M18 11V6a2 2 0 0 0-4 0v5M14 10V4a2 2 0 0 0-4 0v6M10 10.5V6a2 2 0 0 0-4 0v8a8 8 0 0 0 16 0v-2a2 2 0 0 0-4 0"/></svg></b></span><span class="lp-str {{ n4.sp }}" aria-hidden="true" style="--k:4;--a:156.25deg;--len:182px"><i></i><b class="lp-hand"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M18 11V6a2 2 0 0 0-4 0v5M14 10V4a2 2 0 0 0-4 0v6M10 10.5V6a2 2 0 0 0-4 0v8a8 8 0 0 0 16 0v-2a2 2 0 0 0-4 0"/></svg></b></span><span class="lp-str {{ n5.sp }}" aria-hidden="true" style="--k:5;--a:203.75deg;--len:182px"><i></i><b class="lp-hand"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M18 11V6a2 2 0 0 0-4 0v5M14 10V4a2 2 0 0 0-4 0v6M10 10.5V6a2 2 0 0 0-4 0v8a8 8 0 0 0 16 0v-2a2 2 0 0 0-4 0"/></svg></b></span><div class="lp-core" style="translate:{{ pull.x }}px {{ pull.y }}px;rotate:{{ pull.r }}deg"><span class="lp-core-in"><svg width="61" height="46" viewBox="0 0 2660 2008" aria-hidden="true" style="display:block;flex:none"><path fill="#2E1065" d="M352 1587L352 1778L360 1825L377 1868L397 1902L412 1920L432 1939L461 1961L502 1982L534 1992L566 1997L688 1998L710 1994L734 1984L752 1972L769 1955L778 1942L791 1911L795 1887L795 1630L797 1627L800 1627L848 1675L880 1697L927 1719L980 1730L1632 1731L1680 1730L1704 1727L1735 1719L1757 1710L1785 1695L1814 1675L1862 1626L1865 1626L1867 1629L1867 1885L1872 1915L1884 1941L1909 1971L1939 1989L1970 1997L2056 1998L2111 1995L2157 1982L2194 1963L2223 1942L2257 1907L2271 1887L2291 1848L2302 1810L2306 1782L2307 1588L2304 1583L1913 1583L1908 1579L1908 1319L1904 1298L1893 1272L1869 1243L1835 1223L1795 1214L1759 1215L1717 1225L1693 1236L1663 1255L1334 1581L1329 1580L1002 1254L970 1235L934 1221L905 1215L869 1214L850 1216L828 1222L797 1240L773 1266L758 1298L754 1319L754 1578L751 1582L356 1583ZM16 879L12 903L10 944L11 1284L22 1341L39 1381L67 1422L85 1441L118 1466L158 1486L189 1495L221 1500L355 1499L369 1488L375 1469L374 771L378 756L384 745L392 737L402 731L418 727L691 728L724 723L754 708L770 692L780 677L791 645L792 449L796 429L804 411L824 388L850 373L878 367L1795 368L1816 374L1840 388L1858 407L1867 425L1873 458L1873 635L1875 651L1883 675L1892 689L1907 705L1936 722L1960 727L2252 727L2266 731L2275 737L2288 755L2291 765L2291 1497L2294 1500L2450 1500L2496 1491L2535 1474L2572 1447L2606 1409L2621 1386L2634 1358L2647 1310L2650 1278L2649 915L2642 873L2635 849L2622 819L2603 788L2574 755L2547 733L2518 716L2486 703L2467 698L2435 694L2305 693L2302 689L2302 562L2295 520L2287 494L2269 457L2239 417L2213 392L2192 377L2155 357L2118 344L2077 338L1879 337L1877 334L1877 250L1871 204L1856 161L1833 119L1799 80L1771 57L1747 42L1702 23L1653 12L1025 11L1002 13L970 20L917 42L877 69L848 97L828 123L811 154L797 190L788 231L787 333L783 338L573 339L517 352L492 363L458 384L423 415L402 441L384 471L372 499L364 528L358 571L358 691L353 694L226 693L206 695L166 705L132 720L91 749L55 789L32 830Z"/></svg><span class="mono" style="font-size:11px;font-weight:700;letter-spacing:.14em;color:#C2410C">ONE LOOP</span><span style="font-size:15px;font-weight:800;color:#2E1065;letter-spacing:-.01em">Hackathon → Founder</span><span class="chip" style="margin-top:4px;background:#F97316;color:#2E1065">NOW · {{ cur.short }}</span></span></div><button type="button" class="lc lc0 {{ n0.cls }}" style="--k:0" onClick="{{ jump.s0 }}" aria-label="Step 1: Sponsor. We sponsor hackathons as our entry point to students."><span class="lc-top"><span class="lc-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg></span><span class="lc-n">01</span></span><span class="lc-nm">Sponsor</span><span class="lc-wt">We sponsor hackathons as our entry point to students.</span></button><button type="button" class="lc lc1 {{ n1.cls }}" style="--k:1" onClick="{{ jump.s1 }}" aria-label="Step 2: Select. We pick students who show promise during and after the event."><span class="lc-top"><span class="lc-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="lc-n">02</span></span><span class="lc-nm">Select</span><span class="lc-wt">We pick students who show promise during and after the event.</span></button><button type="button" class="lc lc2 {{ n2.cls }}" style="--k:2" onClick="{{ jump.s2 }}" aria-label="Step 3: Train. Training, project ideas and small, clearly defined tasks."><span class="lc-top"><span class="lc-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg></span><span class="lc-n">03</span></span><span class="lc-nm">Train</span><span class="lc-wt">Training, project ideas and small, clearly defined tasks.</span></button><button type="button" class="lc lc3 {{ n3.cls }}" style="--k:3" onClick="{{ jump.s3 }}" aria-label="Step 4: Grow. Students learn by doing, and the community expands."><span class="lc-top"><span class="lc-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M4 20V11M10 20V5M16 20v-6M2 20h20"/></svg></span><span class="lc-n">04</span></span><span class="lc-nm">Grow</span><span class="lc-wt">Students learn by doing, and the community expands.</span></button><button type="button" class="lc lc4 {{ n4.cls }}" style="--k:4" onClick="{{ jump.s4 }}" aria-label="Step 5: Hire. Top performers join our team through a hiring notice."><span class="lc-top"><span class="lc-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg></span><span class="lc-n">05</span><span class="chip" style="background:#F97316;color:#2E1065;height:22px;font-size:10px">PHASE 1</span></span><span class="lc-nm">Hire</span><span class="lc-wt">Top performers join our team through a hiring notice.</span></button><button type="button" class="lc lc5 {{ n5.cls }}" style="--k:5" onClick="{{ jump.s5 }}" aria-label="Step 6: Incubate. Strong performers with startup ideas are incubated with us."><span class="lc-top"><span class="lc-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 15c-1.5 1.5-2 5-2 5s3.5-.5 5-2M14 4c3-1 6-1 6-1s0 3-1 6l-6 6-5-5 6-6zM9 10H5l2-3h4M14 15v4l3-2v-4"/></svg></span><span class="lc-n">06</span><span class="chip" style="background:#F97316;color:#2E1065;height:22px;font-size:10px">PHASE 2</span></span><span class="lc-nm">Incubate</span><span class="lc-wt">Strong performers with startup ideas are incubated with us.</span></button></div>
+</div>
+</section>
+
+<section id="samples" aria-labelledby="samples-h" style="padding:20px 0 110px;background:#FFFFFF">
+<div class="wrap" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:28px">
+<div style="min-width:0;max-width:600px">
+<p class="eyebrow" style="margin-bottom:12px">SAMPLE TASKS</p>
+<h2 id="samples-h" class="io-w" data-io style="margin:0 0 8px;font-size:clamp(28px,3vw,40px);line-height:1.08;font-weight:800;letter-spacing:-.035em;color:#2E1065"><span class="w" style="--i:0">Small,</span> <span class="w" style="--i:1">clear,</span> <span class="w" style="--i:2">finishable.</span></h2>
+<p style="margin:0;font-size:16px;color:#57534E">Each task has a clear scope, expected output and deadline. Swipe through, tap a card to change its status.</p>
+</div>
+<div style="display:flex;gap:8px"><button type="button" class="circ" aria-label="Scroll tasks left" onClick="{{ carPrev }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" class="circ" aria-label="Scroll tasks right" onClick="{{ carNext }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M9 6l6 6-6 6"/></svg></button></div>
+</div>
+<div style="max-width:1240px;margin:0 auto">
+<div class="car" data-car data-io role="list">
+<sc-for list="{{ tasks }}" as="t" hint-placeholder-count="6"><button type="button" class="cv tkt" style="--i:{{ t.i }}" role="listitem" aria-label="{{ t.label }}" onClick="{{ t.advance }}"><div class="tkt-top {{ t.pat }}"><span class="chip" style="background:#FFFFFF;color:{{ t.col }}"><span aria-hidden="true" style="width:7px;height:7px;border-radius:50%;background:{{ t.dot }}"></span>{{ t.status }}</span><span class="mono" style="background:#FFFFFF;color:#2E1065;font-size:11px;font-weight:700;padding:5px 8px;border-radius:8px">{{ t.id }}</span></div><div class="tkt-body"><p style="margin:0 0 14px;font-size:17px;line-height:1.3;font-weight:800;letter-spacing:-.015em;color:#2E1065;text-decoration:{{ t.deco }}">{{ t.title }}</p><div class="tkt-cut" aria-hidden="true"></div><div style="display:flex;flex-direction:column;gap:7px;margin-top:14px"><span class="tkt-row"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg><b>SCOPE</b><span>Clear</span></span><span class="tkt-row"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 12l5 5 9-10"/></svg><b>OUTPUT</b><span>Defined</span></span><span class="tkt-row"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><b>DEADLINE</b><span>[DATE]</span></span></div><div style="display:flex;align-items:center;justify-content:space-between;margin-top:16px"><span style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#57534E"><span aria-hidden="true" style="width:26px;height:26px;border-radius:50%;background:#FFE4CC;display:flex;align-items:center;justify-content:center;font:700 9px/1 JetBrains Mono,monospace;color:#C2410C">YOU</span>Assignee</span><span class="mono" style="font-size:10px;font-weight:700;letter-spacing:.08em;color:#78716C">TAP TO MOVE</span></div><div class="tkt-prog" aria-hidden="true"><i style="width:{{ t.pct }}%;background:{{ t.dot }}"></i></div></div></button></sc-for>
+</div>
+<div style="padding:10px 32px 0"><div class="prog-track" aria-hidden="true"><span class="prog-fill" data-car-bar></span></div></div>
+</div>
+
+</section>
+
+<section id="paths" aria-labelledby="paths-h" style="padding:110px 0"><div class="wrap"><div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px;margin-bottom:36px"><div style="min-width:0;max-width:640px"><h2 id="paths-h" class="io-w" data-io style="margin:0 0 14px;font-size:clamp(34px,4vw,56px);line-height:1.04;font-weight:800;letter-spacing:-.045em;color:#2E1065"><span class="w" style="--i:0">Two</span> <span class="w" style="--i:1">paths</span> <span class="w" style="--i:2">forward.</span></h2><p style="margin:0;font-size:16px;line-height:1.6;color:#57534E">The better students work, the more the community grows. Top performers can join the team, and those with a startup idea can build it here.</p></div><div class="card" style="display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:18px;max-width:380px"><span style="display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;background:#F0FDFA;flex:none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M4 20V11M10 20V5M16 20v-6M2 20h20"/></svg></span><span style="font-size:14px;line-height:1.45;color:#44403C"><b style="color:#2E1065">Always:</b> the community grows with every task students finish.</span></div></div><div class="fk rv" data-io><svg class="fk-lines" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true"><path d="M500 0 C500 70 250 50 250 120"/><path d="M500 0 C500 70 750 50 750 120"/></svg><div class="fk-logo" aria-hidden="true"><span class="fk-tile"><svg width="53" height="40" viewBox="0 0 2660 2008" aria-hidden="true" style="display:block;flex:none"><path fill="#2E1065" d="M352 1587L352 1778L360 1825L377 1868L397 1902L412 1920L432 1939L461 1961L502 1982L534 1992L566 1997L688 1998L710 1994L734 1984L752 1972L769 1955L778 1942L791 1911L795 1887L795 1630L797 1627L800 1627L848 1675L880 1697L927 1719L980 1730L1632 1731L1680 1730L1704 1727L1735 1719L1757 1710L1785 1695L1814 1675L1862 1626L1865 1626L1867 1629L1867 1885L1872 1915L1884 1941L1909 1971L1939 1989L1970 1997L2056 1998L2111 1995L2157 1982L2194 1963L2223 1942L2257 1907L2271 1887L2291 1848L2302 1810L2306 1782L2307 1588L2304 1583L1913 1583L1908 1579L1908 1319L1904 1298L1893 1272L1869 1243L1835 1223L1795 1214L1759 1215L1717 1225L1693 1236L1663 1255L1334 1581L1329 1580L1002 1254L970 1235L934 1221L905 1215L869 1214L850 1216L828 1222L797 1240L773 1266L758 1298L754 1319L754 1578L751 1582L356 1583ZM16 879L12 903L10 944L11 1284L22 1341L39 1381L67 1422L85 1441L118 1466L158 1486L189 1495L221 1500L355 1499L369 1488L375 1469L374 771L378 756L384 745L392 737L402 731L418 727L691 728L724 723L754 708L770 692L780 677L791 645L792 449L796 429L804 411L824 388L850 373L878 367L1795 368L1816 374L1840 388L1858 407L1867 425L1873 458L1873 635L1875 651L1883 675L1892 689L1907 705L1936 722L1960 727L2252 727L2266 731L2275 737L2288 755L2291 765L2291 1497L2294 1500L2450 1500L2496 1491L2535 1474L2572 1447L2606 1409L2621 1386L2634 1358L2647 1310L2650 1278L2649 915L2642 873L2635 849L2622 819L2603 788L2574 755L2547 733L2518 716L2486 703L2467 698L2435 694L2305 693L2302 689L2302 562L2295 520L2287 494L2269 457L2239 417L2213 392L2192 377L2155 357L2118 344L2077 338L1879 337L1877 334L1877 250L1871 204L1856 161L1833 119L1799 80L1771 57L1747 42L1702 23L1653 12L1025 11L1002 13L970 20L917 42L877 69L848 97L828 123L811 154L797 190L788 231L787 333L783 338L573 339L517 352L492 363L458 384L423 415L402 441L384 471L372 499L364 528L358 571L358 691L353 694L226 693L206 695L166 705L132 720L91 749L55 789L32 830Z"/></svg></span><span class="fk-lab">TOP PERFORMERS</span></div><div class="fk-cols"><article class="fk-card fk-1"><div class="fk-head"><span class="chip" style="background:#FFFFFF;border:1px solid #FDBA74;color:#C2410C">PHASE 1</span><span class="fk-big">Hire</span><span class="fk-sub">Community growth and hiring</span></div><ul class="fk-rows"><li style="--i:0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg><b>GOAL</b><span>Expand the community and hire the best</span></li><li style="--i:1"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><circle cx="9" cy="8" r="3.5"/><path d="M2 20c0-3.5 3-6 7-6s7 2.5 7 6M16 4.5a3.5 3.5 0 0 1 0 7M18 14c2.4.6 4 2.8 4 6"/></svg><b>WHO</b><span>Top-performing students</span></li><li style="--i:2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5"/></svg><b>MECHANISM</b><span>Hiring notice into the team</span></li><li style="--i:3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="8" r="2.5"/><path d="M6 8.5v7M18 10.5c0 4-6 3-11 6"/></svg><b>TEAM SOURCE</b><span>Mighty Developers community</span></li><li style="--i:4"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M12 3v5M12 16v5M3 12h5M16 12h5M6 6l3 3M15 15l3 3M18 6l-3 3M9 15l-3 3"/></svg><b>OUTCOME</b><span>A trained, proven talent pool and a team built from people we have seen deliver.</span></li></ul></article><article class="fk-card fk-2"><div class="fk-head"><span class="chip" style="background:#F97316;color:#2E1065">PHASE 2</span><span class="fk-big">Incubate</span><span class="fk-sub">Startup incubation</span></div><ul class="fk-rows"><li style="--i:0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg><b>GOAL</b><span>Incubate startup ideas from top performers</span></li><li style="--i:1"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><circle cx="9" cy="8" r="3.5"/><path d="M2 20c0-3.5 3-6 7-6s7 2.5 7 6M16 4.5a3.5 3.5 0 0 1 0 7M18 14c2.4.6 4 2.8 4 6"/></svg><b>WHO</b><span>Students with strong startup ideas</span></li><li style="--i:2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5"/></svg><b>MECHANISM</b><span>Incubation inside our company</span></li><li style="--i:3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="8" r="2.5"/><path d="M6 8.5v7M18 10.5c0 4-6 3-11 6"/></svg><b>TEAM SOURCE</b><span>Mighty Developers community</span></li><li style="--i:4"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M12 3v5M12 16v5M3 12h5M16 12h5M6 6l3 3M15 15l3 3M18 6l-3 3M9 15l-3 3"/></svg><b>OUTCOME</b><span>A continuous source of startups, each backed by a ready team, with structure and support from day one.</span></li></ul></article></div></div></div></section>
+
+<section id="apply" aria-labelledby="apply-h" style="padding:80px 0 110px">
+<div class="wrap">
+<h2 id="apply-h" class="io-w" data-io style="margin:0 0 36px;font-size:clamp(34px,4vw,56px);line-height:1.04;font-weight:800;letter-spacing:-.045em;color:#2E1065"><span class="w" style="--i:0">Ready</span> <span class="w" style="--i:1">to</span> <span class="w" style="--i:2">build</span> <span class="w" style="--i:3">with</span> <span class="w" style="--i:4">us?</span></h2>
+<div style="display:flex;flex-wrap:wrap;gap:24px">
+<article class="rv-l" data-io style="flex:1 1 420px;min-width:0;position:relative;overflow:hidden;border-radius:28px;background:linear-gradient(160deg,#FFF1E6 0%,#FFE4CC 60%,#FED7AA 100%);min-height:520px;padding:32px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-end">
+<div class="js-wrap" data-io><div class="js" style="--i:0"><span class="js-n">01</span><span style="display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:12px;background:#FFFFFF;flex:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><circle cx="9" cy="8" r="3.5"/><path d="M2 20c0-3.5 3-6 7-6s7 2.5 7 6M16 4.5a3.5 3.5 0 0 1 0 7M18 14c2.4.6 4 2.8 4 6"/></svg></span><span style="display:flex;flex-direction:column;gap:2px;min-width:0"><b style="font-size:16px;color:#2E1065">Join the community</b><span style="font-size:13px;color:#57534E">A simple onboarding step</span></span></div><div class="js" style="--i:1"><span class="js-n">02</span><span style="display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:12px;background:#FFF1E6;flex:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4V7z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg></span><span style="display:flex;flex-direction:column;gap:2px;min-width:0"><b style="font-size:16px;color:#2E1065">Pick up a small task</b><span style="font-size:13px;color:#57534E">Clear scope, output and deadline</span></span></div><div class="js" style="--i:2"><span class="js-n">03</span><span style="display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:12px;background:#F0FDFA;flex:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 15c-1.5 1.5-2 5-2 5s3.5-.5 5-2M14 4c3-1 6-1 6-1s0 3-1 6l-6 6-5-5 6-6zM9 10H5l2-3h4M14 15v4l3-2v-4"/></svg></span><span style="display:flex;flex-direction:column;gap:2px;min-width:0"><b style="font-size:16px;color:#2E1065">Ship it and grow</b><span style="font-size:13px;color:#57534E">Regular review on every task</span></span></div></div>
+<span class="icon-chip" style="position:relative;margin-bottom:18px;border-color:#FDBA74"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><circle cx="9" cy="8" r="3.5"/><path d="M2 20c0-3.5 3-6 7-6s7 2.5 7 6M16 4.5a3.5 3.5 0 0 1 0 7M18 14c2.4.6 4 2.8 4 6"/></svg></span>
+<h3 style="position:relative;margin:0 0 10px;font-size:clamp(32px,3.4vw,46px);line-height:1.02;font-weight:800;letter-spacing:-.045em;color:#2E1065">Join the<br>community</h3>
+<p style="position:relative;margin:0 0 22px;max-width:380px;font-size:16px;line-height:1.55;color:#44403C">Join the community and start with a task you fully understand.</p>
+<div style="position:relative"><a class="pill pill-v" href="#apply">Join the community<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+</article>
+<article class="rv-r card" data-io style="flex:1 1 420px;min-width:0;position:relative;overflow:hidden;border-radius:28px;min-height:520px;padding:32px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-end">
+<div aria-hidden="true" style="position:absolute;left:0;right:0;top:0;height:300px;display:flex;align-items:center;justify-content:center;background:#FAFAF9;border-bottom:1px solid #F1EFEC">
+
+<div data-tilt style="width:260px;border-radius:18px;background:#FFFFFF;border:1.5px solid #FDBA74;padding:18px;box-sizing:border-box;transform:rotate(-5deg);box-shadow:0 26px 40px -26px rgba(249,115,22,.7)">
+<div style="display:flex;justify-content:space-between;margin-bottom:10px"><span class="eyebrow" style="font-size:10px">HOST A HACKATHON</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4V7z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg></div>
+<p style="margin:0 0 8px;font-size:20px;font-weight:800;letter-spacing:-.02em;color:#2E1065">[YOUR COLLEGE]</p>
+<div style="display:flex;gap:6px;flex-wrap:wrap"><span class="chip" style="background:#FFF1E6;color:#C2410C">SPONSORED</span><span class="chip" style="background:#F0FDFA;color:#0F766E">MENTORS</span></div>
+</div>
+</div>
+<span class="icon-chip" style="position:relative;margin-bottom:18px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg></span>
+<h3 style="position:relative;margin:0 0 10px;font-size:clamp(32px,3.4vw,46px);line-height:1.02;font-weight:800;letter-spacing:-.045em;color:#2E1065">Host a<br>hackathon</h3>
+<p style="position:relative;margin:0 0 22px;max-width:380px;font-size:16px;line-height:1.55;color:#44403C">Organizing a hackathon at your college? Talk to us.</p>
+<div style="position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:14px"><a class="pill pill-o" href="#apply">Host a hackathon<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><span class="mono" style="font-size:13px;color:#57534E">[CONTACT EMAIL]</span></div>
+</article>
+</div>
+</div>
+</section>
+</main>
+
+<section aria-label="Find us on Instagram, WhatsApp, Discord and Substack" style="padding:40px 0 30px;overflow:hidden"><div class="band band-full band-diag2" style="padding:26px 0"><div style="overflow:hidden"><div class="mq" style="animation-duration:24s"><div class="band-small"><span class="band-pill" style="background:#2E1065;color:#FFFFFF;border-color:#2E1065">Find us on</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".8"/></svg>Instagram</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M4 20l1.4-4.2A8 8 0 1 1 8.5 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-1.8-1.8l.8-1-1-2z"/></svg>WhatsApp</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M7 7h10a4 4 0 0 1 4 4v3a3 3 0 0 1-5.4 1.8L14.5 14h-5l-1.1 1.8A3 3 0 0 1 3 14v-3a4 4 0 0 1 4-4z"/><path d="M7.5 10v3M6 11.5h3"/><circle cx="15.5" cy="11" r=".8"/><circle cx="17" cy="12.8" r=".8"/></svg>Discord</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h5"/></svg>Substack</span></div><div class="band-small"><span class="band-pill" style="background:#2E1065;color:#FFFFFF;border-color:#2E1065">Find us on</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".8"/></svg>Instagram</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M4 20l1.4-4.2A8 8 0 1 1 8.5 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-1.8-1.8l.8-1-1-2z"/></svg>WhatsApp</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M7 7h10a4 4 0 0 1 4 4v3a3 3 0 0 1-5.4 1.8L14.5 14h-5l-1.1 1.8A3 3 0 0 1 3 14v-3a4 4 0 0 1 4-4z"/><path d="M7.5 10v3M6 11.5h3"/><circle cx="15.5" cy="11" r=".8"/><circle cx="17" cy="12.8" r=".8"/></svg>Discord</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h5"/></svg>Substack</span></div><div class="band-small"><span class="band-pill" style="background:#2E1065;color:#FFFFFF;border-color:#2E1065">Find us on</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".8"/></svg>Instagram</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M4 20l1.4-4.2A8 8 0 1 1 8.5 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-1.8-1.8l.8-1-1-2z"/></svg>WhatsApp</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M7 7h10a4 4 0 0 1 4 4v3a3 3 0 0 1-5.4 1.8L14.5 14h-5l-1.1 1.8A3 3 0 0 1 3 14v-3a4 4 0 0 1 4-4z"/><path d="M7.5 10v3M6 11.5h3"/><circle cx="15.5" cy="11" r=".8"/><circle cx="17" cy="12.8" r=".8"/></svg>Discord</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h5"/></svg>Substack</span></div><div class="band-small"><span class="band-pill" style="background:#2E1065;color:#FFFFFF;border-color:#2E1065">Find us on</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".8"/></svg>Instagram</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M4 20l1.4-4.2A8 8 0 1 1 8.5 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-1.8-1.8l.8-1-1-2z"/></svg>WhatsApp</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M7 7h10a4 4 0 0 1 4 4v3a3 3 0 0 1-5.4 1.8L14.5 14h-5l-1.1 1.8A3 3 0 0 1 3 14v-3a4 4 0 0 1 4-4z"/><path d="M7.5 10v3M6 11.5h3"/><circle cx="15.5" cy="11" r=".8"/><circle cx="17" cy="12.8" r=".8"/></svg>Discord</span><span class="band-pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h5"/></svg>Substack</span></div></div></div></div></section>
+<footer class="fwv" data-io style="overflow:hidden"><div class="waves" aria-hidden="true"><div class="wv wv1"><div class="wv-in"><svg viewBox="0 0 1440 160" preserveAspectRatio="none" style="display:block;width:50%;height:100%;flex:none"><path fill="#FED7AA" d="M0 80 C120 40 240 40 360 80 S600 120 720 80 S960 40 1080 80 S1320 120 1440 80 V160 H0 Z"/></svg><svg viewBox="0 0 1440 160" preserveAspectRatio="none" style="display:block;width:50%;height:100%;flex:none"><path fill="#FED7AA" d="M0 80 C120 40 240 40 360 80 S600 120 720 80 S960 40 1080 80 S1320 120 1440 80 V160 H0 Z"/></svg></div></div><div class="wv wv2"><div class="wv-in"><svg viewBox="0 0 1440 160" preserveAspectRatio="none" style="display:block;width:50%;height:100%;flex:none"><path fill="#FFEDD5" d="M0 80 C120 40 240 40 360 80 S600 120 720 80 S960 40 1080 80 S1320 120 1440 80 V160 H0 Z"/></svg><svg viewBox="0 0 1440 160" preserveAspectRatio="none" style="display:block;width:50%;height:100%;flex:none"><path fill="#FFEDD5" d="M0 80 C120 40 240 40 360 80 S600 120 720 80 S960 40 1080 80 S1320 120 1440 80 V160 H0 Z"/></svg></div></div><div class="riders"><span class="ride" style="--x:4;--d:0ms;left:4%;bottom:62px"><span class="ride-in" style="--k:0"><span class="ride-tag">AI</span><span class="ride-c"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></span></span></span><span class="ride" style="--x:11;--d:70ms;left:11%;bottom:96px"><span class="ride-in" style="--k:1"><span class="ride-c"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg></span></span></span><span class="ride" style="--x:18;--d:140ms;left:18%;bottom:70px"><span class="ride-in" style="--k:2"><span class="ride-c"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M8 4h8v5a4 4 0 0 1-8 0V4zM8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8 21h8M10 17h4v4h-4z"/></svg></span></span></span><span class="ride" style="--x:25;--d:210ms;left:25%;bottom:104px"><span class="ride-in" style="--k:3"><span class="ride-tag">AI pair</span><span class="ride-c"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><rect x="4" y="8" width="16" height="11" rx="3"/><circle cx="9.5" cy="13.5" r="1.3"/><circle cx="14.5" cy="13.5" r="1.3"/><path d="M12 4v4M10 17h4"/><circle cx="12" cy="3.5" r="1"/></svg></span></span></span><span class="ride" style="--x:32;--d:280ms;left:32%;bottom:66px"><span class="ride-in" style="--k:4"><span class="ride-c"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9V16h7v-2.1A6 6 0 0 0 12 3z"/></svg></span></span></span><span class="ride" style="--x:39;--d:350ms;left:39%;bottom:92px"><span class="ride-in" style="--k:5"><span class="ride-c"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9l3 3-3 3M12 15h5"/></svg></span></span></span><span class="ride" style="--x:44;--d:420ms;left:44%;bottom:70px"><span class="ride-in" style="--k:6"><span class="ride-tag">24h build</span><span class="ride-c"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg></span></span></span><span class="ride ride-logo-s" style="--x:61;--d:490ms;left:61%;bottom:96px"><span class="ride-in" style="--k:7"><span class="ride-c"><svg width="26" height="20" viewBox="0 0 2660 2008" aria-hidden="true" style="display:block;flex:none"><path fill="#2E1065" d="M352 1587L352 1778L360 1825L377 1868L397 1902L412 1920L432 1939L461 1961L502 1982L534 1992L566 1997L688 1998L710 1994L734 1984L752 1972L769 1955L778 1942L791 1911L795 1887L795 1630L797 1627L800 1627L848 1675L880 1697L927 1719L980 1730L1632 1731L1680 1730L1704 1727L1735 1719L1757 1710L1785 1695L1814 1675L1862 1626L1865 1626L1867 1629L1867 1885L1872 1915L1884 1941L1909 1971L1939 1989L1970 1997L2056 1998L2111 1995L2157 1982L2194 1963L2223 1942L2257 1907L2271 1887L2291 1848L2302 1810L2306 1782L2307 1588L2304 1583L1913 1583L1908 1579L1908 1319L1904 1298L1893 1272L1869 1243L1835 1223L1795 1214L1759 1215L1717 1225L1693 1236L1663 1255L1334 1581L1329 1580L1002 1254L970 1235L934 1221L905 1215L869 1214L850 1216L828 1222L797 1240L773 1266L758 1298L754 1319L754 1578L751 1582L356 1583ZM16 879L12 903L10 944L11 1284L22 1341L39 1381L67 1422L85 1441L118 1466L158 1486L189 1495L221 1500L355 1499L369 1488L375 1469L374 771L378 756L384 745L392 737L402 731L418 727L691 728L724 723L754 708L770 692L780 677L791 645L792 449L796 429L804 411L824 388L850 373L878 367L1795 368L1816 374L1840 388L1858 407L1867 425L1873 458L1873 635L1875 651L1883 675L1892 689L1907 705L1936 722L1960 727L2252 727L2266 731L2275 737L2288 755L2291 765L2291 1497L2294 1500L2450 1500L2496 1491L2535 1474L2572 1447L2606 1409L2621 1386L2634 1358L2647 1310L2650 1278L2649 915L2642 873L2635 849L2622 819L2603 788L2574 755L2547 733L2518 716L2486 703L2467 698L2435 694L2305 693L2302 689L2302 562L2295 520L2287 494L2269 457L2239 417L2213 392L2192 377L2155 357L2118 344L2077 338L1879 337L1877 334L1877 250L1871 204L1856 161L1833 119L1799 80L1771 57L1747 42L1702 23L1653 12L1025 11L1002 13L970 20L917 42L877 69L848 97L828 123L811 154L797 190L788 231L787 333L783 338L573 339L517 352L492 363L458 384L423 415L402 441L384 471L372 499L364 528L358 571L358 691L353 694L226 693L206 695L166 705L132 720L91 749L55 789L32 830Z"/></svg></span></span></span><span class="ride" style="--x:66;--d:560ms;left:66%;bottom:64px"><span class="ride-in" style="--k:8"><span class="ride-c"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4V7z"/><path d="M14 7v10" stroke-dasharray="2 2"/></svg></span></span></span><span class="ride" style="--x:72;--d:630ms;left:72%;bottom:94px"><span class="ride-in" style="--k:9"><span class="ride-c"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></svg></span></span></span><span class="ride" style="--x:78;--d:700ms;left:78%;bottom:70px"><span class="ride-in" style="--k:10"><span class="ride-tag">AI assist</span><span class="ride-c"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M4 20L15 9M14 3l1 2 2 1-2 1-1 2-1-2-2-1 2-1zM19 11l.6 1.4L21 13l-1.4.6L19 15l-.6-1.4L17 13l1.4-.6z"/></svg></span></span></span><span class="ride" style="--x:84;--d:770ms;left:84%;bottom:98px"><span class="ride-in" style="--k:11"><span class="ride-c"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9zM16 10h2a3 3 0 0 1 0 6h-2M8 3v3M12 3v3"/></svg></span></span></span><span class="ride" style="--x:90;--d:840ms;left:90%;bottom:66px"><span class="ride-in" style="--k:12"><span class="ride-tag">Demo day</span><span class="ride-c"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M5 15c-1.5 1.5-2 5-2 5s3.5-.5 5-2M14 4c3-1 6-1 6-1s0 3-1 6l-6 6-5-5 6-6zM9 10H5l2-3h4M14 15v4l3-2v-4"/></svg></span></span></span><span class="ride" style="--x:96;--d:910ms;left:96%;bottom:92px"><span class="ride-in" style="--k:13"><span class="ride-c"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="8" r="2.5"/><path d="M6 8.5v7M18 10.5c0 4-6 3-11 6"/></svg></span></span></span><span class="ride ride-logo-s" style="--x:14;--d:980ms;left:14%;bottom:128px"><span class="ride-in" style="--k:14"><span class="ride-c"><svg width="26" height="20" viewBox="0 0 2660 2008" aria-hidden="true" style="display:block;flex:none"><path fill="#2E1065" d="M352 1587L352 1778L360 1825L377 1868L397 1902L412 1920L432 1939L461 1961L502 1982L534 1992L566 1997L688 1998L710 1994L734 1984L752 1972L769 1955L778 1942L791 1911L795 1887L795 1630L797 1627L800 1627L848 1675L880 1697L927 1719L980 1730L1632 1731L1680 1730L1704 1727L1735 1719L1757 1710L1785 1695L1814 1675L1862 1626L1865 1626L1867 1629L1867 1885L1872 1915L1884 1941L1909 1971L1939 1989L1970 1997L2056 1998L2111 1995L2157 1982L2194 1963L2223 1942L2257 1907L2271 1887L2291 1848L2302 1810L2306 1782L2307 1588L2304 1583L1913 1583L1908 1579L1908 1319L1904 1298L1893 1272L1869 1243L1835 1223L1795 1214L1759 1215L1717 1225L1693 1236L1663 1255L1334 1581L1329 1580L1002 1254L970 1235L934 1221L905 1215L869 1214L850 1216L828 1222L797 1240L773 1266L758 1298L754 1319L754 1578L751 1582L356 1583ZM16 879L12 903L10 944L11 1284L22 1341L39 1381L67 1422L85 1441L118 1466L158 1486L189 1495L221 1500L355 1499L369 1488L375 1469L374 771L378 756L384 745L392 737L402 731L418 727L691 728L724 723L754 708L770 692L780 677L791 645L792 449L796 429L804 411L824 388L850 373L878 367L1795 368L1816 374L1840 388L1858 407L1867 425L1873 458L1873 635L1875 651L1883 675L1892 689L1907 705L1936 722L1960 727L2252 727L2266 731L2275 737L2288 755L2291 765L2291 1497L2294 1500L2450 1500L2496 1491L2535 1474L2572 1447L2606 1409L2621 1386L2634 1358L2647 1310L2650 1278L2649 915L2642 873L2635 849L2622 819L2603 788L2574 755L2547 733L2518 716L2486 703L2467 698L2435 694L2305 693L2302 689L2302 562L2295 520L2287 494L2269 457L2239 417L2213 392L2192 377L2155 357L2118 344L2077 338L1879 337L1877 334L1877 250L1871 204L1856 161L1833 119L1799 80L1771 57L1747 42L1702 23L1653 12L1025 11L1002 13L970 20L917 42L877 69L848 97L828 123L811 154L797 190L788 231L787 333L783 338L573 339L517 352L492 363L458 384L423 415L402 441L384 471L372 499L364 528L358 571L358 691L353 694L226 693L206 695L166 705L132 720L91 749L55 789L32 830Z"/></svg></span></span></span><span class="ride ride-hero" style="--x:52;--d:200ms;left:52%;bottom:58px"><span class="ride-hero-in"><span class="ride-tag" style="background:#2E1065;color:#FFFFFF">Mighty Developers</span><span class="ride-c ride-c-hero"><svg width="58" height="44" viewBox="0 0 2660 2008" aria-hidden="true" style="display:block;flex:none"><path fill="#2E1065" d="M352 1587L352 1778L360 1825L377 1868L397 1902L412 1920L432 1939L461 1961L502 1982L534 1992L566 1997L688 1998L710 1994L734 1984L752 1972L769 1955L778 1942L791 1911L795 1887L795 1630L797 1627L800 1627L848 1675L880 1697L927 1719L980 1730L1632 1731L1680 1730L1704 1727L1735 1719L1757 1710L1785 1695L1814 1675L1862 1626L1865 1626L1867 1629L1867 1885L1872 1915L1884 1941L1909 1971L1939 1989L1970 1997L2056 1998L2111 1995L2157 1982L2194 1963L2223 1942L2257 1907L2271 1887L2291 1848L2302 1810L2306 1782L2307 1588L2304 1583L1913 1583L1908 1579L1908 1319L1904 1298L1893 1272L1869 1243L1835 1223L1795 1214L1759 1215L1717 1225L1693 1236L1663 1255L1334 1581L1329 1580L1002 1254L970 1235L934 1221L905 1215L869 1214L850 1216L828 1222L797 1240L773 1266L758 1298L754 1319L754 1578L751 1582L356 1583ZM16 879L12 903L10 944L11 1284L22 1341L39 1381L67 1422L85 1441L118 1466L158 1486L189 1495L221 1500L355 1499L369 1488L375 1469L374 771L378 756L384 745L392 737L402 731L418 727L691 728L724 723L754 708L770 692L780 677L791 645L792 449L796 429L804 411L824 388L850 373L878 367L1795 368L1816 374L1840 388L1858 407L1867 425L1873 458L1873 635L1875 651L1883 675L1892 689L1907 705L1936 722L1960 727L2252 727L2266 731L2275 737L2288 755L2291 765L2291 1497L2294 1500L2450 1500L2496 1491L2535 1474L2572 1447L2606 1409L2621 1386L2634 1358L2647 1310L2650 1278L2649 915L2642 873L2635 849L2622 819L2603 788L2574 755L2547 733L2518 716L2486 703L2467 698L2435 694L2305 693L2302 689L2302 562L2295 520L2287 494L2269 457L2239 417L2213 392L2192 377L2155 357L2118 344L2077 338L1879 337L1877 334L1877 250L1871 204L1856 161L1833 119L1799 80L1771 57L1747 42L1702 23L1653 12L1025 11L1002 13L970 20L917 42L877 69L848 97L828 123L811 154L797 190L788 231L787 333L783 338L573 339L517 352L492 363L458 384L423 415L402 441L384 471L372 499L364 528L358 571L358 691L353 694L226 693L206 695L166 705L132 720L91 749L55 789L32 830Z"/></svg></span><span class="spark s1"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M12 3v5M12 16v5M3 12h5M16 12h5M6 6l3 3M15 15l3 3M18 6l-3 3M9 15l-3 3"/></svg></span><span class="spark s2"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M12 3v5M12 16v5M3 12h5M16 12h5M6 6l3 3M15 15l3 3M18 6l-3 3M9 15l-3 3"/></svg></span><span class="spark s3"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;flex:none"><path d="M12 3v5M12 16v5M3 12h5M16 12h5M6 6l3 3M15 15l3 3M18 6l-3 3M9 15l-3 3"/></svg></span></span></span></div><div class="wv wv3"><div class="wv-in"><svg viewBox="0 0 1440 160" preserveAspectRatio="none" style="display:block;width:50%;height:100%;flex:none"><path fill="#FFE4CC" d="M0 80 C120 40 240 40 360 80 S600 120 720 80 S960 40 1080 80 S1320 120 1440 80 V160 H0 Z"/></svg><svg viewBox="0 0 1440 160" preserveAspectRatio="none" style="display:block;width:50%;height:100%;flex:none"><path fill="#FFE4CC" d="M0 80 C120 40 240 40 360 80 S600 120 720 80 S960 40 1080 80 S1320 120 1440 80 V160 H0 Z"/></svg></div></div></div><div class="fbody">
+<div class="wrap" style="padding-top:48px">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:28px">
+<div style="min-width:0;max-width:380px">
+<a href="#top" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:#2E1065;font-weight:800;font-size:18px;min-height:44px"><svg width="32" height="24" viewBox="0 0 2660 2008" aria-hidden="true" style="display:block;flex:none"><path fill="#2E1065" d="M352 1587L352 1778L360 1825L377 1868L397 1902L412 1920L432 1939L461 1961L502 1982L534 1992L566 1997L688 1998L710 1994L734 1984L752 1972L769 1955L778 1942L791 1911L795 1887L795 1630L797 1627L800 1627L848 1675L880 1697L927 1719L980 1730L1632 1731L1680 1730L1704 1727L1735 1719L1757 1710L1785 1695L1814 1675L1862 1626L1865 1626L1867 1629L1867 1885L1872 1915L1884 1941L1909 1971L1939 1989L1970 1997L2056 1998L2111 1995L2157 1982L2194 1963L2223 1942L2257 1907L2271 1887L2291 1848L2302 1810L2306 1782L2307 1588L2304 1583L1913 1583L1908 1579L1908 1319L1904 1298L1893 1272L1869 1243L1835 1223L1795 1214L1759 1215L1717 1225L1693 1236L1663 1255L1334 1581L1329 1580L1002 1254L970 1235L934 1221L905 1215L869 1214L850 1216L828 1222L797 1240L773 1266L758 1298L754 1319L754 1578L751 1582L356 1583ZM16 879L12 903L10 944L11 1284L22 1341L39 1381L67 1422L85 1441L118 1466L158 1486L189 1495L221 1500L355 1499L369 1488L375 1469L374 771L378 756L384 745L392 737L402 731L418 727L691 728L724 723L754 708L770 692L780 677L791 645L792 449L796 429L804 411L824 388L850 373L878 367L1795 368L1816 374L1840 388L1858 407L1867 425L1873 458L1873 635L1875 651L1883 675L1892 689L1907 705L1936 722L1960 727L2252 727L2266 731L2275 737L2288 755L2291 765L2291 1497L2294 1500L2450 1500L2496 1491L2535 1474L2572 1447L2606 1409L2621 1386L2634 1358L2647 1310L2650 1278L2649 915L2642 873L2635 849L2622 819L2603 788L2574 755L2547 733L2518 716L2486 703L2467 698L2435 694L2305 693L2302 689L2302 562L2295 520L2287 494L2269 457L2239 417L2213 392L2192 377L2155 357L2118 344L2077 338L1879 337L1877 334L1877 250L1871 204L1856 161L1833 119L1799 80L1771 57L1747 42L1702 23L1653 12L1025 11L1002 13L970 20L917 42L877 69L848 97L828 123L811 154L797 190L788 231L787 333L783 338L573 339L517 352L492 363L458 384L423 415L402 441L384 471L372 499L364 528L358 571L358 691L353 694L226 693L206 695L166 705L132 720L91 749L55 789L32 830Z"/></svg>Mighty Developers</a>
+<p style="margin:6px 0 0;font-size:15px;color:#57534E">A developer community under Shadowsphere. Built from hackathons, grown into a talent pipeline and a startup incubator.</p>
+</div>
+<nav aria-label="Footer" style="display:flex;flex-wrap:wrap;gap:4px 28px;font-weight:600;font-size:15px">
+<a class="nav-a" href="#hackathons" style="font-size:15px">Hackathons</a><a class="nav-a" href="#tasks" style="font-size:15px">Tasks</a><a class="nav-a" href="#loop" style="font-size:15px">The loop</a><a class="nav-a" href="#paths" style="font-size:15px">Paths</a>
+</nav>
+</div>
+</div>
+<div class="fw" data-io aria-hidden="true"><svg viewBox="0 0 1000 74" width="100%" style="display:block;overflow:visible"><text x="2" y="71" textLength="996" lengthAdjust="spacingAndGlyphs" style="font-family:Inter,system-ui,sans-serif;font-weight:800;font-size:97px;letter-spacing:-3px">MIGHTY DEVELOPERS</text></svg></div>
+<div class="wrap" style="padding-bottom:24px">
+<div class="mono" style="padding-top:16px;border-top:1px solid rgba(249,115,22,.25);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font-size:12px;color:#9A3412"><span>© 2026 Mighty Developers</span><span>SPONSOR → SELECT → TRAIN → GROW → HIRE / INCUBATE</span></div>
+</div>
+</div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":7487}}'>
+class Component extends DCLogic {
+  componentDidMount() {
+    let reduce = false;
+    try { reduce = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches); } catch (e) {}
+    this._reduce = reduce;
+    if (reduce) this.setState({ auto: false });
+    this._timer = setInterval(() => {
+      this.setState((s) => {
+        const st = s || {};
+        if (st.auto === false) return null;
+        return { tick: (typeof st.tick === "number" ? st.tick : 0) + 1, dir: 1 };
+      });
+    }, 3200);
+    this._sc = () => {
+      try {
+        const de = document.documentElement;
+        de.classList.toggle("md-scroll", de.scrollHeight > window.innerHeight + 80);
+      } catch (e) {}
+      this._carBar();
+    };
+    this._sc();
+    window.addEventListener("resize", this._sc);
+    this._scT = setTimeout(this._sc, 700);
+    this._mountAt = Date.now();
+    this._ioSetup = () => {
+      const els = document.querySelectorAll("[data-io]");
+      const all = () => els.forEach((el) => el.classList.add("is-in"));
+      if (this._reduce || !("IntersectionObserver" in window)) { all(); return; }
+      this._io = new IntersectionObserver((ents) => {
+        ents.forEach((en) => {
+          const el = en.target;
+          if (en.isIntersecting && (en.intersectionRatio > 0.12 || en.intersectionRect.height > 160)) {
+            const d = parseInt(el.getAttribute("data-io-delay") || "0", 10);
+            if (d && Date.now() - this._mountAt < 2500) setTimeout(() => el.classList.add("is-in"), d);
+            else el.classList.add("is-in");
+          }
+          else if (!en.isIntersecting) el.classList.remove("is-in");
+        });
+      }, { threshold: [0, 0.12, 0.25, 0.5] });
+      els.forEach((el) => this._io.observe(el));
+    };
+    this._ioT = setTimeout(this._ioSetup, 60);
+    /* hero deck: opens only as you scroll (page scroll, or wheel/touch on the canvas) */
+    this._deckO = 0; this._deckAcc = 0; this._ty = null;
+    this._setDeck = (o) => {
+      o = Math.max(0, Math.min(1, o));
+      if (Math.abs(o - this._deckO) < 0.002) return;
+      this._deckO = o;
+      const el = document.querySelector(".deck");
+      if (el) el.style.setProperty("--o", o.toFixed(3));
+    };
+    const scrolls = () => document.documentElement.scrollHeight > window.innerHeight + 80;
+    this._dh = {
+      scroll: () => { if (scrolls()) this._setDeck((window.scrollY || document.documentElement.scrollTop || 0) / 300); },
+      wheel: (e) => { if (scrolls()) return; this._deckAcc = Math.max(0, Math.min(360, this._deckAcc + e.deltaY)); this._setDeck(this._deckAcc / 300); },
+      tstart: (e) => { this._ty = e.touches && e.touches[0] ? e.touches[0].clientY : null; },
+      tmove: (e) => {
+        if (scrolls() || this._ty === null || !e.touches || !e.touches[0]) return;
+        const y = e.touches[0].clientY; this._deckAcc = Math.max(0, Math.min(360, this._deckAcc + (this._ty - y))); this._ty = y; this._setDeck(this._deckAcc / 300);
+      }
+    };
+    if (this._reduce) this._setDeck(1);
+    else {
+      window.addEventListener("scroll", this._dh.scroll, { passive: true });
+      document.addEventListener("wheel", this._dh.wheel, { passive: true });
+      document.addEventListener("touchstart", this._dh.tstart, { passive: true });
+      document.addEventListener("touchmove", this._dh.tmove, { passive: true });
+      this._dh.scroll();
+    }
+    this._noClickUntil = 0;
+    this._t = null;
+    this._h = {
+      down: (e) => this._onDown(e),
+      move: (e) => this._onMove(e),
+      up: (e) => this._onUp(e),
+      cancel: (e) => this._onCancel(e),
+      key: (e) => this._onKey(e),
+      scroll: (e) => { if (e.target && e.target.matches && e.target.matches("[data-car]")) this._carBar(); }
+    };
+    document.addEventListener("pointerdown", this._h.down, { passive: true });
+    document.addEventListener("pointermove", this._h.move, { passive: true });
+    document.addEventListener("pointerup", this._h.up, { passive: true });
+    document.addEventListener("pointercancel", this._h.cancel, { passive: true });
+    document.addEventListener("keydown", this._h.key);
+    document.addEventListener("scroll", this._h.scroll, { passive: true, capture: true });
+  }
+  componentWillUnmount() {
+    if (this._timer) clearInterval(this._timer);
+    if (this._scT) clearTimeout(this._scT);
+    if (this._ioT) clearTimeout(this._ioT);
+    if (this._dh) {
+      window.removeEventListener("scroll", this._dh.scroll);
+      document.removeEventListener("wheel", this._dh.wheel);
+      document.removeEventListener("touchstart", this._dh.tstart);
+      document.removeEventListener("touchmove", this._dh.tmove);
+    }
+    if (this._io) this._io.disconnect();
+    if (this._sc) window.removeEventListener("resize", this._sc);
+    if (this._h) {
+      document.removeEventListener("pointerdown", this._h.down);
+      document.removeEventListener("pointermove", this._h.move);
+      document.removeEventListener("pointerup", this._h.up);
+      document.removeEventListener("pointercancel", this._h.cancel);
+      document.removeEventListener("keydown", this._h.key);
+      document.removeEventListener("scroll", this._h.scroll, { capture: true });
+    }
+    if (this._raf) cancelAnimationFrame(this._raf);
+  }
+
+  /* ---------- helpers ---------- */
+  _blocked() { return Date.now() < (this._noClickUntil || 0); }
+  _buzz(p) { try { if (navigator.vibrate) navigator.vibrate(p); } catch (e) {} }
+  _ring(x, y) {
+    if (this._reduce || !document.body || !document.body.animate) return;
+    const d = document.createElement("div");
+    d.setAttribute("aria-hidden", "true");
+    d.style.cssText = "position:fixed;left:" + x + "px;top:" + y + "px;width:14px;height:14px;margin:-7px 0 0 -7px;box-sizing:border-box;border:2px solid #F97316;border-radius:50%;pointer-events:none;z-index:2147483000";
+    document.body.appendChild(d);
+    const a = d.animate([{ transform: "scale(.4)", opacity: 1 }, { transform: "scale(4.4)", opacity: 0 }], { duration: 520, easing: "cubic-bezier(.2,.7,.2,1)" });
+    a.onfinish = () => { if (d.parentNode) d.parentNode.removeChild(d); };
+  }
+  _drag(patch) {
+    this._patch = Object.assign(this._patch || {}, patch);
+    if (this._raf) return;
+    this._raf = requestAnimationFrame(() => {
+      const p = this._patch;
+      this._patch = null;
+      this._raf = 0;
+      if (p) this.setState(p);
+    });
+  }
+  _carBar() {
+    try {
+      const c = document.querySelector("[data-car]");
+      const b = document.querySelector("[data-car-bar]");
+      if (!c || !b || !c.scrollWidth) return;
+      const vis = Math.min(1, c.clientWidth / c.scrollWidth);
+      const max = Math.max(1, c.scrollWidth - c.clientWidth);
+      const p = Math.min(1, c.scrollLeft / max);
+      b.style.width = (vis * 100).toFixed(2) + "%";
+      b.style.left = (p * (1 - vis) * 100).toFixed(2) + "%";
+    } catch (e) {}
+  }
+  _car(dirn) {
+    if (this._blocked()) return;
+    const c = document.querySelector("[data-car]");
+    if (c) c.scrollBy({ left: dirn * Math.max(260, c.clientWidth * 0.75), behavior: this._reduce ? "auto" : "smooth" });
+  }
+  _dock(e, el) {
+    const tiles = el.querySelectorAll(".dk");
+    let best = null, bestD = 1e9;
+    tiles.forEach((t) => {
+      const r = t.getBoundingClientRect();
+      const d = Math.abs(e.clientX - (r.left + r.width / 2));
+      const s = 1 + 0.55 * Math.max(0, 1 - d / 130);
+      t.style.transform = "translateY(" + (-(s - 1) * 22).toFixed(1) + "px) scale(" + s.toFixed(3) + ")";
+      if (d < bestD) { bestD = d; best = t; }
+      t.classList.remove("is-mag");
+    });
+    if (best && bestD < 40) best.classList.add("is-mag");
+    this._dockEl = el;
+  }
+  _dockReset() {
+    const el = this._dockEl;
+    if (!el) return;
+    el.querySelectorAll(".dk").forEach((t) => { t.style.transform = ""; t.classList.remove("is-mag"); });
+    this._dockEl = null;
+  }
+  _tilt(el, e) {
+    const r = el.getBoundingClientRect();
+    if (!r.width || !r.height) return;
+    const cl = (v) => Math.max(-0.5, Math.min(0.5, v));
+    const px = cl((e.clientX - r.left) / r.width - 0.5), py = cl((e.clientY - r.top) / r.height - 0.5);
+    el.style.transition = "transform .08s linear";
+    el.style.transform = "perspective(800px) rotateX(" + (-py * 16).toFixed(2) + "deg) rotateY(" + (px * 16).toFixed(2) + "deg)";
+    this._tiltEl = el;
+  }
+  _tiltReset(el) {
+    if (!el) return;
+    el.style.transition = "transform .5s cubic-bezier(.2,.7,.2,1)";
+    el.style.transform = "";
+    if (this._tiltEl === el) this._tiltEl = null;
+  }
+
+  /* ---------- gestures ---------- */
+  _onDown(e) {
+    if (e.pointerType === "mouse" && e.button !== 0) return;
+    const el = e.target && e.target.closest ? e.target : null;
+    if (!el) return;
+    const hit = el.closest("button,a");
+    const sw = el.closest("[data-swipe]");
+    const tl = el.closest("[data-tilt]");
+    const dk = el.closest("[data-dock]");
+    if (hit || sw || tl) this._ring(e.clientX, e.clientY);
+    if (tl) this._tilt(tl, e);
+    if (dk) this._dock(e, dk);
+    this._t = sw ? { x: e.clientX, y: e.clientY, at: Date.now(), id: e.pointerId, moved: false } : null;
+  }
+  _onMove(e) {
+    const el = e.target && e.target.closest ? e.target : null;
+    const tl = el ? el.closest("[data-tilt]") : null;
+    if (this._tiltEl && this._tiltEl !== tl) this._tiltReset(this._tiltEl);
+    if (tl && (e.pointerType === "mouse" || e.buttons)) this._tilt(tl, e);
+    const dk = el ? el.closest("[data-dock]") : null;
+    if (dk && (e.pointerType === "mouse" || e.buttons)) this._dock(e, dk);
+    else if (this._dockEl && !dk) this._dockReset();
+    const t = this._t;
+    if (!t || e.pointerId !== t.id) return;
+    const dx = e.clientX - t.x, dy = e.clientY - t.y;
+    if (!t.moved) {
+      if (Math.abs(dx) > 8 && Math.abs(dx) > Math.abs(dy) * 1.2) t.moved = true;
+      else if (Math.abs(dy) > 12) { this._t = null; return; }
+      else return;
+    }
+    this._drag({ dx: Math.max(-140, Math.min(140, dx)), drag: true });
+  }
+  _onUp(e) {
+    if (this._tiltEl && e.pointerType !== "mouse") this._tiltReset(this._tiltEl);
+    if (this._dockEl && e.pointerType !== "mouse") this._dockReset();
+    const t = this._t;
+    if (!t || e.pointerId !== t.id) return;
+    this._t = null;
+    const dx = e.clientX - t.x, dy = e.clientY - t.y, dt = Math.max(1, Date.now() - t.at);
+    if (t.moved) this._noClickUntil = Date.now() + 350;
+    const horiz = t.moved && Math.abs(dx) > Math.abs(dy) * 1.2;
+    const flick = Math.abs(dx) / dt > 0.5 && Math.abs(dx) > 28;
+    if (horiz && (Math.abs(dx) >= 56 || flick)) this.go(dx < 0 ? 1 : -1);
+    this._drag({ dx: 0, drag: false });
+  }
+  _onCancel(e) {
+    if (this._tiltEl) this._tiltReset(this._tiltEl);
+    if (this._dockEl) this._dockReset();
+    const t = this._t;
+    if (!t || e.pointerId !== t.id) return;
+    this._t = null;
+    this._drag({ dx: 0, drag: false });
+  }
+  _onKey(e) {
+    if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+    const el = e.target && e.target.closest ? e.target : null;
+    if (!el || !el.closest("[data-swipe]")) return;
+    e.preventDefault();
+    this.go(e.key === "ArrowRight" ? 1 : -1);
+  }
+
+  /* ---------- actions ---------- */
+  go(d) {
+    this._buzz(8);
+    this.setState((s) => {
+      const st = s || {};
+      const tick = typeof st.tick === "number" ? st.tick : 0;
+      return { tick: tick + d, auto: false, dir: d > 0 ? 1 : -1 };
+    });
+  }
+  pickStep(i) {
+    this._buzz(8);
+    this.setState((s) => {
+      const st = s || {};
+      const tick = typeof st.tick === "number" ? st.tick : 0;
+      const step = ((tick % 6) + 6) % 6;
+      let d = (i - step + 6) % 6;
+      if (d > 3) d -= 6;
+      return { tick: tick + d, auto: false, dir: d >= 0 ? 1 : -1 };
+    });
+  }
+  jumpTo(i) {
+    if (this._blocked()) return;
+    this.pickStep(i);
+  }
+  advance(i) {
+    if (this._blocked()) return;
+    this._buzz(8);
+    this.setState((s) => {
+      const base = (s && s.ts) || [0, 0, 1, 2, 3, 3];
+      const next = base.slice();
+      next[i] = (next[i] + 1) % 4;
+      return { ts: next };
+    });
+  }
+
+  renderVals() {
+    const st = this.state || {};
+    const tick = typeof st.tick === "number" ? st.tick : 0;
+    const auto = st.auto !== false;
+    const step = ((tick % 6) + 6) % 6;
+    const ts = st.ts || [0, 0, 1, 2, 3, 3];
+    const fold = st.fold || 0;
+    const STEPS = [
+      { name: "Sponsor", short: "SPONSOR", phase: "", what: "We sponsor hackathons and use them as our entry point to students.",
+        bullets: ["Direct access to participating students, beyond the finalists.", "A first-hand view of each student's skills, attitude and teamwork.", "Problem statements and project ideas that feed the training program."] },
+      { name: "Select", short: "SELECT", phase: "", what: "We pick students who show promise during and after the event.",
+        bullets: ["Performance in the event.", "Willingness to learn.", "Follow-up engagement, then a simple onboarding step into the community."] },
+      { name: "Train", short: "TRAIN", phase: "", what: "We train them and give them project ideas and small, clearly defined tasks.",
+        bullets: ["Foundational and practical sessions matched to the projects.", "Small tasks, each with a clear scope, expected output and deadline.", "Students work inside the team, not on isolated exercises."] },
+      { name: "Grow", short: "GROW", phase: "", what: "Students learn by doing, and the community expands as more of them contribute.",
+        bullets: ["Regular review so students learn from each task.", "Performance and consistency tracked over time.", "More students join and contribute as the community grows."] },
+      { name: "Hire", short: "HIRE", phase: "PHASE 1", what: "Top performers are offered a place in our team through a hiring notice.",
+        bullets: ["A trained, proven talent pool already familiar with our way of working.", "A team built from people we have seen deliver, not from interviews alone."] },
+      { name: "Incubate", short: "INCUBATE", phase: "PHASE 2", what: "Strong performers with startup ideas are incubated in our company, staffed from the community.",
+        bullets: ["Students with startup ideas present them to us.", "The startup's developers are drawn from the community.", "Founders get a team, structure and support from day one."] }
+    ];
+    const cur = STEPS[step];
+    const pad = (n) => String(n).padStart(2, "0");
+    const stateCls = (i) => (i === step ? "is-active" : i < step ? "is-passed" : "");
+    const NAMES = ["TO DO", "IN PROGRESS", "IN REVIEW", "DONE"];
+    const COL = ["#44403C", "#2E1065", "#C2410C", "#0F766E"];
+    const DOT = ["#A8A29E", "#F97316", "#FDBA74", "#0D9488"];
+    const TASKS = [
+      { id: "TASK-015", title: "Build the event registration form" },
+      { id: "TASK-014", title: "Add pagination to the events API" },
+      { id: "TASK-012", title: "Write unit tests for the signup form" },
+      { id: "TASK-009", title: "Fix the broken QR link on the event page" },
+      { id: "TASK-005", title: "Write the README setup guide" },
+      { id: "TASK-003", title: "Set up the project repository" }
+    ];
+    const cards = TASKS.map((t, i) => ({
+      i: i,
+      s: ts[i],
+      id: t.id,
+      title: t.title,
+      status: NAMES[ts[i]],
+      col: COL[ts[i]],
+      dot: DOT[ts[i]],
+      pat: "pt" + i,
+      deco: ts[i] === 3 ? "line-through" : "none",
+      pct: [12, 45, 78, 100][ts[i]],
+      label: t.id + ": " + t.title + ". Status: " + NAMES[ts[i]].toLowerCase() + ". Activate to move it to the next status.",
+      advance: () => this.advance(i)
+    }));
+    const lane = (n) => cards.filter((c) => c.s === n);
+    const node = (i) => ({
+      cls: stateCls(i),
+      sp: i === step ? "is-on" : "",
+      pressed: i === step,
+      label: "Step " + (i + 1) + ": " + STEPS[i].name + (STEPS[i].phase ? " (" + STEPS[i].phase.toLowerCase() + ")" : ""),
+      pick: () => { if (this._blocked()) return; this.pickStep(i); }
+    });
+    const jump = {};
+    for (let i = 0; i < 6; i++) jump["s" + i] = () => this.jumpTo(i);
+    return {
+      cur: {
+        num: pad(step + 1), name: cur.name, short: cur.short, what: cur.what,
+        phase: cur.phase, hasPhase: !!cur.phase, bullets: cur.bullets
+      },
+      segs: STEPS.map((s, i) => ({ cls: i < step ? "is-done" : i === step ? ("is-on" + (auto ? " is-auto" : "")) : "" })),
+      swapCls: (tick % 2 === 0 ? "md-swap-a" : "md-swap-b") + (st.dir === -1 ? "l" : ""),
+      dragX: Math.round(st.dx || 0),
+      dragO: Math.round((1 - Math.min(Math.abs(st.dx || 0), 140) / 280) * 100) / 100,
+      dragTr: st.drag ? "none" : "transform .35s cubic-bezier(.2,.7,.2,1),opacity .35s ease",
+      arc: step * 60,
+      arcTr: step === 0 ? "none" : "--md-a .8s cubic-bezier(.4,0,.2,1)",
+      sweep: -90 + tick * 60,
+      autoPressed: auto,
+      autoLabel: auto ? "Autoplay on · Pause" : "Paused · Play",
+      toggleAuto: () => { if (this._blocked()) return; this.setState((s) => ({ auto: !((s && s.auto) !== false) })); },
+      prev: () => { if (this._blocked()) return; this.go(-1); },
+      next: () => { if (this._blocked()) return; this.go(1); },
+      pull: [[0, -24, 0], [22, -10, 4], [22, 10, 6], [0, 24, 0], [-22, 10, -6], [-22, -10, -4]].map((v) => ({ x: v[0], y: v[1], r: v[2] }))[step],
+      n0: node(0), n1: node(1), n2: node(2), n3: node(3), n4: node(4), n5: node(5),
+      lane0: lane(0), lane1: lane(1), lane2: lane(2), lane3: lane(3),
+      c0: pad(lane(0).length), c1: pad(lane(1).length), c2: pad(lane(2).length), c3: pad(lane(3).length),
+      tasks: cards,
+      foldA: fold === 0 ? "is-front" : "is-back",
+      foldB: fold === 1 ? "is-front" : "is-back",
+      foldAOn: fold === 0,
+      foldBOn: fold === 1,
+      showBoard: () => { this._buzz(6); this.setState({ fold: 0 }); },
+      showSample: () => { this._buzz(6); this.setState({ fold: 1 }); },
+      jump: jump,
+      carPrev: () => this._car(-1),
+      carNext: () => this._car(1)
+    };
+  }
+}
+</script>
+
+</body>
+</html>
