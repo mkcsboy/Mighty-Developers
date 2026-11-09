@@ -1,17 +1,85 @@
-# Mighty Developers
+# Mighty Developers 🚀
 
-Static landing page and community connect site for the Mighty Developers developer community.
+> **Start at a hackathon. Grow into the team. Build what's next.**
 
-## Run locally
+Mighty Developers is a developer community under **Shadowsphere** that identifies promising student developers through hackathons, trains them on real-world projects with small, clearly defined tasks, and transforms high performers into core team members and startup founders.
 
-From the repository root:
+---
 
-1. cd mighty-developers
-2. python3 -m http.server 8080
-3. Open http://localhost:8080
+## 🌟 What is Mighty Developers?
 
-## Files
+Traditional hiring relies heavily on interviews that don't always reflect real engineering capability. **Mighty Developers** flips the model:
 
-- index.html — landing page with animated sections and community CTA
-- connect.html — community platforms page
-- support.js — shared runtime for both pages
+1. **Sponsor** — We sponsor hackathons, particularly across regional and smaller colleges, giving talented students direct access to opportunities.
+2. **Select** — We spot high-potential builders based on actual problem solving, teamwork, attitude, and execution under pressure.
+3. **Train** — Selected students enter our pipeline and work on real project tasks with explicit scopes, clear expected outputs, and realistic deadlines.
+4. **Grow** — Students learn by doing, receiving regular technical reviews and mentorship from senior engineers.
+5. **Hire (Phase 1)** — Proven top performers receive formal offers to join our development team.
+6. **Incubate (Phase 2)** — Strong builders with startup ideas are incubated directly within our company, backed with structure and community talent from day one.
+
+---
+
+## 🛠 Tech Stack
+
+The web platform is built with modern, high-performance web standards:
+
+- **React 19**
+- **Vite 5** (Fast HMR & Optimized Production Bundling)
+- **React Router 7**
+- Pure CSS with hardware-accelerated animations, scroll timelines, and glassmorphism
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18 or higher recommended)
+- `npm`
+
+### Installation
+
+```bash
+# Navigate to the project directory
+cd mighty-developers-react
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+The application will be live at `http://localhost:5173`.
+
+### Production Build
+
+```bash
+# Build the optimized production bundle
+npm run build
+
+# Preview the production build locally
+npm run preview
+```
+
+---
+
+## 📱 Community & Socials
+
+Connect with us across platforms:
+
+- **Instagram**: [@mightydevelopers](https://www.instagram.com/mightydevelopers)
+- **WhatsApp**: [Community Channel](https://chat.whatsapp.com/mightydevelopers)
+- **Discord**: [Community Server](https://discord.gg/mightydevelopers)
+- **Substack**: [Newsletter & Recaps](https://mightydevelopers.substack.com/)
+
+---
+
+## 📬 Contact & Inquiries
+
+- **Email**: `hello@mightydevelopers.dev`
+- **Host a Hackathon**: Reach out to sponsor or organize an event at your college campus.
+
+---
+
+© 2026 Mighty Developers · Under Shadowsphere
