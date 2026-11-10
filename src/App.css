@@ -239,12 +239,11 @@ html.md-scroll .md-prog{display:block;animation:prog linear both;animation-timel
 .fold-wrap[data-io]:not(.is-in) .fold.is-front{translate:0 90px}
 
 /* ---------- hero deck: one card flies in, then fans out ---------- */
-.deck{position:relative;height:300px;margin:6px 0 70px}
+.deck{position:relative;height:300px;margin:10px 0 60px;--o:0;--spread:1}
 .deck-in{position:absolute;left:0;right:0;top:0;height:300px;transform-origin:50% 0}
-.deck{--o:0}
 .dkc{position:absolute;left:50%;top:34px;width:150px;height:200px;margin-left:-75px;border-radius:18px;box-sizing:border-box;padding:10px;display:flex;flex-direction:column;gap:10px;border:1px solid rgba(231,229,228,.9);box-shadow:0 1px 2px rgba(28,25,23,.05),0 20px 36px -22px rgba(46,16,101,.4);cursor:default;
- transform:translate(calc(var(--x) * var(--o)),calc(var(--y) * var(--o) + (1 - var(--o)) * 46px)) rotate(calc(var(--r) * var(--o) + (1 - var(--o)) * (var(--k) * 2.2deg - 6deg)));
- transition:transform .45s cubic-bezier(.2,.7,.2,1),translate .3s cubic-bezier(.2,.7,.2,1)}
+ transform:translate(calc(var(--x) * var(--o) * var(--spread, 1)),calc(var(--y) * var(--o) + (1 - var(--o)) * 46px)) rotate(calc(var(--r) * var(--o) + (1 - var(--o)) * (var(--k) * 2.2deg - 6deg)));
+ transition:transform .12s ease-out,translate .12s ease-out}
 .dkc-art{position:relative;height:96px;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .deck-in{animation:fade-up .9s 1s cubic-bezier(.2,.7,.2,1) both}
 .deck-hint{position:absolute;left:50%;bottom:-30px;transform:translateX(-50%);display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.14em;color:#9A3412;white-space:nowrap;opacity:calc(1 - var(--o) * 3);transition:opacity .3s ease}
@@ -253,8 +252,9 @@ html.md-scroll .md-prog{display:block;animation:prog linear both;animation-timel
 .dkc:active{translate:0 -16px}
 .deck-tag{position:absolute;z-index:9;font:700 13px/1 'Inter',sans-serif;padding:8px 12px;border-radius:12px 12px 12px 3px;opacity:clamp(0,calc((var(--o) - .72) * 4),1);scale:clamp(.4,calc(.4 + (var(--o) - .72) * 2.2),1);transition:opacity .3s ease,scale .45s cubic-bezier(.3,1.6,.5,1)}
 @keyframes tag-in{from{opacity:0;scale:.2}to{opacity:1;scale:1}}
-@media (max-width:900px){.deck{height:200px}.deck-in{transform:scale(.64)}}
-@media (max-width:640px){.deck{height:150px;margin-bottom:28px}.deck-in{transform:scale(.44)}}
+@media (max-width:900px){.deck{height:250px;--spread:0.85}.deck-in{transform:scale(.78);transform-origin:50% 0}}
+@media (max-width:640px){.deck{height:240px !important;margin:8px 0 36px !important;--spread:0.68}.deck-in{transform:scale(.68) !important;transform-origin:50% 0}}
+@media (max-width:420px){.deck{height:220px !important;--spread:0.58}.deck-in{transform:scale(.6) !important;transform-origin:50% 0}}
 
 /* ---------- inline card stack in a sentence ---------- */
 .stack{position:relative;display:inline-block;width:1.9em;height:1.25em;vertical-align:-.22em;margin:0 .12em}
@@ -541,8 +541,8 @@ html.md-scroll .md-prog{display:block;animation:prog linear both;animation-timel
 .ride:not(.ride-hero) .ride-tag{display:none}
 .riders{bottom:10px}
 .deck-tag{display:none}
-.deck-in{transform:scale(.36) !important}
-.deck{height:140px !important}
+.dkc span:last-child{font-size:16px !important;font-weight:800 !important}
+.dkc .mono{font-size:10px !important;font-weight:700 !important}
 .ev-id{display:none}
 .hb-c{padding:28px 18px !important;min-height:0 !important}
 .hk-r{gap:10px;height:460px}

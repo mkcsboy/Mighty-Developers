@@ -2,55 +2,66 @@ import { useEffect } from 'react';
 
 export function useDeckScroll() {
   useEffect(() => {
-    let deckO = 0;
-    let deckAcc = 0;
-    let ty = null;
+    let currentO = 0;
+    let targetO = 0;
+    let rafId = null;
 
-    const setDeck = (o) => {
-      o = Math.max(0, Math.min(1, o));
-      if (Math.abs(o - deckO) < 0.002) return;
-      deckO = o;
+    const calculateTarget = () => {
       const el = document.querySelector(".deck");
-      if (el) el.style.setProperty("--o", o.toFixed(3));
+      if (!el) return 0;
+      const rect = el.getBoundingClientRect();
+      const vh = window.innerHeight || 800;
+
+      // Smoothly fan open as the deck enters view
+      // Starts opening when top of deck enters lower viewport (88% from top)
+      // Fully opened when deck is comfortably in view (~32% from top)
+      const start = vh * 0.88;
+      const end = vh * 0.32;
+      const progress = (start - rect.top) / (start - end);
+      return Math.max(0, Math.min(1, progress));
     };
 
-    const scrolls = () => document.documentElement.scrollHeight > window.innerHeight + 80;
-
-    const handleScroll = () => {
-      if (scrolls()) setDeck((window.scrollY || document.documentElement.scrollTop || 0) / 300);
+    const updateLoop = () => {
+      const diff = targetO - currentO;
+      if (Math.abs(diff) > 0.001) {
+        currentO += diff * 0.3;
+        const el = document.querySelector(".deck");
+        if (el) {
+          el.style.setProperty("--o", currentO.toFixed(3));
+        }
+        rafId = requestAnimationFrame(updateLoop);
+      } else {
+        currentO = targetO;
+        const el = document.querySelector(".deck");
+        if (el) {
+          el.style.setProperty("--o", currentO.toFixed(3));
+        }
+        rafId = null;
+      }
     };
 
-    const handleWheel = (e) => {
-      if (scrolls()) return;
-      deckAcc = Math.max(0, Math.min(360, deckAcc + e.deltaY));
-      setDeck(deckAcc / 300);
+    const onScrollOrResize = () => {
+      targetO = calculateTarget();
+      if (!rafId) {
+        rafId = requestAnimationFrame(updateLoop);
+      }
     };
 
-    const handleTouchStart = (e) => {
-      ty = e.touches && e.touches[0] ? e.touches[0].clientY : null;
-    };
+    window.addEventListener("scroll", onScrollOrResize, { passive: true });
+    window.addEventListener("resize", onScrollOrResize, { passive: true });
 
-    const handleTouchMove = (e) => {
-      if (scrolls() || ty === null || !e.touches || !e.touches[0]) return;
-      const y = e.touches[0].clientY;
-      deckAcc = Math.max(0, Math.min(360, deckAcc + (ty - y)));
-      ty = y;
-      setDeck(deckAcc / 300);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    document.addEventListener("wheel", handleWheel, { passive: true });
-    document.addEventListener("touchstart", handleTouchStart, { passive: true });
-    document.addEventListener("touchmove", handleTouchMove, { passive: true });
-
-    handleScroll();
+    // Initial calculation on mount
+    targetO = calculateTarget();
+    currentO = targetO;
+    const el = document.querySelector(".deck");
+    if (el) {
+      el.style.setProperty("--o", currentO.toFixed(3));
+    }
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      document.removeEventListener("wheel", handleWheel);
-      document.removeEventListener("touchstart", handleTouchStart);
-      document.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("scroll", onScrollOrResize);
+      window.removeEventListener("resize", onScrollOrResize);
+      if (rafId) cancelAnimationFrame(rafId);
     };
   }, []);
 }
-
