@@ -1,181 +1,106 @@
 import React from 'react';
 import MightyLogo from './icons/MightyLogo';
-import { useDeckScroll } from '../hooks/useDeckScroll';
 
 export default function HeroSection() {
-  useDeckScroll();
-
-  const eyebrowText = "A DEVELOPER COMMUNITY UNDER SHADOWSPHERE";
-
   return (
-    <section aria-labelledby="hero-h" className="hero-x" style={{ padding: "92px 0 40px" }}>
-      <div className="hx-bg" aria-hidden="true">
-        <span className="hx-b1"></span>
-        <span className="hx-b2"></span>
-        <span className="hx-b3"></span>
-      </div>
-      <div className="hx-float" aria-hidden="true">
-        <span className="hx-f" style={{ "--d": "0s", left: "56%", top: "14%" }}>&lt;/code&gt;</span>
-        <span className="hx-f" style={{ "--d": "-2s", left: "46%", top: "62%" }}>#hackathon</span>
-        <span className="hx-f" style={{ "--d": "-4s", left: "90%", top: "8%" }}>+1 task shipped</span>
-        <span className="hx-f" style={{ "--d": "-1s", left: "62%", top: "74%" }}>git push</span>
-      </div>
-      <div className="wrap">
-        <div className="hx-head">
-          <div className="hx-title-col">
-            <p className="eyebrow load-l" style={{ marginBottom: "22px" }}>
-              <span className="sr">{eyebrowText}</span>
-              <span aria-hidden="true">
-                {eyebrowText.split("").map((ch, i) => (
-                  <span
-                    key={i}
-                    className="l"
-                    style={{ "--i": i, ...(ch === " " ? { width: ".45em" } : {}) }}
-                  >
-                    {ch !== " " ? ch : ""}
-                  </span>
-                ))}
-              </span>
-            </p>
-            <h1 id="hero-h" className="load-w" style={{ margin: 0, fontSize: "clamp(36px,5vw,72px)", lineHeight: 1.04, fontWeight: 800, letterSpacing: "-.04em", color: "#2E1065" }}>
-              <span style={{ display: "block" }}>
-                <span className="w" style={{ "--i": 0 }}>Start</span>{" "}
-                <span className="w" style={{ "--i": 1 }}>at</span>{" "}
-                <span className="w" style={{ "--i": 2 }}>a</span>{" "}
-                <span className="w" style={{ "--i": 3 }}>hackathon.</span>
-              </span>
-              <span style={{ display: "block" }}>
-                <span className="w" style={{ "--i": 4 }}>Grow</span>{" "}
-                <span className="w" style={{ "--i": 5 }}>into</span>{" "}
-                <span className="w" style={{ "--i": 6 }}>the</span>{" "}
-                <span className="w" style={{ "--i": 7 }}>team.</span>
-              </span>
-              <span style={{ display: "block", color: "#EA580C" }}>
-                <span className="w" style={{ "--i": 8 }}>Build</span>{" "}
-                <span className="w" style={{ "--i": 9 }}>what's</span>{" "}
-                <span className="w" style={{ "--i": 10 }}>next.</span>
-              </span>
-            </h1>
-          </div>
-          <div className="hx-intro-col" style={{ animation: "fade-up .8s 1.3s cubic-bezier(.2,.7,.2,1) both" }}>
-            <p style={{ margin: "0 0 24px", fontSize: "17px", lineHeight: 1.6, color: "#44403C" }}>
-              Mighty Developers finds talented students through hackathons, trains them on real project work with small, clearly defined tasks, and turns the best performers into team members and, later, founders.
-            </p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
-              <a className="pill pill-o" href="#community">
-                Join the community
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E1065" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ display: "block", flex: "none" }}>
-                  <path d="M5 12h14M13 6l6 6-6 6" />
-                </svg>
-              </a>
-              <a className="pill pill-w" href="mailto:hello@mightydevelopers.dev?subject=Host%20a%20hackathon">
-                Host a hackathon
-              </a>
-            </div>
-            <p className="hx-term" aria-hidden="true">
-              <span>$</span> <span className="hx-type"></span>
-            </p>
-          </div>
+    <section aria-labelledby="hero-h" className="hero-network">
+      {/* Animated SVG background with flowing paths */}
+      <svg className="hero-svg" viewBox="0 0 1440 680" fill="none" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        {/* Grid dots */}
+        {Array.from({ length: 20 }).map((_, row) =>
+          Array.from({ length: 30 }).map((_, col) => (
+            <circle
+              key={`d-${row}-${col}`}
+              cx={col * 50 + 20}
+              cy={row * 36 + 18}
+              r="1.2"
+              fill="rgba(249,115,22,0.12)"
+            />
+          ))
+        )}
+
+        {/* Flowing pipe paths */}
+        <path className="hero-pipe p1" d="M0 340 Q120 340 180 260 Q240 180 360 180 Q480 180 540 260 Q600 340 720 340 Q840 340 900 260 Q960 180 1080 180 Q1200 180 1260 260 Q1320 340 1440 340" />
+        <path className="hero-pipe p2" d="M0 480 Q160 480 240 400 Q320 320 480 320 Q640 320 720 400 Q800 480 960 480 Q1120 480 1200 400 Q1280 320 1440 320" />
+        <path className="hero-pipe p3" d="M0 180 Q100 180 180 240 Q260 300 400 300 Q540 300 620 240 Q700 180 840 180 Q980 180 1060 240 Q1140 300 1280 300 Q1360 300 1440 260" />
+        <path className="hero-pipe p4" d="M200 0 Q200 80 260 140 Q320 200 320 340 Q320 480 380 540 Q440 600 440 680" />
+        <path className="hero-pipe p5" d="M800 0 Q800 100 860 160 Q920 220 920 360 Q920 500 980 560 Q1040 620 1040 680" />
+        <path className="hero-pipe p6" d="M1200 0 Q1200 60 1140 120 Q1080 180 1080 280 Q1080 380 1140 440 Q1200 500 1200 680" />
+
+        {/* Animated flowing dots on paths */}
+        <circle className="flow-dot fd1" r="4" fill="#F97316">
+          <animateMotion dur="6s" repeatCount="indefinite" path="M0 340 Q120 340 180 260 Q240 180 360 180 Q480 180 540 260 Q600 340 720 340 Q840 340 900 260 Q960 180 1080 180 Q1200 180 1260 260 Q1320 340 1440 340" />
+        </circle>
+        <circle className="flow-dot fd2" r="3.5" fill="#FDBA74">
+          <animateMotion dur="8s" repeatCount="indefinite" path="M0 480 Q160 480 240 400 Q320 320 480 320 Q640 320 720 400 Q800 480 960 480 Q1120 480 1200 400 Q1280 320 1440 320" />
+        </circle>
+        <circle className="flow-dot fd3" r="3" fill="#F97316">
+          <animateMotion dur="7s" repeatCount="indefinite" path="M0 180 Q100 180 180 240 Q260 300 400 300 Q540 300 620 240 Q700 180 840 180 Q980 180 1060 240 Q1140 300 1280 300 Q1360 300 1440 260" />
+        </circle>
+        <circle className="flow-dot fd4" r="3.5" fill="#FDBA74">
+          <animateMotion dur="5s" repeatCount="indefinite" path="M200 0 Q200 80 260 140 Q320 200 320 340 Q320 480 380 540 Q440 600 440 680" />
+        </circle>
+        <circle className="flow-dot fd5" r="4" fill="#F97316">
+          <animateMotion dur="6.5s" repeatCount="indefinite" path="M800 0 Q800 100 860 160 Q920 220 920 360 Q920 500 980 560 Q1040 620 1040 680" />
+        </circle>
+
+        {/* Glowing intersection nodes */}
+        <circle className="hero-node hn1" cx="360" cy="180" r="8" />
+        <circle className="hero-node hn2" cx="720" cy="340" r="8" />
+        <circle className="hero-node hn3" cx="1080" cy="180" r="8" />
+        <circle className="hero-node hn4" cx="480" cy="320" r="8" />
+        <circle className="hero-node hn5" cx="960" cy="480" r="8" />
+        <circle className="hero-node hn6" cx="320" cy="340" r="6" />
+        <circle className="hero-node hn7" cx="920" cy="360" r="6" />
+      </svg>
+
+      {/* Floating developer icons */}
+      <div className="hero-icons" aria-hidden="true">
+        <div className="hi hi-1">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4"/></svg>
         </div>
+        <div className="hi hi-2">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FDBA74" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </div>
+        <div className="hi hi-3">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65S8.93 17.38 9 18v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+        </div>
+        <div className="hi hi-4">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FDBA74" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+        </div>
+        <div className="hi hi-5">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="m8 21 4-4 4 4"/></svg>
+        </div>
+        <div className="hi hi-6">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FDBA74" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 15c-1.5 1.5-2 5-2 5s3.5-.5 5-2M14 4c3-1 6-1 6-1s0 3-1 6l-6 6-5-5 6-6z"/></svg>
+        </div>
+        <div className="hi hi-7">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 20V11M10 20V5M16 20v-6M2 20h20"/></svg>
+        </div>
+        <div className="hi hi-8">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FDBA74" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+      </div>
 
-        {/* Hero Deck */}
-        <div className="deck" aria-hidden="true">
-          <div className="deck-in">
-            <div className="dkc" style={{ "--k": 0, "--x": "-396px", "--y": "81px", "--r": "-21deg", background: "#FFE4CC" }}>
-              <div className="dkc-art pt1">
-                <span style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "44px", height: "44px", borderRadius: "14px", background: "#FFFFFF" }}>
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ display: "block", flex: "none" }}>
-                    <path d="M5 21V4M5 4h11l-2 4 2 4H5" />
-                  </svg>
-                </span>
-              </div>
-              <span className="mono" style={{ fontSize: "9.5px", fontWeight: 700, letterSpacing: ".12em", color: "#C2410C" }}>01 · SPONSOR</span>
-              <span style={{ fontSize: "17px", lineHeight: 1.1, fontWeight: 800, letterSpacing: "-.02em", color: "#2E1065" }}>Hackathons</span>
-            </div>
-
-            <div className="dkc" style={{ "--k": 1, "--x": "-264px", "--y": "36px", "--r": "-14deg", background: "#FFFFFF" }}>
-              <div className="dkc-art pt0">
-                <span style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "44px", height: "44px", borderRadius: "14px", background: "#FFFFFF" }}>
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ display: "block", flex: "none" }}>
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="m9 12 2 2 4-4" />
-                  </svg>
-                </span>
-              </div>
-              <span className="mono" style={{ fontSize: "9.5px", fontWeight: 700, letterSpacing: ".12em", color: "#C2410C" }}>02 · SELECT</span>
-              <span style={{ fontSize: "17px", lineHeight: 1.1, fontWeight: 800, letterSpacing: "-.02em", color: "#2E1065" }}>Spot promise</span>
-            </div>
-
-            <div className="dkc" style={{ "--k": 2, "--x": "-132px", "--y": "9px", "--r": "-7deg", background: "#F0FDFA" }}>
-              <div className="dkc-art pt2">
-                <span style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "44px", height: "44px", borderRadius: "14px", background: "#FFFFFF" }}>
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ display: "block", flex: "none" }}>
-                    <path d="M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14" />
-                  </svg>
-                </span>
-              </div>
-              <span className="mono" style={{ fontSize: "9.5px", fontWeight: 700, letterSpacing: ".12em", color: "#C2410C" }}>03 · TRAIN</span>
-              <span style={{ fontSize: "17px", lineHeight: 1.1, fontWeight: 800, letterSpacing: "-.02em", color: "#2E1065" }}>Small tasks</span>
-            </div>
-
-            <div className="dkc" style={{ "--k": 3, "--x": "132px", "--y": "9px", "--r": "7deg", background: "#FFFFFF" }}>
-              <div className="dkc-art pt3">
-                <span style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "44px", height: "44px", borderRadius: "14px", background: "#FFFFFF" }}>
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ display: "block", flex: "none" }}>
-                    <path d="M4 20V11M10 20V5M16 20v-6M2 20h20" />
-                  </svg>
-                </span>
-              </div>
-              <span className="mono" style={{ fontSize: "9.5px", fontWeight: 700, letterSpacing: ".12em", color: "#C2410C" }}>04 · GROW</span>
-              <span style={{ fontSize: "17px", lineHeight: 1.1, fontWeight: 800, letterSpacing: "-.02em", color: "#2E1065" }}>Learn by doing</span>
-            </div>
-
-            <div className="dkc" style={{ "--k": 4, "--x": "264px", "--y": "36px", "--r": "14deg", background: "#FFF1E6" }}>
-              <div className="dkc-art pt4">
-                <span style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "44px", height: "44px", borderRadius: "14px", background: "#FFFFFF" }}>
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ display: "block", flex: "none" }}>
-                    <rect x="3" y="7" width="18" height="13" rx="2" />
-                    <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18" />
-                  </svg>
-                </span>
-              </div>
-              <span className="mono" style={{ fontSize: "9.5px", fontWeight: 700, letterSpacing: ".12em", color: "#C2410C" }}>05 · HIRE</span>
-              <span style={{ fontSize: "17px", lineHeight: 1.1, fontWeight: 800, letterSpacing: "-.02em", color: "#2E1065" }}>Join the team</span>
-            </div>
-
-            <div className="dkc" style={{ "--k": 5, "--x": "396px", "--y": "81px", "--r": "21deg", background: "#FFFFFF" }}>
-              <div className="dkc-art pt5">
-                <span style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "44px", height: "44px", borderRadius: "14px", background: "#FFFFFF" }}>
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E1065" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ display: "block", flex: "none" }}>
-                    <path d="M5 15c-1.5 1.5-2 5-2 5s3.5-.5 5-2M14 4c3-1 6-1 6-1s0 3-1 6l-6 6-5-5 6-6zM9 10H5l2-3h4M14 15v4l3-2v-4" />
-                  </svg>
-                </span>
-              </div>
-              <span className="mono" style={{ fontSize: "9.5px", fontWeight: 700, letterSpacing: ".12em", color: "#C2410C" }}>06 · INCUBATE</span>
-              <span style={{ fontSize: "17px", lineHeight: 1.1, fontWeight: 800, letterSpacing: "-.02em", color: "#2E1065" }}>Build a startup</span>
-            </div>
-
-            <div className="dkc" style={{ "--k": 3, "--x": "0px", "--y": "-6px", "--r": "0deg", background: "linear-gradient(160deg,#FFF1E6,#FED7AA)", borderColor: "#FDBA74", alignItems: "center", justifyContent: "center", gap: "14px" }}>
-              <MightyLogo width={69} height={52} />
-              <span className="mono" style={{ fontSize: "9.5px", fontWeight: 700, letterSpacing: ".12em", color: "#9A3412", textAlign: "center" }}>
-                MIGHTY<br />DEVELOPERS
-              </span>
-            </div>
-
-            <span className="deck-tag" style={{ left: "calc(50% - 330px)", top: "6px", "--d": "3.25s", background: "#FFFFFF", color: "#2E1065", border: "1.5px solid #FDBA74" }}>@students</span>
-            <span className="deck-tag" style={{ left: "calc(50% + 150px)", top: "0px", "--d": "3.4s", background: "#F97316", color: "#2E1065", border: 0 }}>@mentors</span>
-            <span className="deck-tag" style={{ left: "calc(50% + 380px)", top: "70px", "--d": "3.55s", background: "#FFFFFF", color: "#2E1065", border: "1.5px solid #FDBA74" }}>@founders</span>
-          </div>
-
-          <span className="deck-hint mono">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C2410C" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 5v14M6 13l6 6 6-6" />
+      {/* Center brand card */}
+      <div className="hero-center">
+        <div className="hero-brand-card">
+          <MightyLogo width={72} height={54} />
+          <h1 id="hero-h" className="hero-brand-name">MIGHTY<br/>DEVELOPERS</h1>
+          <p className="hero-brand-tag">A Developer Community Under Shadowsphere</p>
+        </div>
+        <div className="hero-cta-row">
+          <a className="pill pill-o" href="#community">
+            Join the community
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E1065" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ display: "block", flex: "none" }}>
+              <path d="M5 12h14M13 6l6 6-6 6" />
             </svg>
-            SCROLL TO OPEN THE DECK
-          </span>
+          </a>
+          <a className="pill pill-w" href="mailto:hello@mightydevelopers.dev?subject=Host%20a%20hackathon" style={{ background: "rgba(255,255,255,0.15)", color: "#FFFFFF", borderColor: "rgba(255,255,255,0.3)", backdropFilter: "blur(8px)" }}>
+            Host a hackathon
+          </a>
         </div>
       </div>
     </section>
   );
 }
-

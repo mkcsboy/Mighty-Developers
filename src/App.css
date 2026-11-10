@@ -566,4 +566,61 @@ html.md-scroll .md-prog{display:block;animation:prog linear both;animation-timel
 .pc-btn{min-height:38px !important;font-size:13.5px !important}
 .pc-grid{gap:12px !important}
 }
+/* ---------- hero network (animated pipes) ---------- */
+.hero-network{position:relative;width:100%;min-height:680px;background:#2E1065;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:80px 0 60px}
+.hero-svg{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hero-pipe{stroke-width:3;stroke-linecap:round;fill:none;opacity:.6}
+.hero-pipe.p1{stroke:#F97316;stroke-dasharray:12 8;animation:pipe-dash 3s linear infinite}
+.hero-pipe.p2{stroke:#FDBA74;stroke-dasharray:16 10;animation:pipe-dash 4s linear infinite reverse}
+.hero-pipe.p3{stroke:#F97316;stroke-dasharray:10 14;animation:pipe-dash 5s linear infinite;opacity:.4}
+.hero-pipe.p4{stroke:#FDBA74;stroke-dasharray:8 12;animation:pipe-dash 3.5s linear infinite;opacity:.5}
+.hero-pipe.p5{stroke:#F97316;stroke-dasharray:14 8;animation:pipe-dash 4.5s linear infinite reverse;opacity:.45}
+.hero-pipe.p6{stroke:#FDBA74;stroke-dasharray:10 10;animation:pipe-dash 3.8s linear infinite;opacity:.35}
+@keyframes pipe-dash{to{stroke-dashoffset:-40}}
+.flow-dot{filter:drop-shadow(0 0 6px rgba(249,115,22,.7))}
+.hero-node{fill:#F97316;opacity:.7;animation:node-pulse 2.5s ease-in-out infinite}
+.hero-node.hn1{animation-delay:0s}
+.hero-node.hn2{animation-delay:.4s}
+.hero-node.hn3{animation-delay:.8s}
+.hero-node.hn4{animation-delay:1.2s}
+.hero-node.hn5{animation-delay:1.6s}
+.hero-node.hn6{animation-delay:2s}
+.hero-node.hn7{animation-delay:.6s}
+@keyframes node-pulse{0%,100%{r:6;opacity:.5;filter:drop-shadow(0 0 4px rgba(249,115,22,.4))}50%{r:10;opacity:1;filter:drop-shadow(0 0 14px rgba(249,115,22,.8))}}
+
+/* floating icons */
+.hero-icons{position:absolute;inset:0;pointer-events:none;z-index:1}
+.hi{position:absolute;display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:14px;background:rgba(46,16,101,.6);border:1.5px solid rgba(249,115,22,.3);backdrop-filter:blur(8px);animation:hi-float 6s ease-in-out infinite}
+.hi-1{left:8%;top:15%;animation-delay:0s}
+.hi-2{left:22%;top:70%;animation-delay:-1.5s}
+.hi-3{right:8%;top:12%;animation-delay:-0.8s}
+.hi-4{right:20%;top:65%;animation-delay:-2.2s}
+.hi-5{left:40%;top:8%;animation-delay:-3s}
+.hi-6{right:35%;top:78%;animation-delay:-1s}
+.hi-7{left:12%;top:48%;animation-delay:-4s}
+.hi-8{right:10%;top:42%;animation-delay:-2.5s}
+@keyframes hi-float{0%,100%{transform:translateY(0) rotate(0deg);opacity:.7}50%{transform:translateY(-16px) rotate(5deg);opacity:1}}
+
+/* center brand card */
+.hero-center{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:28px;text-align:center}
+.hero-brand-card{background:rgba(255,255,255,.08);backdrop-filter:blur(20px);border:1.5px solid rgba(249,115,22,.25);border-radius:32px;padding:48px 56px;display:flex;flex-direction:column;align-items:center;gap:18px;animation:brand-in 1.2s cubic-bezier(.2,.7,.2,1) both;box-shadow:0 24px 60px -20px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.06)}
+.hero-brand-name{margin:0;font:800 clamp(28px,4vw,48px)/1 'Inter',system-ui,sans-serif;letter-spacing:.08em;color:#FFFFFF;text-shadow:0 0 40px rgba(249,115,22,.3)}
+.hero-brand-tag{margin:0;font:600 13px/1.4 'JetBrains Mono',monospace;letter-spacing:.1em;color:#FDBA74;text-transform:uppercase}
+.hero-cta-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;animation:fade-up .8s 1s cubic-bezier(.2,.7,.2,1) both}
+@keyframes brand-in{from{opacity:0;transform:scale(.92) translateY(30px);filter:blur(10px)}to{opacity:1;transform:none;filter:blur(0)}}
+
+/* responsive hero */
+@media (max-width:900px){
+.hero-network{min-height:560px;padding:100px 20px 50px}
+.hero-brand-card{padding:36px 32px}
+.hi{width:40px;height:40px;border-radius:12px}
+.hi svg{width:18px;height:18px}
+}
+@media (max-width:640px){
+.hero-network{min-height:480px;padding:90px 16px 40px}
+.hero-brand-card{padding:28px 24px;border-radius:24px}
+.hero-brand-name{letter-spacing:.04em}
+.hi-5,.hi-6,.hi-7,.hi-8{display:none}
+}
+
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none !important;transition:none !important}}
