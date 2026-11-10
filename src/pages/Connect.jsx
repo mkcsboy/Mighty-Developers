@@ -4,7 +4,7 @@ import MightyLogo from '../components/icons/MightyLogo';
 export default function Connect() {
   return (
     <div style={{ fontFamily: "Inter,system-ui,sans-serif", color: "#44403C", minHeight: "100vh", background: "linear-gradient(135deg,#FFF6EE 0%,#FFE9D6 55%,#FFDDBF 100%)" }}>
-      <div style={{ maxWidth: "1240px", margin: "0 auto", padding: "28px 24px 72px", boxSizing: "border-box" }}>
+      <div style={{ maxWidth: "1560px", margin: "0 auto", padding: "28px clamp(24px, 3.5vw, 56px) 72px", boxSizing: "border-box" }}>
         <a href="/" aria-label="Mighty Developers" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "56px", height: "56px", borderRadius: "18px", background: "#FFFFFF", border: "1px solid #E7E5E4" }}>
           <MightyLogo width={37} height={28} />
         </a>

@@ -4,14 +4,14 @@ body{margin:0!important;padding:0!important;width:100%!important;max-width:100vw
 #root{width:100%!important;max-width:100vw!important;margin:0!important;padding:0!important;border:none!important}
 .top-pill{pointer-events:auto;min-height:48px;padding:0 18px 0 12px;border-radius:999px;background:rgba(255,255,255,.82);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(231,229,228,.9);box-shadow:0 10px 26px -18px rgba(46,16,101,.35);transition:transform .2s ease,box-shadow .2s ease}
 .top-pill:active{transform:scale(.96)}
-.top-bar{padding:0 24px}
+.top-bar{padding:0 clamp(20px, 3.5vw, 44px)}
 .top-logo{width:56px;height:56px;padding:0 !important;border-radius:18px !important}
 .top-cta{pointer-events:auto;min-height:48px;box-shadow:0 10px 26px -14px rgba(249,115,22,.8)}
 @media (hover:hover){.top-pill:hover{box-shadow:0 14px 30px -16px rgba(249,115,22,.6)}}
 a{color:inherit}
 a:focus-visible,button:focus-visible{outline:3px solid #2E1065;outline-offset:3px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.wrap{max-width:1240px;margin:0 auto;padding:0 32px;box-sizing:border-box}
+.wrap{width:100%;max-width:1560px;margin:0 auto;padding:0 clamp(24px, 3.5vw, 56px);box-sizing:border-box}
 .mono{font-family:'JetBrains Mono',ui-monospace,monospace}
 .eyebrow{margin:0;font:700 12px/1.2 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.16em;color:#C2410C}
 .card{background:#FFFFFF;border-radius:24px;box-shadow:0 1px 2px rgba(28,25,23,.04),0 18px 40px -22px rgba(46,16,101,.22)}
@@ -652,7 +652,7 @@ html.md-scroll .md-prog{display:block;animation:prog linear both;animation-timel
 
 .rope-svg-wrap {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -660,7 +660,7 @@ html.md-scroll .md-prog{display:block;animation:prog linear both;animation-timel
 
 .rope-svg {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1600px;
   height: auto;
   display: block;
   overflow: visible;
@@ -821,4 +821,14 @@ html.md-scroll .md-prog{display:block;animation:prog linear both;animation-timel
 
 @media (max-width:380px){
 .lp-m-stage{transform:scale(.92);transform-origin:left center}
+}
+
+@media (min-width: 1600px) {
+  .wrap {
+    max-width: 1720px;
+    padding: 0 48px;
+  }
+  .rope-svg-wrap, .rope-svg {
+    max-width: 1720px;
+  }
 }

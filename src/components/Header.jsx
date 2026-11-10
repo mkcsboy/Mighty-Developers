@@ -19,14 +19,12 @@ export default function Header() {
       <div
         className="top-bar"
         style={{
-          maxWidth: '1280px',
-          margin: '0 auto',
+          width: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
           gap: '12px',
-          boxSizing: 'border-box',
-          width: '100%'
+          boxSizing: 'border-box'
         }}
       >
         <a
