@@ -57,7 +57,7 @@ export default function Connect() {
             <h2 style={{ margin: "22px 0 8px", fontSize: "30px", lineHeight: 1, fontWeight: 800, letterSpacing: "-.03em", color: "#2E1065" }}>WhatsApp</h2>
             <p style={{ margin: "0 0 28px", fontSize: "15px", lineHeight: 1.5, color: "#57534E" }}>Quick updates, reminders and registration alerts.</p>
             <a className="pc-btn" href="https://chat.whatsapp.com/mightydevelopers" target="_blank" rel="noreferrer noopener">
-              Join the channel
+              Join the group
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E1065" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ display: "block", flex: "none" }}>
                 <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
