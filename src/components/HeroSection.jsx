@@ -5,74 +5,76 @@ import { useDeckScroll } from '../hooks/useDeckScroll';
 export default function HeroSection() {
   useDeckScroll();
 
-  const letters = "MIGHTY DEVELOPERS".split("");
+  const eyebrowText = "A DEVELOPER COMMUNITY UNDER SHADOWSPHERE";
 
   return (
-    <section aria-labelledby="hero-h" className="hero-x" style={{ padding: "72px 0 40px", overflow: "hidden" }}>
-      {/* Background blobs */}
+    <section aria-labelledby="hero-h" className="hero-x" style={{ padding: "92px 0 40px" }}>
       <div className="hx-bg" aria-hidden="true">
         <span className="hx-b1"></span>
         <span className="hx-b2"></span>
         <span className="hx-b3"></span>
       </div>
-
-      {/* Animated text + pipes */}
-      <div className="hero-loop-wrap" aria-hidden="true">
-        {/* Animated SVG pipe that threads through the letters */}
-        <svg className="hero-loop-svg" viewBox="0 0 1200 220" preserveAspectRatio="xMidYMid meet" fill="none">
-          {/* Main winding pipe */}
-          <path
-            className="loop-pipe lp-main"
-            d="M-20 110 Q40 110 60 70 Q80 30 120 30 Q160 30 180 70 Q200 110 240 110 Q280 110 300 60 Q320 10 360 10 Q400 10 420 60 Q440 110 480 110 Q520 110 540 160 Q560 210 600 210 Q640 210 660 160 Q680 110 720 110 Q760 110 780 60 Q800 10 840 10 Q880 10 900 60 Q920 110 960 110 Q1000 110 1020 70 Q1040 30 1080 30 Q1120 30 1140 70 Q1160 110 1220 110"
-          />
-          {/* Secondary pipe */}
-          <path
-            className="loop-pipe lp-sec"
-            d="M-20 150 Q60 150 100 90 Q140 30 200 30 Q260 30 300 90 Q340 150 400 150 Q460 150 500 90 Q540 30 600 30 Q660 30 700 90 Q740 150 800 150 Q860 150 900 90 Q940 30 1000 30 Q1060 30 1100 90 Q1140 150 1220 150"
-          />
-          {/* Animated dot travelling the main pipe */}
-          <circle r="6" fill="#F97316" style={{ filter: "drop-shadow(0 0 8px #F97316)" }}>
-            <animateMotion dur="4s" repeatCount="indefinite"
-              path="M-20 110 Q40 110 60 70 Q80 30 120 30 Q160 30 180 70 Q200 110 240 110 Q280 110 300 60 Q320 10 360 10 Q400 10 420 60 Q440 110 480 110 Q520 110 540 160 Q560 210 600 210 Q640 210 660 160 Q680 110 720 110 Q760 110 780 60 Q800 10 840 10 Q880 10 900 60 Q920 110 960 110 Q1000 110 1020 70 Q1040 30 1080 30 Q1120 30 1140 70 Q1160 110 1220 110"
-            />
-          </circle>
-          <circle r="4.5" fill="#FDBA74" style={{ filter: "drop-shadow(0 0 6px #F97316)" }}>
-            <animateMotion dur="6s" repeatCount="indefinite" begin="-2s"
-              path="M-20 150 Q60 150 100 90 Q140 30 200 30 Q260 30 300 90 Q340 150 400 150 Q460 150 500 90 Q540 30 600 30 Q660 30 700 90 Q740 150 800 150 Q860 150 900 90 Q940 30 1000 30 Q1060 30 1100 90 Q1140 150 1220 150"
-            />
-          </circle>
-        </svg>
-
-        {/* Giant looping letters */}
-        <div className="hero-letters" role="img" aria-label="Mighty Developers">
-          {letters.map((ch, i) => (
-            ch === " "
-              ? <span key={i} className="hero-letter-space" />
-              : <span
-                  key={i}
-                  className="hero-letter"
-                  style={{ "--i": i, "--total": letters.length - 1 }}
-                >
-                  {ch}
-                </span>
-          ))}
-        </div>
+      <div className="hx-float" aria-hidden="true">
+        <span className="hx-f" style={{ "--d": "0s", left: "56%", top: "14%" }}>&lt;/code&gt;</span>
+        <span className="hx-f" style={{ "--d": "-2s", left: "46%", top: "62%" }}>#hackathon</span>
+        <span className="hx-f" style={{ "--d": "-4s", left: "90%", top: "8%" }}>+1 task shipped</span>
+        <span className="hx-f" style={{ "--d": "-1s", left: "62%", top: "74%" }}>git push</span>
       </div>
-
-      {/* CTA row */}
       <div className="wrap">
-        <div className="hero-cta-strip" style={{ animation: "fade-up .7s .6s cubic-bezier(.2,.7,.2,1) both" }}>
-          <p className="eyebrow" style={{ marginBottom: 0 }}>A Developer Community Under Shadowsphere</p>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", alignItems: "center" }}>
-            <a className="pill pill-o" href="#community">
-              Join the community
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E1065" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ display: "block", flex: "none" }}>
-                <path d="M5 12h14M13 6l6 6-6 6" />
-              </svg>
-            </a>
-            <a className="pill pill-w" href="mailto:hello@mightydevelopers.dev?subject=Host%20a%20hackathon">
-              Host a hackathon
-            </a>
+        <div className="hx-head">
+          <div className="hx-title-col">
+            <p className="eyebrow load-l" style={{ marginBottom: "22px" }}>
+              <span className="sr">{eyebrowText}</span>
+              <span aria-hidden="true">
+                {eyebrowText.split("").map((ch, i) => (
+                  <span
+                    key={i}
+                    className="l"
+                    style={{ "--i": i, ...(ch === " " ? { width: ".45em" } : {}) }}
+                  >
+                    {ch !== " " ? ch : ""}
+                  </span>
+                ))}
+              </span>
+            </p>
+            <h1 id="hero-h" className="load-w" style={{ margin: 0, fontSize: "clamp(36px,5vw,72px)", lineHeight: 1.04, fontWeight: 800, letterSpacing: "-.04em", color: "#2E1065" }}>
+              <span style={{ display: "block" }}>
+                <span className="w" style={{ "--i": 0 }}>Start</span>{" "}
+                <span className="w" style={{ "--i": 1 }}>at</span>{" "}
+                <span className="w" style={{ "--i": 2 }}>a</span>{" "}
+                <span className="w" style={{ "--i": 3 }}>hackathon.</span>
+              </span>
+              <span style={{ display: "block" }}>
+                <span className="w" style={{ "--i": 4 }}>Grow</span>{" "}
+                <span className="w" style={{ "--i": 5 }}>into</span>{" "}
+                <span className="w" style={{ "--i": 6 }}>the</span>{" "}
+                <span className="w" style={{ "--i": 7 }}>team.</span>
+              </span>
+              <span style={{ display: "block", color: "#EA580C" }}>
+                <span className="w" style={{ "--i": 8 }}>Build</span>{" "}
+                <span className="w" style={{ "--i": 9 }}>what's</span>{" "}
+                <span className="w" style={{ "--i": 10 }}>next.</span>
+              </span>
+            </h1>
+          </div>
+          <div className="hx-intro-col" style={{ animation: "fade-up .8s 1.3s cubic-bezier(.2,.7,.2,1) both" }}>
+            <p style={{ margin: "0 0 24px", fontSize: "17px", lineHeight: 1.6, color: "#44403C" }}>
+              Mighty Developers finds talented students through hackathons, trains them on real project work with small, clearly defined tasks, and turns the best performers into team members and, later, founders.
+            </p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+              <a className="pill pill-o" href="#community">
+                Join the community
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E1065" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ display: "block", flex: "none" }}>
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+              <a className="pill pill-w" href="mailto:hello@mightydevelopers.dev?subject=Host%20a%20hackathon">
+                Host a hackathon
+              </a>
+            </div>
+            <p className="hx-term" aria-hidden="true">
+              <span>$</span> <span className="hx-type"></span>
+            </p>
           </div>
         </div>
 

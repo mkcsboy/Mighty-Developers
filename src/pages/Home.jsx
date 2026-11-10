@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
+import MightyRopeHero from '../components/MightyRopeHero';
 import HeroSection from '../components/HeroSection';
 import MarqueeBand from '../components/MarqueeBand';
 import HackathonWall from '../components/HackathonWall';
@@ -57,7 +58,10 @@ export default function Home() {
       <div aria-hidden="true" className="md-prog"></div>
       <Header />
       <main>
-        <HeroSection />
+        <div className="hero-combined-wrapper">
+          <MightyRopeHero />
+          <HeroSection />
+        </div>
         <MarqueeBand />
         <HackathonWall />
         <TasksSection taskStates={taskStates} onAdvanceTask={advanceTask} />
